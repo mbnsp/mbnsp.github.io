@@ -1,8 +1,6 @@
 /*
 
-Template 2074 Corporate
-
-http://www.tooplate.com/view/2074-corporate
+MB & Sp Korporacja Sklep Online
 
 */
 
@@ -255,7 +253,7 @@ a.follow_us { color: #30aede }
 	clear: both;
 	width: 100%;
 	height: 38px;
-	background: url(images/tooplate_footer.jpg) repeat-x
+	background-color: #5e82c4;
 }
 
 #tooplate_footer {
@@ -265,11 +263,11 @@ a.follow_us { color: #30aede }
 	margin: 0 auto;
 	line-height: 38px;
 	text-align: center;
-	color: #d7d4d4;
+	color: #1a1a1a;
 }
 
 #tooplate_footer a {
-	color: #d7d4d4;
+	color: #1a1a1a;
 }
 
 #contact_form { padding: 0; }
