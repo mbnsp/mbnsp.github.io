@@ -1,0 +1,161 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#image{
+	margin-top: 10px;
+	box-shadow: 5px 5px 5px 5px gray;
+	width: 60px;;
+	padding: 20px;
+	font-weight: 400;
+    background-color: rgb(255, 255, 255);
+	padding-bottom: 0px;
+	height: 40px;
+	user-select: none;
+	text-decoration:line-through;
+	font-style: italic;
+	font-size: x-large;
+	border: rgb(48, 126, 243) 2px solid;
+	margin-left: 65px;
+	
+}
+#user-input{
+	
+    box-shadow: 5px 5px 5px 5px rgb(128, 128, 128);
+	width:auto;
+	margin-right: 10px;
+    margin-left: 15px;
+	padding: 10px;
+    background-color: #ffffff;
+	padding-bottom: 0px;
+	height: 40px;
+	border: rgb(37, 89, 233) 0px solid;
+}
+input{
+    width: 230px; 
+	padding: 0 5px 0 5px; 
+	margin: 0;
+	height: 23px;
+	margin-right: 1px; font-size: 12px; color: #dacece; line-height: 30px; background-color:#5e82c4;
+	border: 1px black solid;
+}
+.inline{
+	display:inline-block;
+}
+#btn{
+    margin-left: 20px;
+	box-shadow: 5px 5px 5px grey;
+	color: rgb(255, 255, 255);
+    height: auto;
+	margin: 10px;
+	background: linear-gradient(#054a99, #2901dd);
+}
+
+
+#tooplate_body_wrapper {
+	width: 100%;
+	padding-bottom: 100px;
+	/*background: url(images/tooplate_body_bottom.jpg) repeat-x bottom*/
+}
+
+#tooplate_wrapper { 
+	width: 100%;
+	margin: 0 auto
+}
+
+#tooplate_top {
+	padding: 10px;
+}
+
+#pasek_logo_login {
+	/*padding: 10px;*/
+	width: 100%;
+	
+	background-image: url(images/tooplate_header.png);
+}
+
+#tooplate_header {
+	clear: both;
+	width: 940px;
+	
+	
+	background: url(images/tooplate_header.png) no-repeat top 
+}
+
+.legal {
+    text-align: center;
+	min-width: 950px;
+	background-color: #2c2c2c;
+	color: #2c2c2c;
+	width: 100%;
+	max-width: 100%;
+	flex-direction: column;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+  .legal a {
+    text-align: center;
+	text-decoration: none;
+	color: #F5F5F5;
+	margin: 5px;
+	font-size: 12px;
+  }
+
+  .legal p {
+	color: #cccccc;
+	text-align: center;
+  }
+  .legal a:hover {
+    text-align: center;
+	color: #5297be;
+  }
+  
+  .legal-top {
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	color: #cccccc;
+	text-align: center;
+  }
+  
+  .legal-bottom {
+	text-align: center;
+	color: #cccccc;
+	padding-bottom: 20px;
+  }
+
+  #tooplate_main {
+    justify-content: center;
+    clear: both;
+    width: 300px;
+    padding: 30px 20px 0;
+    border-radius: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    background:rgb(221, 220, 220);
+    border: rgb(37, 89, 233) 1px solid;
+}
+
+#info {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    justify-content: center;
+    clear: both;
+    width: 300px;
+    padding: 5px 20px 0;
+    border-radius: 5%;
+    border: rgb(37, 89, 233) 1px solid;
+    margin-bottom: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    background:rgb(221, 220, 220);
+}
+
+#searchfield { 
+	width: 230px; 
+	padding: 0 5px 0 5px; 
+	margin: 0;
+	height: 23px;
+	margin-right: 1px; font-size: 12px; color: #dfdcdc; line-height: 30px; background-color:#5e82c4} 
+
