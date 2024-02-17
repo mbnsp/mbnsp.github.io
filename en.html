@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <!-- MBSP.COM.PL/about --->
+
   <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Online store. Electronic parts, computer components, CDs and more!">
-    <meta name="keywords" content="Online webstore, mb & sp com, sklep internetowy, sklep z częściami elektronicznymi online, 
-                                    sklep internetowy z częściami elektronicznymi, części elektroniczne, części elektroniczne online,
-                                    forum elektroniczne, sklep z podzespołami, podzespoły komputerowe, pc parts, pc components">
+    <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
     <meta name="google-site-verification" content="dm91TzhX0gMHdR3WewF2_xyIbyH6aDnnjbfVSwZBsEU" />
-    <title>Miły's Buy & Sell Parts, in short MB&SP.com</title>
+    <link href="https://fonts.google.com/share?selection.family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <title>Miły's Buy & Sell Parts</title>
 <!--
 SOFTY PINKO
 https://templatemo.com/tm-535-softy-pinko
@@ -23,18 +23,210 @@ https://templatemo.com/tm-535-softy-pinko
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-    <script>
-    location.replace("https://mbspshop.wixsite.com/net-pl/en");
-    </script>
+
     <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
+    <link rel="stylesheet" href="style.css">
 
     </head>
     
     <body>
     
-      <div>
-      Transfering to... Miły's
-      </div>
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <header>
+        <nav class="navbar">
+          <div class="nav-logo">
+            <a href="#"><img src="images/mb_white_logo.png" alt="logo"></a>
+          </div>
+          <div class="address">
+          </div>
+          <div class="cart">
+            <a href="https://mbspshop.wixsite.com/net-pl/en">
+              <p>Login</p>
+              </a>
+          </div>
+        </nav>
+      </header>
+    <div class="welcome-area" id="welcome">
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+                        <h1 style="font-family: 'Ubuntu';"><strong>YOUR TRUSTWORTHY ELECTRONIC SUPPLIER</strong></h1>
+                        <p>Go to MB&SP.com or search products</p>
+                        <fieldset>
+                            <input name="name" type="text" class="query" id="name" placeholder="Search MB&SP.com" required="">
+                        </fieldset><br><br>
+                        <button class="searchBtn">Search</button><br><br>
+                        <p>or</p><a href="https://mbspshop.wixsite.com/net-pl/" class="main-button-slider">go to MB&SP.com</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let query = document.querySelector('.query');
+        let searchBtn = document.querySelector('.searchBtn');
+
+        searchBtn.onclick = function() {
+            let url = 'https://mbspshop.wixsite.com/net-pl/search?q='+query.value;
+            window.open(url);
+        }
+        
+      </script>
+    <section class="mini" id="work-process">
+    </section>
+    <!-- Mb Platform-->
+    <section class="section home-feature">
+        <div class="center-heading">
+            <h2 class="section-title">The MB Platform</h2>
+        </div>
+        <div class="center-text">
+            <p>Miły's Buy & Sell Parts offers solutions for individuals and businesses <a href="http://mbsp.com.pl/about">more about us</a></p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="assets/images/niceone.png" alt=""></i>
+                                </div>
+                                <h5 class="features-title">MB Ads</h5>
+                                <p>Advertise on our site <a href="http://mbsp.com.pl/ads">MB Ads</a> </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="assets/images/niceone.png" alt=""></i>
+                                </div>
+                                <h5 class="features-title">MB Prime</h5>
+                                <p>Subscription <a href="http://mbsp.com.pl/goprime">MB Prime</a> </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="assets/images/niceone.png" alt=""></i>
+                                </div>
+                                <h5 class="features-title">MB&SP.com Community</h5>
+                                <p>Our forum <a href="https://mbspshop.wixsite.com/net-pl/mbcommunity">MB Community</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our brands-->
+    <!--
+
+    <section class="section home-feature">
+        <div class="center-heading">
+            <h2 class="section-title">Nasze branże</h2>
+        </div>
+        <div class="center-text">
+            <p>Miły's Buy & Sell Parts oferuje cały szereg usług, dla klientów i dla biznesów. <a href="http://mbsp.com.pl/about">więcej o nas</a></p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="assets/images/niceone.png" alt=""></i>
+                                </div>
+                                <h5 class="features-title">Miły's Interactive Software</h5>
+                                <p>Wydawca i software developer</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="assets/images/niceone.png" alt=""></i>
+                                </div>
+                                <h5 class="features-title">Voltage Shopping</h5>
+                                <p>Sklep internetowy</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
+                            <div class="features-small-item">
+                                <div class="icon">
+                                    <i><img src="assets/images/niceone.png" alt=""></i>
+                                </div>
+                                <h5 class="features-title">Wishoppe</h5>
+                                <p>Sklep internetowy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  
+
+    -->
+    
+    <section class="section" id="blog">
+    </section>
+    <section class="section colored" id="contact-us">
+    </section>
+    <footer>
+        <div class="footer-items">
+            <ul>
+              <h3>The MB platform</h3>
+              <li><a href="http://mbsp.com.pl">MB Store Site</a></li>
+              <li><a href="http://mbsp.com.pl/ads">MB Ads</a></li>
+              <li><a href="http://mbsp.com.pl/milysoftware">Miły's Interactive Software</a></li>
+              <li><a href="htpp://mbsp.com.pl/goprime">MB Prime</a></li>
+              <li><a href="#">Copyright &copy; 2017-2024 Miły's Buy & Sell Parts.com, Ind. - Miłosz Boguniewicz</a>  <a href="https://mbnsp.github.io/en.html">en </a> <a href="http://mbsp.com.pl">pl </a></li>
+            </ul>
+            <ul>
+              <h3>Media</h3>
+              <li><a href="https://www.facebook.com/the.boguniewicz.organization">Facebook</a></li>
+              <li><a href="https://twitter.com/IdeaMilos">X</a></li>
+              <li><a href="https://www.instagram.com/mbspshopco/">Instagram</a></li>
+              <li><a href="https://www.youtube.com/channel/UC8caUwTPX5WYWEVxDEE1GGQ">YouTube</a></li>
+            </ul>
+            <ul>
+                <h3>MB Tech Support</h3>
+                <li><a href="http://mbsp.com.pl/support">Tech Support page</a></li>
+                <li><a href="https://mbnsp.github.io/support/how_to_order-en.html">How to order</a></li>
+                <li><a href="https://mbnsp.github.io/support/terms.html">Terms & conditions</a></li>
+                <li><a href="https://mbnsp.github.io/support/refund-en.html">Refunds</a></li>
+              </ul>
+              <ul>
+                <h3>About MB</h3>
+                <li><a href="http://mbsp.com.pl/about">About MB</a></li>
+                <li><a href="http://mbsp.com.pl/milysoftware">Our software</a></li>
+                <li><a href="https://about-mbsp.github.io/contact-mb.html">Contact MB for Business</a></li>
+                <li><a href="https://mbspshop.wixsite.com/net-pl/kwestie-prawne">MB&SP.com Site Rules</a></li>
+              </ul>
+          </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
 
   </body>
 </html>
