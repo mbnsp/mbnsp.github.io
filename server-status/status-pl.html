@@ -6,6 +6,7 @@
   <link rel="icon" href="images/favicon.ico">
   <title>mbsp.com.pl - Status serwerów</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="designcore.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
 <body>
@@ -37,41 +38,135 @@
       </div>
     </header>
     <section class="hero-section"></section>
-    <div id="xD">
-      <h3 style="text-align: center;">Status serwerów</h3>
-      <p>W przypadku wystąpienia problemów, poinformujemy was o tym.</p>
-      <p><strong>Zauważyłeś problemy. Skontaktuj się z nami. handlowy.mb.sp@gmail.com</strong></p>
-      <br>
-      <div>
-        <p>MB Prime - usługa - nie wykryto problemów</p>
-        <p>MB&SP.com Chat - nie wykyto problemów</p>
-        <p>MB&SP.com - nie wykryto problemów</p>
-        <p>mbsp.com.pl - nie wykryto problemów</p>
-        <p>MB&SP.com.pl Sklep - nie wykryto problemów</p>
-        <p>MB&SP.com Społeczność - nie wykryto problemów</p>
-      </div>
-    </div>
+      
+        <section class='ongoingIssues'>
+    <a href='/issue/ccc9a970-98dc-4f10-afa5-d822d511172d' class='issueBanner issueBanner--monitoring'>
+      <p class='issueBanner__state'>Monitoring</p>
+      <h2>Network Connectivity Issues</h2>
+      <p class='issueBanner__time'>last updated <time id="time"></time></p>
+    </a>
+  </section>
+  <script type="text/javascript">    <!-- Outage --> 
+    
+    function updateClock() {
+    var now = new Date(), // current date
+        months = ['January', 'February', 'March','April', 'May ','June','July','August','September','October','November','December'];
+        time = now.getHours() + ':' + now.getMinutes(), // again, you get the idea
+
+        // a cleaner way than string concatenation
+        date = [ months[now.getMonth()],
+                now.getDate(),
+                now.getFullYear()].join(' ');
+
+          // set the content of the element with the ID time to the formatted string
+          document.getElementById('time').innerHTML = [date, time].join(' ');
+
+          // call this function again in 1000ms
+          setTimeout(updateClock, 1000);
+      }
+          updateClock(); // initial call
+
+  </script>
+
+
+      <section class='serviceGroup'>
+    <ul class='serviceList serviceGroup__list'>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB Prime - service
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com Chat
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com
+        </p>
+      </li>
+            <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          mbsp.com.pl
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com Notification
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com Ads
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="outage">Offline</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com API
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com Store
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com Community 
+        </p>
+      </li>
+      <li class='serviceList__item'>
+        <p class='serviceList__status'><span class="ok">Operational</span></p>
+        <p class='serviceList__name'>
+          MB&SP.com Mobile
+        </p>
+      </li>
+    </ul>
+  </section>
     <section class="shop-section">
     </section>
     <footer>
       <div class="footer-items">
-        <ul>
-          <h3>O nas</h3>
-          <li><a href="https://about-mbsp.github.io/">O nas</a></li>
-          <li><a href="https://mbspshop.wixsite.com/net-pl">Strona sklepu</a></li>
-          <li><a href="https://about-mbsp.github.io/ads.html">Reklamy</a></li>
-          <li><a href="https://mbspshop.wixsite.com/net-pl/kwestie-prawne">Kwestie prawne</a></li>
-          <li><a href="https://about-mbsp.github.io/credits.html">Credits</a></li>
-          <li><a href="#">Copyright &copy; 2017-2023 Miły's Buy & Sell Parts.com, Ind. - Miłosz Boguniewicz</a></li>
-        </ul>
-        <ul>
-          <h3>Social Media</h3>
-          <li><a href="https://www.facebook.com/the.boguniewicz.organization">Facebook</a></li>
-          <li><a href="https://twitter.com/IdeaMilos">Twitter</a></li>
-          <li><a href="https://www.instagram.com/mbspshopco/">Instagram</a></li>
-          <li><a href="https://www.youtube.com/channel/UC8caUwTPX5WYWEVxDEE1GGQ">YouTube</a></li>
-        </ul>
-      </div>
+            <ul>
+              <h3>The MB platform</h3>
+              <li><a href="http://mbsp.com.pl">MB Store Site</a></li>
+              <li><a href="http://mbsp.com.pl/ads">MB Ads</a></li>
+              <li><a href="http://mbsp.com.pl/milysoftware">Miły's Interactive Software</a></li>
+              <li><a href="htpp://mbsp.com.pl/goprime">MB Prime</a></li>
+              <li><a href="#">Copyright &copy; 2017-2024 Miły's Buy & Sell Parts.com, Ind. - Miłosz Boguniewicz</a>  <a href="https://about-mbsp.github.io/en.html">en </a> <a href="https://about-mbsp.github.io/">pl </a></li>
+            </ul>
+            <ul>
+              <h3>Media</h3>
+              <li><a href="https://www.facebook.com/the.boguniewicz.organization">Facebook</a></li>
+              <li><a href="https://twitter.com/IdeaMilos">X</a></li>
+              <li><a href="https://www.instagram.com/mbspshopco/">Instagram</a></li>
+              <li><a href="https://www.youtube.com/channel/UC8caUwTPX5WYWEVxDEE1GGQ">YouTube</a></li>
+            </ul>
+            <ul>
+                <h3>MB Tech Support</h3>
+                <li><a href="http://mbsp.com.pl/support">Tech Support page</a></li>
+                <li><a href="https://mbnsp.github.io/support/how_to_order-en.html">How to order</a></li>
+                <li><a href="https://mbnsp.github.io/support/terms.html">Terms & conditions</a></li>
+                <li><a href="https://mbnsp.github.io/support/refund-en.html">Refunds</a></li>
+              </ul>
+              <ul>
+                <h3>About MB</h3>
+                <li><a href="http://mbsp.com.pl/about">About MB</a></li>
+                <li><a href="http://mbsp.com.pl/milysoftware">Our software</a></li>
+                <li><a href="https://about-mbsp.github.io/contact-mb.html">Contact MB for Business</a></li>
+                <li><a href="https://mbspshop.wixsite.com/net-pl/kwestie-prawne">MB&SP.com Site Rules</a></li>
+              </ul>
+          </div>
     </footer>
 </body>
 </html>
