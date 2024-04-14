@@ -422,5 +422,10 @@ footer {
 	.nav-banner-text div {
 		display: none;
 	}
-
+	.cart-right {
+		width: 50%;
+	}
+	.cart-right{
+		width: 50%;
+	}
 }
