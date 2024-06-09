@@ -116,6 +116,23 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 				
 			</div>
 		</div>
+		<div class="wrapper">
+			<header>
+			  <h2>Witamy w witrynie MBSP.com.pl</h2>
+			</header>
+		
+			<div class="data">
+			  <p>Ok, ale... powiedz mi więcej<br><br> <a
+				  href="http://mbsp.com.pl/intro"> Jak korzystać z MB&SP.com?</a><br>
+				  <a href="http://mbsp.com.pl/about">O MB&SP.com</a>
+		</p>
+			</div>
+		
+			<div class="buttons">
+			  <button class="button" id="acceptBtn">Nie pokazuj ponownie</button>
+			  <button class="button" id="declineBtn">Zamknij</button>
+			</div>
+		  </div>
 		<footer>
 			<a href="http://mbsp.com.pl/about">o Miły's Buy & Sell Parts</a>
 			<a href="http://mbsp.com.pl/support">Tech Support</a>
@@ -145,5 +162,28 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 			})
 
 			
+		</script>
+		<script>
+			const cookieBox = document.querySelector(".wrapper"),
+			buttons = document.querySelectorAll(".button");
+
+			const executeCodes = () => {
+			//if cookie contains codinglab it will be returned and below of this code will not run
+			if (document.cookie.includes("codinglab")) return;
+			cookieBox.classList.add("show");
+
+			buttons.forEach((button) => {
+				button.addEventListener("click", () => {
+				cookieBox.classList.remove("show");
+
+
+				//if button has acceptBtn id
+				});
+			});
+			};
+
+			//executeCodes function will be called on webpage load
+			window.addEventListener("load", executeCodes);
+
 		</script>
 </html>
