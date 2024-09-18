@@ -1,0 +1,5181 @@
+<!-- 
+██████  ██████   ██████       ██ ███████  ██████ ████████        ███████ ██    ██  ██████   ██████  ███    ███  █████  
+██   ██ ██   ██ ██    ██      ██ ██      ██         ██    ██     ██      ██    ██ ██       ██    ██ ████  ████ ██   ██ 
+██████  ██████  ██    ██      ██ █████   ██         ██           ███████ ██    ██ ██   ███ ██    ██ ██ ████ ██ ███████ 
+██      ██   ██ ██    ██ ██   ██ ██      ██         ██    ██          ██ ██    ██ ██    ██ ██    ██ ██  ██  ██ ██   ██ 
+██      ██   ██  ██████   █████  ███████  ██████    ██           ███████  ██████   ██████   ██████  ██      ██ ██   ██ 
+
+Sugoma project is a simple redesign of mbsp.com.pl platform to be similar to social media site than web store. 
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&&##BBBBGGGGGGGGGGBBBB##&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&#BBGGP55YYYYYJJJJJJJJJJYYYYY55PGGB##&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@&#BBGP5YJJJYY55PPPPPPPPGGPPPPPPPP55YYJJJY5PGBB#&@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@&#BGP5YJJY55PGGPPP55YYYYYYYYYYYYYYYY55PPPGGP55YJJY5PBB#&@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@&#BGPYJJY5PGGP55YYYYJJYYYJJJJJJJYJJJYYYYJYYYYY55PGGP5YJJYPGB#&@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@&BGPYJJYPGGP5YYJYYYJYJJY!?~JYYY~^7YYYY?~!?YJ?JYYJJJYY5PGGPYJJYPGB&@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@#BG5JJYPGP5YYJJJYJ?7J?^!^Y^^.7YYY^^!7YYY^:^??:~?J!JYYYJJJYY5GGPYJJ5GB#@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@#GGYJJ5GG5YYJJYYYYY7.^:J~~^~J~~:YYY~^.?YY?^~:J:~7J^!YY!7YYYYJJYY5GG5JJYGG#@@@@@@@@@@@@@
+@@@@@@@@@@@#GGY?JPGP5YJJYYJ7!JYYY7.^:J^~^J7!7YYYJ?JYYYJ7!J7:7J:~YJ^~JYYYYJYYJJY5PGPJ?YGB#@@@@@@@@@@@
+@@@@@@@@@&BG5?JPGPYYJJYY???:^:!JYY7^~?YJYYYYYYYYYYYYYYYYYYYYJJ7!?:^YYYYJ!^~JYYYJYYPGPJ?5GB&@@@@@@@@@
+@@@@@@@@#GPJ?5GG5JJYYYJ???YJ!~^^JYYYYYYYYYYJJJJJJJJJJJJJJYYYYYYYJ?7JYJ!::^!?7?JYYJJ5GG5?JPG#@@@@@@@@
+@@@@@@&BG5?YGG5YJYYYY7~^:!JYYJ7JYYYYYYJJJJYYYY55555555YYYYJJJJYYYYYYY?!JJ7~:^:JYYYYJY5GGJ?5GB&@@@@@@
+@@@@@&GGY?5GGYJJYYY?JJ?~~!.7YYYYYYYJJYY55PGGGPPPPPPPPPPGGGP55YYJJYYYYYYY7~^^!?!~!YYYJJYGG5?YGG&@@@@@
+@@@@&GGY?PGPYJYYYJ?7~^7J?77JYYYYJJYYPGGPPYJJ???777777???JJYPPGG5YYJJYYYYY?7!~.^^~JJYYYJYPGP?YGG&@@@@
+@@@&GGJ?PGPYJYYYY?!!!!!~~JYYYYJJY5GGPYJ?77777777777777777777?JYPGG5YJJYYYYJ?^!JJ?~:JYYYJYPGP?YGG&@@@
+@@@GGY7PGPYJYYYJ^~!!!!!?YYYYYJYPGG5J7777777777777777777777777777J5GGPYJYYYYYJ7!!!?7?YYYYJYPGP7YGB@@@
+@@BG575GPYJYYYY~:~~~~~JYYYYJJ5GG5?77777777777777777777777777777777?5GG5JJYYYYJ???~^~^YYYYJYPG57PGB@@
+@&GG?JGGYJJJJJJ?7!~~~?YYYYJYPGPJ777777777777777777777777777777777777JPGPYJYYYY7:~^~?7JJJJJJ5GGJ?GG&@
+@BG57PGGGGPP55YYYYJJ?JJJJJYPG5?777??77777?????77777777777777??7??7777?5GPYJJJJJJJJYYYY55PPGGGGP75GB@
+&GG?JGGJJJY55PPGGGPP55YYYYPG5?7777~^7?77?7^:^7?777777777??7?!~^:!?7777?PGPYYYY55PPGGGPP55YJJJGGJ?GG&
+BGP75G577777????JJY55PPGGGGG?777?7  :7??~:~. :7?777777?7:!7~~!! :7?7777?GGGGGPP55YJJ??7777777PG57PG#
+BG57PGY7777!~7??7~7777??JGGY7777?!   ~?~ ^!^ .!7777777?! :^~77^.~!???777YGGJ??7777!7???777777YGP75GB
+GGY?GGJ7777~..~^..!?7777?GGJ7777?~    : :!7~ .!7777777?^  ~!~:.^^^!!7?77JGG?7777?7:.~!:.!?777JGG?YGG
+GGJ?GGJ77777~   :7?77777JGG?77777. ^^. .~!?! :!777777?7.  :.:~!!^  :~777?GGJ77777?7.  .!?7777JGG?JGG
+GGY?GGJ7777:.^!^..7?7777?GGJ77777. ^77!!!7?7.^!777777?7  .^^!!~:^..~7777JGG?7777?!.:~~..!?777JGG?YGG
+BG57PGY777777???7!7777??JGGY77777. ^7??7?77?::7?7??77?~  :!77::~^ ^!?777YGGJ??777777??7!77777YGP75GB
+BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP55YJJ??7777777PG57PG#
+&GG?JGGJJJY55PPGGGPP55YYYYPGP?77?!^^!?777777..!7?~:~7?7~^~7! ::.^~7?77?PGPYYYY55PPGGGPP55YJJJGGJ?GG&
+@BG57PGGGGPP55YYYYJJJJJJJJYPG5?77??77777777?~.~77?77777?7777!^^!!7?77?5GPYJJJJJJJJYYYY55PPGGGGP75GB@
+@&GG?JGGYJJJJJJJJYYYYYYYYYJYPGPJ777?77777777?7!7777?77777777??777777JPGPYJYYYYYYYYYJJJJJJJJYGGJ?GG&@
+@@BG575GPYJYYYYYYYYYYYYYYYYJJ5GG5?77777777777??7777777777777777777?5GG5JJYYYYYYYYYYYYYYYYJYPG575GB@@
+@@@GGY7PGPYJYYYYYYYYYYYYYYYYYJYPGG5J7777777777777777777777777777J5GG5YJYYYYYYYYYYYYYYYYYJYPGP7YGG@@@
+@@@&GGY?PGPYJYYYYYYYYYYYYYYYYYJJY5GGPYJ?77777777777777777777?JYPGG5YJJYYYYYYYYYYYYYYYYYJYPGP?YGG&@@@
+@@@@&GGY?PGPYJYYYYYYYY?~~7JYYYYYJJYYPGGGP5YJ???777777???JY5PGGGPYYJJYYYYYJ7JYYYYYYYYYYJYPGP?YGG&@@@@
+@@@@@&GGY?5GGYJJYYYYJ~^~^^:7YYYYYYYJJYY55PGGGPPPPPPPPPPGGGP55YYJJYYYYYJ?JY!^!JYJJYYYJJYGG5?YGG&@@@@@
+@@@@@@&BG5?JGG5YJYY?^~^~~^!JY!!7JYYYYYJJJJYYYY55555555YYYYJJJJYYYYYYY?:^^7YJ!^~~?YYJY5GGJ?5GB&@@@@@@
+@@@@@@@@#GPJ?5GG5JJJJ7!^~JYJ^:^:JY?7JYYYYYYJJJJJJJJJJJJYYYYYYYJJYYYYYJ7^.~YYYJ7JYJJ5GG5?JPG#@@@@@@@@
+@@@@@@@@@&BG5?JPGPYYJYJJYY7:~.~JY7.~^JY?!7JYYYYYYYJYYYJJJYY?~~^^~YYYYYYJ~^JYYYYJYYPGPJ?5GB&@@@@@@@@@
+@@@@@@@@@@@#GGY?JPGP5YJYYY?~~7YY?^^.?YJ.~.7YYYYY?^^!YY^^:7Y?.!:7:!YYY7?YY?JYJJY5PGPJ?YGB#@@@@@@@@@@@
+@@@@@@@@@@@@@#GGYJJ5GG5YYJYYYYYY~^^!YY!.~!JYYYYY!:JJYY~^!^YY7:!:7:?YY?JYYYJYYPGG5JJ5GB#@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@#BG5JJYPGG5YYJJJYYJJYYJ^7YYYY?JYY!.7!YY?.~.JYY~77?JJYYYJJYY5GGPYJJ5GB#@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@&BGPYJJYPGGP5YYJJYJJYYYYYYY7?YYJ!~7YYY?7?JYYYYYYYJJYY5PGGPYJJYPGB&@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@&#BGPYJJY5PGGP55YYYJJJJJJYYJJYYYYJJJYYYJJJJYYY55PGGP5YJJYPGB#&@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@&#BBP5YJJY5PPGGPPP555YYYYYYYYYYYYYY555PPPGGP55YJJY5PBB#&@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@&#BBGP5YJJJYY55PPPPPPPPGGPPPPPPPP55YYJJJY5PGBB#&@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&#BBGGP55YYYYYYYJJJJJJYYYYYYY55PGGBB#&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&&##BBBBGGGGGGGGGGBBBB##&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+██████  ██████   ██████       ██ ███████  ██████ ████████        ███████ ██    ██  ██████   ██████  ███    ███  █████  
+██   ██ ██   ██ ██    ██      ██ ██      ██         ██    ██     ██      ██    ██ ██       ██    ██ ████  ████ ██   ██ 
+██████  ██████  ██    ██      ██ █████   ██         ██           ███████ ██    ██ ██   ███ ██    ██ ██ ████ ██ ███████ 
+██      ██   ██ ██    ██ ██   ██ ██      ██         ██    ██          ██ ██    ██ ██    ██ ██    ██ ██  ██  ██ ██   ██ 
+██      ██   ██  ██████   █████  ███████  ██████    ██           ███████  ██████   ██████   ██████  ██      ██ ██   ██ 
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Wyszukiwarka stanów magazynowych - MBSP.com.pl</title>
+<link rel="icon" type="image/x-icon" href="res/imgs/favicon.ico">
+<link rel="stylesheet" href="style.css">
+<!--additonal css-->
+<!--aditional js links-->
+<!--addtional code-->
+<style>
+#searchTestInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable th {
+	background-color: rgb(0, 32, 177);
+    color: white;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* END OF CSS */
+</style>
+</head>
+<body>
+<!--- IMPORTANT MESSAGE --->
+
+<!--- 
+<div class="alert-msg">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  This page is under development
+</div>
+--->
+<!--- NAVBAR: ---->
+<div class="topnav" id="navbarID">
+  <a href="http://mbsp.com.pl"><img src="res/imgs/mb_logo_fullhd_en.webp" alt="Mily's Buy & Sell Parts Logo!"></a>
+  <div class="search-container">
+    <form action="" autocomplete="off">
+      <div class="autocomplete">
+        <input class="input" type="text" id="myInput" onkeyup="searchTestRe()" name="search" placeholder="Search MB&SP.com">
+      </div>
+      <button class="button-page-search" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+<div class="navbar">
+  <a class="active" href="http://mbsp.com.pl"><i class="fa fa-fw fa-home"></i> Główna</a> 
+  <a href="https://mbnsp.github.io/support/tech-pl.html"><i class="fa fa-fw fa-search"></i> Pomoc Techniczna</a> 
+  <a href="https://mbspshop.wixsite.com/net-pl/kontakt"><i class="fa fa-fw fa-envelope"></i> Kontakt</a>
+  <a href="http://mbsp.com.pl/order"> Poproś o wycenę</a>
+  <div class="dropdown">
+    <button action="https://mbspshop.wixsite.com/net-pl/en/account/my-account" class="dropbtn"><i class="fa fa-fw fa-user"></i> Login
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2>Welcome, User</h2>
+      </div>
+      <div class="row">
+        <div class="column">
+          <p><a href="https://mbspshop.wixsite.com/net-pl/en/account/my-account">User settings</a></p>
+          <a href="https://mbspshop.wixsite.com/net-pl/en/account/my-wishlist">Wishlist</a>
+          <a href="https://mbspshop.wixsite.com/net-pl/en/account/my-orders">Order History</a>
+          <a href="#">Dark mode</a>
+            <div id="dark-btn">
+				       <span></span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <a href="https://mbspshop.wixsite.com/net-pl/en/cart-page"><img src="/home/mbsp/Downloads/sugoma_project/assets/ico/cart-icon-file.png" width="16px"></img> Koszyk (0)</a>
+</div>
+<section class="very-main-area">
+    <section class="filtersSection">
+        <div class="filtersMain">
+            <p>Kategorie:</p>
+            <input type="checkbox" value="All" id="all" checked>
+            <label for="all">Wszystko</label><br>
+            <input type="checkbox" value="MBPrime" id="mbprimeCheckbox">
+            <label for="mbprimeCheckbox"><img src="/home/mbsp/Downloads/sugoma_project/assets/ico/mb-ico_darkmode.png" width="16px"> MB Prime</label><br>
+            <input type="checkbox" value="mbBasicCheckbox" id="mbBasicCheckbox">
+            <label for="mbBasicCheckbox"><img src="/home/mbsp/Downloads/sugoma_project/assets/ico/mb-ico_darkmode.png" width="16px"> MB&SP.com Basic</label><br>
+            <hr>
+            <strong>Części elektroniczne:</strong><br><br>
+            <input type="checkbox" value="SemiconductorsCheck" id="SemiconductorsCheck">
+            <label for="SemiconductorsCheck">Półprzewodniki</label><br>
+            <input type="checkbox" value="PassiveCheck" id="PassiveCheck">
+            <label for="PassiveCheck">Elementy pasywne</label><br>
+            <input type="checkbox" value="other1" id="other1">
+            <label for="other1">Pozostałe</label><br>
+            <hr>
+            <p>Cena:</p>
+            <input type="number" placeholder="min" id="minimalPriceFilter"> zł - <input type="number" placeholder="max" id="maximalPricefilter"> zł<br><br>
+            <button id="submitFilters" class="buy-button">Zastosuj fitry</button>
+        </div>
+    </section>
+    <section class="resultsProducts">
+      <seciton class="testSearchClass">
+        <input type="text" id="searchTestInput" onkeyup="searchTestRe()" placeholder="Szukaj po nazwie" title="Type in a name">
+
+        <table id="myTable">
+          <thead><tr><th title="Field #1">Nazwa</th>
+          <th title="Field #2">Kategorie</th>
+          <th title="Field #3">Cena</th>
+          <th title="Field #4">Stan</th>
+          </tr></thead>
+          <tbody><tr>
+          <td>2SD1047 NPN 160V 12A 100W SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>16</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SD1046 NPN 150V, 8A, 80W, 15MHz</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>12</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SC2837 NPN 150V 10A 100W 70MHz SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>16,78</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2SC2344 NPN 160V 1.5A 25W 100MHz TO220</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>6,89</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2SB688 PNP 120V 8A 80W 10MHz ISOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>15</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SA985 PNP 120V 1.5A 25W 180MHzTO220</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>6,89</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2SA1695 PNP 140V 10A 80W 20MHz SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>14</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SA1490 PNP 120V 8A 80W 20MHz TOP3</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>17</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SA1386 PNP 160V 15A 130W 40MHz</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>23</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SA1294 PNP 230V 15A 130W 35MHz SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>19,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SA1265 PNP 140V 10A 100W 30MHz SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>19,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2SA1220 PNP 120V 1.2A 20W 160MHz TO126</td>
+          <td>Części elektroniczne;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>5,56</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2SA1156 PNP 400V 0,5A 10W TO126</td>
+          <td>Części elektroniczne;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>6,54</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2SA1106 PNP 140V 10A 100W SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>11,2</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>MOSFET SOT23 N 60V 0,8A 0,2W - 2N7002</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>2,67</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2N3019</td>
+          <td>Części elektroniczne;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>4,6</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2200uF 25V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>2,3</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>220uF 25V THT</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>1</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>22uF 50V THT</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2.2uF 50V THT</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>10 RES 0,5W THT</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,7</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>100 RES 0,5W THT</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,7</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R68 0,6W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,67</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R56 0,6W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,67</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R51 0,6W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,67</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R39 0,6W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,67</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R27 0,6W THT RES</td>
+          <td>Elementy Pasywne;Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>0,76</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>100uF 16V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>220uF 16V THT</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>470uF 16V THT</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>10uF 16V THT</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>MOSFET N-CH 500V 40A TO268</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>79,99</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Linijka PCB 6 cali 15 cm</td>
+          <td>Akcesoria elektroniczne</td>
+          <td>18</td>
+          <td>10</td>
+          </tr>
+          <tr>
+          <td>MOSFET SOT23 N 60V 5OHM 150C</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>2,67</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>TRANS NPN 400V 1.5A TO126</td>
+          <td>Części elektroniczne;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>3,56</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>16.00MHz HC49-S rezonator kwarcowy</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>1,15</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>8.86MHz HC49 rezonator kwarcowy</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>2,2</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>TRANS NPN 120V 0.05A TO92-3</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>2,16</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Czujnik temperatury DS18B20 TO-92</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>7</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Moduł sterownika L298N silników krokowych Arduino</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>19</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>TRANS NPN 40V 0.2A TO92-3</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,78</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>TRANS NPN 40V 0.2A SOT23-3</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,78</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>RES 1G OHM 10% 1/4W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>4,56</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>RES 6.8 OHM 3W 5%</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>3,67</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>RES 1K OHM 5% 2W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>2,89</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>RES 0 OHM JUMPER</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,3</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>RES 1K OHM 0.1% 1/4</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,3</td>
+          <td>89</td>
+          </tr>
+          <tr>
+          <td>RES 20 OHM 0.1% 1/4W AXIAL</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>3,9k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>Zestaw Startowy dla początkujących</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne;Główne</td>
+          <td>79</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Zestaw Startowy UNO R3</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne;Główne</td>
+          <td>99,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>ESP32 NodeMCU D1 R32 Wlan Development Board</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne;Główne</td>
+          <td>37,75</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Roland Black Series kabel patch/ – kątowa wtyczka jack 6,3 mm, długość: 1 m</td>
+          <td> </td>
+          <td>45,66</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kabel gitarowy 6,35 mm TRS 3M 2 sztuki, 90 stopni 1/4&quot; wtyczka stereo</td>
+          <td> </td>
+          <td>59</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>R47 0,6W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>R33 0,6W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>R27 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 4,3V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 33V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 30V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,22uF/100V kondensator elektrolityczny</td>
+          <td>MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,76</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2m instrumentalny 6,35mm do 6,35mm Jack Mono AUX - Jakość studyjna - wykonana z</td>
+          <td> </td>
+          <td>47</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Samsung C33GC 24&quot; 100Hz monitor komputerowy do gier</td>
+          <td>Akcesoria komputerowe;Główne</td>
+          <td>419,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>MSI Pro MP2412 Ekran biurowy 23,8&quot; Full HD - Panel VA 1920x1080, 100 Hz</td>
+          <td>Akcesoria komputerowe;Główne</td>
+          <td>407,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kabel HDMI na VGA, pozłacany adapter 1080P HDMI na VGA</td>
+          <td>Akcesoria komputerowe</td>
+          <td>49</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>1080P Active HDTV adapter HDMI na VGA (męski na żeński) konwerter z dźwiękiem do</td>
+          <td>Akcesoria komputerowe</td>
+          <td>29,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SteelSeries Rival 3 Mysz do gier</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>132</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kabel USB 3.0 Typu A, 1.8 m, Czarny</td>
+          <td>Akcesoria komputerowe</td>
+          <td>26,66</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Xiaomi Buds 4 Active; Słuchawki Douszne, Czarny</td>
+          <td>Akcesoria komputerowe;Gry i gadżety</td>
+          <td>78,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Apple EarPods (przewodowe)</td>
+          <td>Akcesoria komputerowe;Gry i gadżety</td>
+          <td>76,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Power Bank 24000 mAh wyjście USB C i wejście, 5 A</td>
+          <td>Akcesoria komputerowe;Gry i gadżety</td>
+          <td>77</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>ADELGO Głośnik PC, 2 w 1, USB Bluetooth z oświetleniem RGB</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>115,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>8bitdo Mobile Clip for Pro 2 Bluetooth gamepad, czarny</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>64</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Mars Gaming MGP-BT, Gamepad Bluetooth 5.0, RGB Neon</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>152</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Retoo Kontroler PC PS3, Pad Joystick</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>49,97</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>THE G-LAB K-Pad Thorium Przewodowy kontroler gier USB PC</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>92</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>PowerLead Switch Controller - Cute Raccoon Animal Pro Controller</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>175</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>EMPIRE GAMING – Przewodowy kontroler gier Gamepad</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>121</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Zacoora Hub 3 w 1 USB C z 4K HDMI, port USB 3.0</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>75</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SteelSeries Rival 3 Wireless Mysz do gier</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>181</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech G F310 940-000138 Kontroler</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>149</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Cyfrowy budzik, zegar LED ze wskazaniem temperatury, budzik podróżny</td>
+          <td>Główne</td>
+          <td>49,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Cyfrowy budzik, zegar LED ze wskazaniem temperatury, budzik podróżny, regulowana</td>
+          <td>Główne</td>
+          <td>49,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>KREW I POPIÓŁ</td>
+          <td>Książki</td>
+          <td>28,99</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>OKRUTNY KSIĄŻĘ</td>
+          <td>Książki;Główne</td>
+          <td>28,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>OPERACJA MIR</td>
+          <td>Książki;Główne</td>
+          <td>26,33</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Projekt Riese</td>
+          <td>Książki;Główne</td>
+          <td>27,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SIEDMIU MĘŻÓW EVELYN HUGO</td>
+          <td>Książki;Główne</td>
+          <td>27,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA968 PNP 160V 1,5A 25W TO220</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>5,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA940 PNP 150V 1.5A 25W 4MHz TO220</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>4,87</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA1491 PNP 200V 17A 200W 20MHz MT200</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>11</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA1490 PNP 120V 8A 80W 20MHz TOP3</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>16</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA1386 PNP 160V 15A 130W 40MHz</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>21,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA1266 PNP 50V 0,15A 0,4W</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>1,98</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA1294 PNP 230V 15A 130W 35MHz SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>18,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA1265 PNP 140V 10A 100W 30MHz SOT93</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>18,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2SA1015 PNP 50V, 0,15A, 0,4W, 80MHz</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>5,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N6491 PNP 80V 15A 75W</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>7,78</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N6488 NPN 80V 15A 75W TO220</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>7,78</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N6292 NPN 80V 7A TO220</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>4,89</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N6027 unipolarny 80V 7A TO92</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>2,32</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>2N5551 NPN 180V 0.6A TO92</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,76</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N5401 PNP 160V 0.6A TO92</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,95</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N3906A NPN 40V 0.2A TO92</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki</td>
+          <td>0,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N3904A NPN 60V 0.2A TO92</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N2907A NPN 60V 0.6A 0.4W TO92</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki</td>
+          <td>0,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2N2222A NPN 75V 0.8A 0.5W TO92</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Karta pamięci SANDISK Ultra MicroSDHC 32GB + Adapter SD</td>
+          <td>Akcesoria komputerowe;Akcesoria elektroniczne;Główne</td>
+          <td>29,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kabel adaptera USB 3.0 na SATA do 2,5-calowych dysków SSD/HDD</td>
+          <td>Akcesoria elektroniczne;Główne</td>
+          <td>31</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>ROZMYŚLANIA</td>
+          <td>Książki;Główne</td>
+          <td>29,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>JAK ZDOBYĆ PRZYJACIÓŁ I ZJEDNAĆ SOBIE LUDZI wyd. 2022</td>
+          <td>Książki;Główne</td>
+          <td>32</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kulisy PiS</td>
+          <td>Książki;Główne</td>
+          <td>39,99</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>URBAN. BIOGRAFIA</td>
+          <td>Książki;Główne</td>
+          <td>49,99</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>ŚNIADANIE Z SENEKĄ: Nauki stoików na dzisiejsze czasy</td>
+          <td>Książki;Główne</td>
+          <td>38,98</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>Zestaw wkrętaków do telefonów komórkowych 8szt</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>9,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HUB USB typu C na HDMI/2x USB3.0/2x USB typu C/RJ45</td>
+          <td>MB&amp;SP.com Basic;Akcesoria komputerowe;Główne</td>
+          <td>170</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>ESP32 Wroom ESP32 NodeMCU Development Board</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne;Główne</td>
+          <td>40</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Organizer 56 przegródek 21×17,5×2,6cm OR71</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>17</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Opaska uziemiająca do lutowania</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>15,6</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>D-PZ1 pęseta prosta Donau 120mm</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>33</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>AX-104 szczypce proste</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>36</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>AX-105 szczypce długie zakrzywione</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>36</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>AX-103 obcinaczki boczne precyzyjne</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>33</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 1,3mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 1,2mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 1,1mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 0,8mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 0,9mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 1,0mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>1,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 0,7mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2,6</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 0,6mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2,6</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wiertło 0,5mm do metalu</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>2,6</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Uchwyt wiertarki 0,7-1,2mm na oś 2,0mm</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>9</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HY-160 Ściągacz izolacji automatyczny</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>31</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Zestaw wkrętaków do telefonów komórkowych 8szt precyzyjny</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>9,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Śrubokręt precyzyjny + 9 końcówek - zestaw wkrętaków precyzyjnych</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>13,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Laminat jednostronny 10x15mm - 1,5mm</td>
+          <td>Laminaty;Części elektroniczne</td>
+          <td>8,5</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Laminat jednostronny 156x218mm - 1,5mm</td>
+          <td>Laminaty;Części elektroniczne</td>
+          <td>14</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Sabaton - Carolus Rex (English) CD</td>
+          <td>Muzyka</td>
+          <td>43,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BC337</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>1,12</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>BD136</td>
+          <td>Półprzewodniki;Części elektroniczne</td>
+          <td>1,54</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>BD135</td>
+          <td>Półprzewodniki;Części elektroniczne</td>
+          <td>1,54</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>IRF520PBF</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>4,5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>microswitch 3 pin</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>1,5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>KOSZYK POJEMNIK BATERII 2x AA z wyłącznikiem</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>radiator TO220</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Listwa zaciskowa; kątowe 90°; 5,08mm; tory: 3; na PCB; ARK</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>2</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Listwa zaciskowa; kątowe 90°; 5,08mm; tory: 2; na PCB; ARK</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>1,6</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>przewód do baterii 9V i z gniazdem</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>3</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>woltomierz LCD</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>CD4017BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>3</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>CD4046BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>7,5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Podstawka DIP16 THT</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>0,65</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>SN74HC4060N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>3</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Przetwornica 230V AC / 5V DC</td>
+          <td>Akcesoria elektroniczne;MB&amp;SP.com Basic;Części elektroniczne</td>
+          <td>18,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Przetwornica napięcie wej. 12-24v wyj. 5V 3A USB</td>
+          <td>Akcesoria elektroniczne;MB&amp;SP.com Basic;Części elektroniczne</td>
+          <td>12,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HD44780 16x2 LCD Moduł Wyświetlacz z I2C Interfejs 2x16</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>19,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>I2C Serial Adapter Board Moduł interfejsu dla wyświetlacza LCD 1602 i 2004</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>15,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LCD Module Display 2x16 znaków z niebieskim tłem</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>19,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2P AC stycznik 16A przekaźnik na szynę DIN</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>39,43</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Uniwersalny zasilacz 3 V-24 V, 5 A, 15 W-120 W</td>
+          <td>Akcesoria komputerowe;Części elektroniczne</td>
+          <td>169,98</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>zasilacz do szyn DIN 24V, 1A, 24W</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>69,76</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LEDLUX CV7247 transformator, zasilacz 60W, 24V, 2.5A</td>
+          <td>Akcesoria komputerowe;Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>89,65</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Zasilacz LED 12 V 5 A AC/DC, przetwornica napięcia, regulowany 60W</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>41,98</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>Mean Well zasilacz Din-Rail 60 W 24 V 2,5 A</td>
+          <td>Akcesoria elektroniczne</td>
+          <td>94,33</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SeKi Zasilacz do szyn montażowych H-15-24 - 24 V - 0,63 A - 15 W</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne</td>
+          <td>56,43</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Gałka do potencjometru</td>
+          <td>MB&amp;SP.com Basic;Części elektroniczne</td>
+          <td>1,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Goodram UTS3-1280K0R11 Pendrive, Czarny, 128 GB</td>
+          <td>Akcesoria komputerowe;Podzespoły;Główne</td>
+          <td>39,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Czyścik do grota z metalową podstawkę</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>23</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Grot 900m T-I</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>7,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Grot 900m T-B</td>
+          <td>MB&amp;SP.com Basic;Narzędzia;Części elektroniczne</td>
+          <td>5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>250V 0,25A 5x20 bezpiecznik</td>
+          <td>MB&amp;SP.com Basic;Części elektroniczne</td>
+          <td>1,87</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>250V 0,5A 5x20 bezpiecznik</td>
+          <td>MB&amp;SP.com Basic;Części elektroniczne</td>
+          <td>1,87</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>250V 1,6A 5x20 bezpiecznik</td>
+          <td>MB&amp;SP.com Basic;Części elektroniczne</td>
+          <td>1,87</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 3,3V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 24V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 20V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 15V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 18V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 13V dioda zenera BZX55 SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 100K rezystor CF 1/2W</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki;Części elektroniczne</td>
+          <td>0,7</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>0,5W 10V dioda zenera BZX55C SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,5W 12V dioda zenera BZX55C SOD27</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,47uF/50V kondensator elektrolityczny</td>
+          <td>MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,34</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0,22uF/63V kondensator elektrolityczny</td>
+          <td>MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Podstawka DIP-8</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Stacja Lutownicza Yihua 937C LED</td>
+          <td>Narzędzia</td>
+          <td>149,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Lutownica 2w1 (na gorące powietrze i grotowa) WEP 700 W</td>
+          <td>Narzędzia</td>
+          <td>299</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Lutownica grzałkowa (oporowa) Zhaoxin 75 W</td>
+          <td>Narzędzia</td>
+          <td>196,97</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Lutownica grotowa Techrebal Yihua 936 40 W</td>
+          <td>Narzędzia</td>
+          <td>99,98</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Szczypce boczne zakrzywione, 135mm, Proskit PM-755</td>
+          <td>Narzędzia</td>
+          <td>33</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Szczypce okrągłe precyzyjne, 135mm</td>
+          <td>Narzędzia</td>
+          <td>23</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Szczypce wydłużone zakrzywione 160mm</td>
+          <td>Narzędzia</td>
+          <td>18</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Plakat - Elementy Pasywne - PL (rozmiar do wyboru)</td>
+          <td>Odzież</td>
+          <td>49,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Zasilacz 12 V 5 A transformator 60 W AC do pasków LED</td>
+          <td>Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>29,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>270k 0.5W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,78</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>220 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2.2k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>3.9k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>3.9k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>33 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>82 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>10k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,76</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>4.7k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>27k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,5</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>56k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,75</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>1.5k 1/4W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,75</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>2.2k 1W</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,85</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>Kondensator Ceramiczny 100pF</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,35</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Kondensator Ceramiczny 330pF 100V</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic;Elementy Pasywne</td>
+          <td>0,65</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>HP Papier do drukarki, papier premium A4, 210 x 297 mm</td>
+          <td>Arkusze papierów</td>
+          <td>49,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HP Premium CHP850 Papier do Drukarki, Biały, A4</td>
+          <td>Arkusze papierów</td>
+          <td>29,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Geeky GK65 SE 60% Mechaniczna Klawiatura Gamingowa</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.;Główne</td>
+          <td>165</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SteelSeries Apex 3 Gamingowa klawiatura RGB</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.;MB Prime;Główne</td>
+          <td>362,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Apple Klawiatura Magic Keyboard</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>456,88</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Klawiatura MICROSOFT All-In-One Media Keyboard N9Z-00022</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>109</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>MAGIC-REFINER RK68 Bezprzewodowa klawiatura mechaniczna, 60%</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.;MB Prime</td>
+          <td>225</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Dierya DK61se klawiatura gamingowa 60%, mechaniczna, blue switch</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.;MB Prime</td>
+          <td>149,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Esperanza EGK201B Klawiatura USB Czarna</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>35</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>YINDIAO T8 60% Mechaniczna Klawiatura do Gier</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>310,89</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech G213 Prodigy Gaming Keyboard</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>209,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech Keyboard K280E For Business, Jakość Biznesowa</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>101,43</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Klawiatura mechaniczna Tracer Gamezone Stinger 87</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.;Główne</td>
+          <td>129</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Dierya DK61 klawiatura gamingowa 60%, Red Linear Switch</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.;Główne</td>
+          <td>135</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>2A 5x20 bezpiecznik</td>
+          <td> </td>
+          <td>1,23</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>1.6A 5x20 bezpiecznik</td>
+          <td> </td>
+          <td>1,23</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>1A 5x20 bezpiecznik</td>
+          <td> </td>
+          <td>1,87</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BD138</td>
+          <td>Półprzewodniki</td>
+          <td>1,54</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BC238</td>
+          <td>Półprzewodniki</td>
+          <td>0,85</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BD649</td>
+          <td>Półprzewodniki</td>
+          <td>2,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BD650</td>
+          <td>Półprzewodniki</td>
+          <td>2,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wkrętak ceramiczny płaski 1.2mm 1PK-034NB Proskit</td>
+          <td>Narzędzia</td>
+          <td>22</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Śrubokręt ceramiczny do regulacji prądu CD-100 - wkrętak krzyżakowy</td>
+          <td>Narzędzia;MB Prime</td>
+          <td>12,87</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wkrętak ceramiczny krzyżakowy PH0 1PK-034NG Proskit</td>
+          <td>Narzędzia</td>
+          <td>25,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>8 szt. Wkrętak regulowanej częstotliwości Antystatyczny wkrętak</td>
+          <td>Narzędzia</td>
+          <td>42</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wkrętak ceramiczny, elastyczna praca, odporny na zarysowania, nieindukcyjny</td>
+          <td>Narzędzia</td>
+          <td>33</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Fosi Audio BT20A Bluetooth 5.0 Stereo Audio 2-kanałowy wzmacniacz</td>
+          <td>Akcesoria komputerowe</td>
+          <td>419,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Marshall Emberton 1005696 Głośnik Przenośny Bluetooth, Czarny</td>
+          <td>Akcesoria komputerowe;Główne</td>
+          <td>549</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Polk Audio SIGS20ELBK Głośniki, Czarny</td>
+          <td>Akcesoria komputerowe;Główne</td>
+          <td>1612</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Presonus ERISE3.5 Monitor Studyjny, Czarny</td>
+          <td>Akcesoria komputerowe</td>
+          <td>464</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Soundcore Anker 3 - Głośnik Bluetooth Czarny</td>
+          <td>Akcesoria komputerowe;Główne</td>
+          <td>269</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Verbatim Store &#39;n&#39; Save zewnętrzny dysk twardy 3,5&quot; HDD - 6 TB - dysk twardy do</td>
+          <td>Akcesoria komputerowe;Podzespoły;Główne</td>
+          <td>620</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Intenso 2.5 Inch SSD SATA III Top Performance 256 GB</td>
+          <td>Akcesoria komputerowe;Promocje;Podzespoły;Główne</td>
+          <td>113,55</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Seagate BarraCuda, 2TB, Wewnętrzny Dysk Twardy, 3,5&quot; SATA 6GBit/s</td>
+          <td>Akcesoria komputerowe;Podzespoły;Główne</td>
+          <td>354</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Seagate IronWolf NAS HDD, 8 TB, Wewnętrzny dysk twardy, 3,5&quot;, SATA 6 GB/s</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>1388</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Goodram Generacja 2 SSDPR-CX400-G2, Dysk SSD, 256 GB, Czarny</td>
+          <td>Akcesoria komputerowe;Promocje;Podzespoły</td>
+          <td>89,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Transcend 1 TB zewnętrzny dysk SSD ESD310C USB 10 Gb/s</td>
+          <td> </td>
+          <td>359</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Goodram SSDPR-CX400-512-G2 Wewnętrzny Dysk SSD, 512 GB</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>143,87</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SSK Zewnętrzny przenośny dysk SSD 256 GB, USB 3.1 Gen2 (6 Gbit/s), zewnętrzny dy</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>197,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kingston XS1000 1TB zewnętrzny dysk SSD USB 3.2 Gen 2 przenośny dysk SSD</td>
+          <td> </td>
+          <td>287,15</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Samsung T7 Portable SSD - 1 TB - USB 3.2 Gen.2 External SSD Titanium Grey</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>412</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Silicon Power SSD 1TB 3D NAND A55 SLC Cache Performance Boost 2,5 cala</td>
+          <td>Akcesoria komputerowe</td>
+          <td>228</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Lexar Wewnętrzny dysk SSD NM790 1 TB, M.2 2280 PCIe Gen4x4 NVMe 1.4 SSD</td>
+          <td> </td>
+          <td>279</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>AOVOTO ALK103-TFT FM/DAB Radio Do It Yourself (DIY) zestaw z obudową akrylową</td>
+          <td>Akcesoria komputerowe</td>
+          <td>234,95</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Audiocore Audiocore AC870 Głośniki Komputerowe, 6 W, Czarny/Biały</td>
+          <td>Akcesoria komputerowe</td>
+          <td>27,27</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Grundig Gbt Jam Earth GLR7767 Głośnik Bluetooth, Niebieski</td>
+          <td>Akcesoria komputerowe</td>
+          <td>135</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>STICKER BOMB Naklejki na laptopa, programowanie, IT, 50szt.</td>
+          <td>Promocje</td>
+          <td>39,39</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>GUVGMY Szybka ładowarka USB C 25 W</td>
+          <td>Akcesoria elektroniczne;Promocje;Główne</td>
+          <td>37,39</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Belkin Usb C WCA006vfWH Ładowarka, Biały, USB C</td>
+          <td>Akcesoria elektroniczne</td>
+          <td>59</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SAMSUNG Szybka Ładowarka, Typ USB-C, Czarna, 25 W</td>
+          <td>Akcesoria elektroniczne</td>
+          <td>48,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Apple Zasilacz USB-C o mocy 20 W</td>
+          <td>Akcesoria komputerowe</td>
+          <td>89,23</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Sidorenko XXL Gaming Mauspad</td>
+          <td>Akcesoria elektroniczne;Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>79,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Gamingowa podkładka pod mysz XXXL 900 x 400 mm, japońska malarstwo tuszem</td>
+          <td>Akcesoria elektroniczne;Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>107,77</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Retoo podkładka gamingowa pod mysz XXL, 800 x 400 mm, duża podkładka pod mysz</td>
+          <td>Akcesoria komputerowe;Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>34,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Csl-Computer 23033582 Podkładka Pod Mysz Dla Graczy, Czarny/Szary, XXXL</td>
+          <td>Klawiatury i itd.;Promocje;Gaming i akcesoria komputerowe;Akcesoria komputerowe;Główne</td>
+          <td>79,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SteelSeries QcK Mini Cloth - Podkładka pod mysz dla graczy</td>
+          <td>Akcesoria komputerowe;Gaming i akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>39,9</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Hama podkładka pod mysz</td>
+          <td>Klawiatury i itd.</td>
+          <td>48</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Logitech G305 Lightspeed Wireless Gaming Mouse, Technologia Łączności Bezprzewod</td>
+          <td> </td>
+          <td>270,87</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Kabel Ethernet 15m Cat 6 Kabel Sieciowy 15 Metrów Ethernet Cable 50ft</td>
+          <td>Akcesoria komputerowe</td>
+          <td>39,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BIGtec Kabel Ethernet LAN 10 m elastyczny płaski kabel sieciowy kabel krosowy bi</td>
+          <td>Akcesoria elektroniczne;Główne</td>
+          <td>23,43</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>UGREEN Kabel Ethernet CAT 8 RJ45 w oplocie 40Gbps 2000MHz</td>
+          <td>Części elektroniczne;Główne</td>
+          <td>37,35</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Elfcam® - 8m Kabel Ethernetowy Cat 8, Okrągły Kabel Sieciowy WAN</td>
+          <td>Części elektroniczne</td>
+          <td>95,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Helect 2-Line Inżynierski Kalkulator Naukowy, Odpowiedni do Szkoły i Biznesu, Cz</td>
+          <td>Części elektroniczne;Główne</td>
+          <td>49,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Mysz bezprzewodowa 2,4 GHz z odbiornikiem USB, do laptopa</td>
+          <td>Części elektroniczne</td>
+          <td>69,83</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>kwmobile kompatybilny z Apple Magic Mouse 1/2 - przezroczysty silikonowy pokrowi</td>
+          <td>Części elektroniczne</td>
+          <td>39,49</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Sinelec Banana Pi BPI-M2 Zero Quad Core Ultra Compact Single Board Computer</td>
+          <td>Części elektroniczne;Główne</td>
+          <td>185</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Banana Pi M2 Berry Open Source Single Board Computer Allwinner A40i Soc Onboard</td>
+          <td>Części elektroniczne;Promocje;Główne</td>
+          <td>268,78</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Serwo Tower Pro SG90 9g</td>
+          <td>Części elektroniczne</td>
+          <td>10,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Wyświetlacz LCD 20 x 4 alfanumeryczny z konwerterem I2C HD44780</td>
+          <td>Części elektroniczne</td>
+          <td>28,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>RFID RC522 + brelok + karta</td>
+          <td>Części elektroniczne</td>
+          <td>13,54</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>YINSAN Zestaw wkrętaków precyzyjnych 120 sztuk, mini wkrętaków magnetycznych</td>
+          <td>Narzędzia</td>
+          <td>29,99</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Arduino UNO; Moduł ACS A1 ATMEGA328 Kompatybilny z Arduino UNO</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>30</td>
+          <td>-1</td>
+          </tr>
+          <tr>
+          <td>Gniazdo podwójne p/t PT-6F białe z uziemieniem</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>14,88</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Gniazdko podwójne p/t 2x2p+Z 16A, 250V białe</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>12,88</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kostka elektryczna  3-pin</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>2,88</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kabel 230V komputerowy kątowy 1,5m</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>13,5</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Podstawka DIP-28; wklęsła</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>4</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Podstawka DIP-28; szeroka</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>2</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Hama Multiport USB-C 2xUSB-A 3.2,1xTYP-C,1xHDMI+czytnik</td>
+          <td> </td>
+          <td>199,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kingston Canvas Select Plus SDCS2/128GBSP Karta Pamięci MicroSD, 128GB, Czarny</td>
+          <td> </td>
+          <td>39,48</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kingston SDCS2/128GB, Karta Pamięci, 128 GB</td>
+          <td> </td>
+          <td>33,58</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>FIFINE Mikrofon USB do gier komputerowych, mikrofon do MAC, PS4, PS5</td>
+          <td>Gaming i akcesoria komputerowe</td>
+          <td>138,12</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Blue Yeti Nano Premium Mikrofon USB do PC, Mac, Gamingu, Nagrywania, Streamingu,</td>
+          <td>Gaming i akcesoria komputerowe;Główne</td>
+          <td>425</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HyperX Solocast Mikrofon Kondensatorowy USB do Gier</td>
+          <td>Gaming i akcesoria komputerowe;Główne</td>
+          <td>249</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>YOTTO Mikrofon USB kardioidalny 192 kHz/24 bit Plug and Play profesjonalny mikro</td>
+          <td>Główne</td>
+          <td>197,08</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>SUDOTACK profesjonalny mikrofon do podcastów 192 kHz / 24 bity</td>
+          <td>Gaming i akcesoria komputerowe;Główne</td>
+          <td>339,55</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Lenovo T210 GX40Q17229 Torba na Laptopa, Czarny, 15.6&quot;</td>
+          <td>Główne</td>
+          <td>79,62</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>R4mpage RP-5100 6-kolorowa mysz gamingowa LED, 7 przycisków, kółko przewijania,</td>
+          <td>Gaming i akcesoria komputerowe;Główne</td>
+          <td>39,65</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Vbestlife Myszka do gier PC myszy do gier czarna mysz komputerowa z podświetlaną</td>
+          <td>Gaming i akcesoria komputerowe</td>
+          <td>45,34</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>Ultra Cienka Mysz Bezprzewodowa 2,4G, Mysz do Gier z Kolorowym Podświetleniem 16</td>
+          <td> </td>
+          <td>34,11</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Mysz bezprzewodowa 2,4 GHz z odbiornikiem USB, do laptopa, komputera</td>
+          <td> </td>
+          <td>64,83</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech M705 Marathon Mysz bezprzewodowa, 2,4 GHz, nanoodbiornik USB</td>
+          <td>Gaming i akcesoria komputerowe;Główne</td>
+          <td>149</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>kwmobile kompatybilny z Apple Magic Mouse 1/2</td>
+          <td> </td>
+          <td>37,49</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Lenovo GX40Q17225 Plecak na Laptopa, Czarny, 15.6&quot;</td>
+          <td> </td>
+          <td>77,03</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Zagatto ZG700 Duży Czarny Plecak Podróżny na Laptop do 17&quot;</td>
+          <td> </td>
+          <td>99,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Raspberry 4596 Ładowarka do Raspberry, 150 cm</td>
+          <td>Elektronika</td>
+          <td>46,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Raspberry Rpi4-Modbp-4Gb SC15184 Komputer Jednopłytkowy, 9,5 x 7,49 x 2,79 cm</td>
+          <td>Elektronika</td>
+          <td>299,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Votery Multimetr cyfrowy, Miernik</td>
+          <td>Narzędzia</td>
+          <td>105,54</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>TESMEN TM-510 Multimetr cyfrowy, Miernik</td>
+          <td>Narzędzia</td>
+          <td>79,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Multimetr z 2000 cyframi, multimetr cyfrowy true RMS</td>
+          <td>Narzędzia</td>
+          <td>79,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>KAIWEETS Multimetr cyfrowy KM100, Miernik</td>
+          <td>Narzędzia</td>
+          <td>65</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>RDA5807FP - 10szt.</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>45</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Rihanna - A Girl Like Me CD</td>
+          <td>Muzyka</td>
+          <td>39,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Billie Eilish - Happier Than Ever CD</td>
+          <td>Muzyka</td>
+          <td>39,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Adele - 30 CD</td>
+          <td>Muzyka</td>
+          <td>30</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Pink Floyd - The Wall 2011 - Remaster CD</td>
+          <td>Muzyka</td>
+          <td>49,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>The Best of Pink Floyd: A Foot In The Door (Remaster 2011)</td>
+          <td>Muzyka</td>
+          <td>39,76</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Tony Bennett, Lady Gaga - Love For Sale CD</td>
+          <td>Muzyka</td>
+          <td>43</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Red Hot Chili Peppers - Californication CD</td>
+          <td>Muzyka</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Bon Jovi - New Jersey CD</td>
+          <td>Muzyka</td>
+          <td>40</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Bon Jovi - 2020 CD</td>
+          <td>Muzyka</td>
+          <td>34</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Bon Jovi - Slippery When Wet CD</td>
+          <td>Muzyka</td>
+          <td>34</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Bon Jovi - Cross Road CD</td>
+          <td>Muzyka</td>
+          <td>47</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Havit Gamenote H2232D RGB USB</td>
+          <td> </td>
+          <td>69,99</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Genesis Argon 100 czarne</td>
+          <td> </td>
+          <td>55,67</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Razer Kraken Kitty Ed.</td>
+          <td>Gaming i akcesoria komputerowe</td>
+          <td>527,76</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Razer Kraken Green</td>
+          <td>Gaming i akcesoria komputerowe;Promocje</td>
+          <td>189</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Razer Kraken X (konsole)</td>
+          <td> </td>
+          <td>189</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Sony MDR-ZX110 składane słuchawki nauszne, czarne</td>
+          <td>Gaming i akcesoria komputerowe</td>
+          <td>65</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wyświetlacz RPi Resistive Touch Monitor</td>
+          <td>Elektronika;Optoelektronika</td>
+          <td>89</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>GeeekPi Raspberry Pi 4 metalowa obudowa z wentylatorem</td>
+          <td>Elektronika</td>
+          <td>135</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Jun-Saxifragelec E361 Screen Obudowa z wyświetlaczem</td>
+          <td>Elektronika;Optoelektronika</td>
+          <td>150</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>Natec Genesis NCS-0856 Głośniki Komputerowe,  60W</td>
+          <td> </td>
+          <td>299</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Surefire Kingpin X1 60% klawiatura gamingowa German</td>
+          <td>Gaming i akcesoria komputerowe;Klawiatury i itd.;Promocje</td>
+          <td>135</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>K550 87 klawiszy Przewodowa mechaniczna klawiatura do gier</td>
+          <td>Klawiatury i itd.</td>
+          <td>115</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Defender® Mechaniczna Klawiatura dla graczy – Klawiatura Gamingowa -</td>
+          <td>Klawiatury i itd.</td>
+          <td>115</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Klawiatura Mechaniczna, 87 Klawiszy Przewodowa Klawiatura</td>
+          <td>Klawiatury i itd.</td>
+          <td>72,87</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>HHKB Klasyczna klawiatura mechaniczna 60%</td>
+          <td>Klawiatury i itd.</td>
+          <td>1199</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>AOC 22B2H27 Cali, Monitor, Czarny</td>
+          <td>PC i Laptopy</td>
+          <td>398</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>MSI PRO MP241X 23,8&quot; FHD Pulpit Screen - Panel VA 1920x1080 Full HD, 75 Hz</td>
+          <td>PC i Laptopy</td>
+          <td>489</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>GeeekPi 7-calowy wyświetlacz LCD do Raspberry Pi, 1024x600</td>
+          <td>Elektronika;Optoelektronika</td>
+          <td>241</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>1nF capacitor</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,23</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>1uF capacitor</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>1</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>IRFZ44NPBF</td>
+          <td>Półprzewodniki</td>
+          <td>4,65</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>100nF kondensator ceramiczny</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,43</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>1uF / 50V kondensator elektrolityczny</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,43</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>5k Rezystor THT</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,54</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Gniazdo bananowe niebieski</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>1,25</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Gniazdo bananowe czarne</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>1,25</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Gniazdo bananowe czerwone</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>1,25</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>NE555P</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>3,52</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>LM350T/NOPB</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>9,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R9011-2-5K</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>7,89</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>R9011-1-5K</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>8,9</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R9011-1-10K</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>7,69</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>NTE142A</td>
+          <td>Półprzewodniki</td>
+          <td>3,68</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>NZX5V6D</td>
+          <td>Półprzewodniki</td>
+          <td>0,85</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>1N4002</td>
+          <td>Półprzewodniki</td>
+          <td>1,25</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>1N4001</td>
+          <td>Półprzewodniki</td>
+          <td>1,25</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>1N4007</td>
+          <td>Półprzewodniki</td>
+          <td>0,85</td>
+          <td>12</td>
+          </tr>
+          <tr>
+          <td>1N4004-E3/54</td>
+          <td>Półprzewodniki</td>
+          <td>1,36</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>SteelSeries Rival 3 Wireless Mysz do gier</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>235</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech Power G502 Hero High Perfomence</td>
+          <td>Klawiatury i itd.;Elektronika;Akcesoria komputerowe;Gaming i akcesoria komputerowe</td>
+          <td>199</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>DIERYA ×TMKB mysz gamingowa</td>
+          <td>Klawiatury i itd.;Elektronika;Akcesoria komputerowe;Gaming i akcesoria komputerowe</td>
+          <td>75</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Nulea M501 0- Bezprzewodowa mysz Trackball</td>
+          <td>Klawiatury i itd.;Elektronika;Akcesoria komputerowe;Gaming i akcesoria komputerowe</td>
+          <td>138,53</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech ERGO K860 - Bezprzewodowa ergonomiczna klawiatura</td>
+          <td>Klawiatury i itd.;Elektronika;Akcesoria komputerowe;Gaming i akcesoria komputerowe</td>
+          <td>439,76</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Perixx PERIMICE-717 ergonomiczna bezprzewodowa mysz z manipulatorem kulkowym</td>
+          <td>Klawiatury i itd.;Elektronika;Akcesoria komputerowe;Gaming i akcesoria komputerowe</td>
+          <td>132</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech MX Ergo 910-005179, Myszka Komputerowa, Grafitowy</td>
+          <td>Klawiatury i itd.;Elektronika;Akcesoria komputerowe;Gaming i akcesoria komputerowe</td>
+          <td>368</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BC547</td>
+          <td>MB&amp;SP.com Basic;Półprzewodniki</td>
+          <td>0,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>ISY 32GB IMU-2300-ALU</td>
+          <td>Akcesoria elektroniczne;Akcesoria komputerowe;SD, USB Flash</td>
+          <td>23</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>SANDISK CRUZER BLADE 32GB</td>
+          <td>Akcesoria elektroniczne;Akcesoria komputerowe;SD, USB Flash</td>
+          <td>23</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Słuchawki Bezprzewodowe Bluetooth 5.3 Nauszne HiFi Stereo z Mikrofonem</td>
+          <td>Gry i gadżety</td>
+          <td>109,58</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>HolaDream Słuchawki Bluetooth douszne, bezprzewodowe</td>
+          <td>Gry i gadżety</td>
+          <td>215</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Kabel Displayport - 1m</td>
+          <td> </td>
+          <td>27</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Drut lutowniczy; Sn60Pb40; 1mm; 10g; ołowiowe; fiolka; 190°C; 2,5%</td>
+          <td> </td>
+          <td>7,5</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>Drut lutowniczy; Sn60Pb40; 0,5mm; 0,25kg; ołowiowe; szpula</td>
+          <td>Narzędzia</td>
+          <td>75</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>BROFIL 60 B2.1 0.5MM 100G</td>
+          <td>Narzędzia</td>
+          <td>37</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Katy Perry - Teenage Dream: the Complete Confection CD</td>
+          <td>Muzyka</td>
+          <td>38</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Katy Perry - One of the Boys CD</td>
+          <td>Muzyka</td>
+          <td>45</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>TG-A-001-RS</td>
+          <td> </td>
+          <td>23</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>HTK-002-U1-GP</td>
+          <td> </td>
+          <td>23</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>EY3A010</td>
+          <td>Akcesoria komputerowe</td>
+          <td>256</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SMX-AIOSNO-240</td>
+          <td>Akcesoria komputerowe</td>
+          <td>406</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>MLW-D24M-A18PC-R2</td>
+          <td>Akcesoria komputerowe</td>
+          <td>349</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>EY3A006</td>
+          <td>Akcesoria komputerowe</td>
+          <td>164</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>EY3A005</td>
+          <td>Akcesoria komputerowe</td>
+          <td>149,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SMXG014</td>
+          <td>Akcesoria komputerowe;Gaming i akcesoria komputerowe</td>
+          <td>105</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>PVS416G360C8K</td>
+          <td>Akcesoria komputerowe</td>
+          <td>195</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>KF432C16BBK2/16</td>
+          <td>Akcesoria komputerowe</td>
+          <td>226</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>LD4BU016G-R3200GDXG</td>
+          <td>Akcesoria komputerowe</td>
+          <td>315</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>G.SKILL 16GB (2x8GB) 3200MHz CL16 Aegis</td>
+          <td>Akcesoria komputerowe</td>
+          <td>195,98</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Patriot 120GB 2,5&quot; SATA SSD BURST ELITE</td>
+          <td>Akcesoria komputerowe</td>
+          <td>68</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Transcend 120GB M.2 SATA SSD 820S</td>
+          <td>Akcesoria komputerowe</td>
+          <td>65</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Seagate BARRACUDA 3TB 5400obr. 256MB</td>
+          <td>Akcesoria komputerowe</td>
+          <td>465</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>WD BLUE 1TB 7200obr. 64MB CMR</td>
+          <td>Akcesoria komputerowe</td>
+          <td>250</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Toshiba P300 1TB 7200obr. 64MB OEM</td>
+          <td>Akcesoria komputerowe</td>
+          <td>215</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Seagate BARRACUDA 2TB 7200obr. 256MB</td>
+          <td>Akcesoria komputerowe</td>
+          <td>279</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Adapter MiniJack na Jack</td>
+          <td>MB&amp;SP.com Basic</td>
+          <td>7,5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Kabel DisplayPort - DisplayPort LANBERG 0.5 m</td>
+          <td>Kable i przewody</td>
+          <td>14,31</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Kabel DisplayPort na DisplayPort 1,8 m, Benfei DP na DP męski na męski</td>
+          <td> </td>
+          <td>31</td>
+          <td>-1</td>
+          </tr>
+          <tr>
+          <td>Elektroniczne Kości do Gry 4,5 5V</td>
+          <td> </td>
+          <td>28,47</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Nicfaky ESP8266 DIY Electronic Kit Mini Clock</td>
+          <td> </td>
+          <td>125</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Zestaw Wzmacniacza Lampowego</td>
+          <td> </td>
+          <td>79,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Zestaw dla początkujących elektroników</td>
+          <td> </td>
+          <td>59,58</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>LM386 Super Mini 3 V-12 V płyta wzmacniająca Suit Kit elektroniczny zestaw DIY</td>
+          <td> </td>
+          <td>25</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Oumefar 2.1-kanałowy subwoofer płyta przedwzmacniacza DIY Kit filtr</td>
+          <td> </td>
+          <td>45,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Diy Audio Amplifier Kit, Amp Board PCB Cyfrowy moduł zasilania</td>
+          <td> </td>
+          <td>85</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>ELEGOO Mega R3 zestaw startowy do Arduino Projekt Ultimate Starter Kit z niemiec</td>
+          <td> </td>
+          <td>325</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Odtwarzacz MP3 o pojemności 32 GB, Bluetooth 5.0</td>
+          <td>Gry i gadżety</td>
+          <td>185</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>RDA5807FP SOP-16</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>25</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Zaciskarka do Kabli Uniwersalne Koncentryczne Szczypce do Zaciskania</td>
+          <td>Narzędzia</td>
+          <td>75</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>KabelDirekt – przewód SAT/TV 2m (przewód HDTV SAT/TV 75 omów, złącze typu F</td>
+          <td>Kable i przewody</td>
+          <td>78</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>KabelDirekt – przewód SAT/TV 2m (przewód HDTV SAT/TV 75 omów, złącze typu F</td>
+          <td>Kable i przewody</td>
+          <td>63</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Przenośny odtwarzacz muzyczny Mini MP3</td>
+          <td> </td>
+          <td>63</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Odtwarzacz MP3, Oilsky 32GB Odtwarzacz Muzyczny</td>
+          <td>Gry i gadżety</td>
+          <td>149,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Hama Etui na telefon Apple iPhone 13 Pro Max - ciemnozielone</td>
+          <td>Gry i gadżety</td>
+          <td>55</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Goodram Generacja 2 SSDPR-CX400-G2, Dysk SSD, 256 GB, Czarny</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>91,77</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>DisplayPort 1,5 m Szary</td>
+          <td>Kable i przewody</td>
+          <td>13,25</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Surefire Kingpin X1 60% klawiatura gamingowa US English, klawiatura gamingowa</td>
+          <td>Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Przewodowa klawiatura do gier 60%, 61 klawiszy</td>
+          <td>Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>150</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Chrzest ognia. Wiedźmin. Tom 5</td>
+          <td>Książki</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Czas pogardy. Wiedźmin. Tom 4</td>
+          <td>Książki</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wieża jaskółki. Wiedźmin. Tom 6</td>
+          <td>Książki</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Krew elfów. Wiedźmin. Tom 3</td>
+          <td>Książki</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Miecz przeznaczenia. Wiedźmin. Tom 2</td>
+          <td>Książki</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Ostatnie życzenie. Wiedźmin. Tom 1</td>
+          <td>Książki</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Pani Jeziora. Wiedźmin. Tom 7</td>
+          <td>Książki</td>
+          <td>37</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Wireless Mechanical Gaming Keyboard with Gateron G Pro Brown Switch</td>
+          <td>Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>250</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Lenovo 12.5&quot; ThinkPad X240 I5-4300U 1.9GHz, 4GB, 120GB SSD</td>
+          <td>PC i Laptopy</td>
+          <td>859,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Lenovo IdeaPad Flex 5-2023 - Touchscreen 2-in-1 Laptop - Windows 11 Home - 14&quot; F</td>
+          <td>PC i Laptopy</td>
+          <td>2433,53</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Dysk GOODRAM CX400 128GB SSD</td>
+          <td>Podzespoły</td>
+          <td>82</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Dysk GOODRAM CX400 G2 512GB SSD</td>
+          <td>Podzespoły</td>
+          <td>159</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS174N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>5,57</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS166AN</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>5,54</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS161AN</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>5,32</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS155AN</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>8,32</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS132N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>5,43</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS126AN</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>5,43</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS11N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>5,78</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS06N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>6,65</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS03N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>6,65</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS02N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,87</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD74AC00M</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>5,32</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD40110BE</td>
+          <td> </td>
+          <td>7,65</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>CD40102BE</td>
+          <td> </td>
+          <td>6,7</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>CD4009UBM</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>2,86</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD4007UBE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,21</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD4002BPW</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>6,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD4001BM96</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>1,87</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD4001BM96</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>1,87</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>LM555CM/NOPB</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>7,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Transformator: impulsowy; 185VAC,265VAC; 9÷15V; 9÷15V; 1,5A; 1,5A</td>
+          <td> </td>
+          <td>23,22</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Transformator: impulsowy; 85VAC,265VAC; 3÷6V; 1,2A; PCB; 6W</td>
+          <td>Części elektroniczne;Transformator;Transformator do PCB</td>
+          <td>23,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>The Last Of Us - OST</td>
+          <td>Muzyka</td>
+          <td>55,54</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Eminem - Curtain Call: The Hits</td>
+          <td>Muzyka</td>
+          <td>55,54</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>AC/DC - The Razors Edge CD PL</td>
+          <td>Muzyka</td>
+          <td>59</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>Rihanna Unapologetic CD PL</td>
+          <td>Muzyka</td>
+          <td>45</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Britney Spears - In The Zone CD PL</td>
+          <td>Muzyka</td>
+          <td>35</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Britney Spears - Oops!... I Did It Again CD PL</td>
+          <td>Muzyka</td>
+          <td>52</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Britney Spears - Baby One More Time CD PL</td>
+          <td>Muzyka</td>
+          <td>35</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Metallica - Master of Puppets (Remastered) CD PL</td>
+          <td>Muzyka</td>
+          <td>51</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>XPG Summoner Mini (Outemu Red)</td>
+          <td>Promocje;Gaming i akcesoria komputerowe;Akcesoria komputerowe;Główne</td>
+          <td>179</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Linkin Park - Hybrid Theory CD PL</td>
+          <td>Muzyka</td>
+          <td>49,99</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Linkin Park - Minutes to Midnight CD PL</td>
+          <td>Muzyka</td>
+          <td>39,86</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Linkin Park - Meteora CD PL</td>
+          <td>Muzyka</td>
+          <td>49,5</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Przekaźnik: elektromagnetyczny; DPDT; Ucewki : 48VDC; 2A/125VAC</td>
+          <td>Części elektroniczne</td>
+          <td>39,44</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>Przekaźnik: elektromagnetyczny; DPDT; Ucewki : 12VDC; 2A/125VAC</td>
+          <td>Części elektroniczne</td>
+          <td>29,99</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>Przekaźnik: elektromagnetyczny; DPDT; Ucewki : 5VDC; 2A/125VAC</td>
+          <td>Części elektroniczne</td>
+          <td>29,76</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>Transformator: impulsowy; 85VAC,265VAC; 3,3÷7V; 8÷17V; 200mA; 1A</td>
+          <td>Części elektroniczne;Transformator;Transformator do PCB</td>
+          <td>21,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>HCM1206X</td>
+          <td>Części elektroniczne</td>
+          <td>1,9</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>LM386N-1/NOPB</td>
+          <td>Części elektroniczne;Półprzewodniki;Wzmacniacze operacyjne;MB&amp;SP.com Basic</td>
+          <td>5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD4026BE</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>5,89</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>CD4060BE</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>4,75</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>HSDL-4261</td>
+          <td>Części elektroniczne;Optoelektronika</td>
+          <td>3,55</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>HSDL-4251</td>
+          <td>Części elektroniczne;Optoelektronika</td>
+          <td>2,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HSDL-4220</td>
+          <td>Części elektroniczne;Optoelektronika</td>
+          <td>4,8</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Arduino Nano - USB C</td>
+          <td>Elektronika</td>
+          <td>27,67</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LTST-C19FD1WT</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>2,7</td>
+          <td>45</td>
+          </tr>
+          <tr>
+          <td>Shakira - Oral Fixation, Vol. 2 CD PL</td>
+          <td>Muzyka</td>
+          <td>32</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Shakira - She Wolf CD PL</td>
+          <td>Muzyka</td>
+          <td>32</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Shakira - Shakira (Deluxe Version) CD PL</td>
+          <td>Muzyka</td>
+          <td>36</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>sanah - Królowa Dram CD PL</td>
+          <td>Muzyka</td>
+          <td>75</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>Kwiat Jabłoni - Mogło być nic CD PL</td>
+          <td>Muzyka</td>
+          <td>47</td>
+          <td>25</td>
+          </tr>
+          <tr>
+          <td>Kwiat Jabłoni - Niemożliwe CD PL</td>
+          <td>Muzyka</td>
+          <td>47</td>
+          <td>49</td>
+          </tr>
+          <tr>
+          <td>Kwiat Jabłoni - Pokaz Slajdów CD PL</td>
+          <td>Muzyka</td>
+          <td>51</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Krzysztof Krawczyk: Złota Kolekcja Vol. 1 &amp; Vol. 2 CD PL</td>
+          <td>Muzyka</td>
+          <td>40,7</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>sanah - sanah śpiewa Poezyje</td>
+          <td>Muzyka</td>
+          <td>59</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>Modern Talking - Very Best Of CD PL</td>
+          <td>Muzyka</td>
+          <td>51</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Rihanna - Good Girl Gone Bad CD PL</td>
+          <td>Muzyka</td>
+          <td>40,7</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Rihanna - Loud CD PL</td>
+          <td>Muzyka</td>
+          <td>40,7</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Lady Gaga - Born This Way The 10th Anniversary CD PL</td>
+          <td>Muzyka</td>
+          <td>40,7</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Micheal Jackson - Number Ones CD PL</td>
+          <td>Muzyka</td>
+          <td>52,21</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Zestaw testera alkoholu - MQ-3 - DIY Kit</td>
+          <td> </td>
+          <td>32</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Sztuka elektroniki Paul Horowitz, Winfield Hill</td>
+          <td>Książki</td>
+          <td>180</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>L100X160AL10/35</td>
+          <td>Części elektroniczne;Laminaty</td>
+          <td>19,88</td>
+          <td>213</td>
+          </tr>
+          <tr>
+          <td>FR4200X250/3500</td>
+          <td>Części elektroniczne;Laminaty</td>
+          <td>47,76</td>
+          <td>213</td>
+          </tr>
+          <tr>
+          <td>FR4100X160/3500</td>
+          <td>Części elektroniczne;Laminaty</td>
+          <td>16,67</td>
+          <td>213</td>
+          </tr>
+          <tr>
+          <td>1N4007 5szt.</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>1</td>
+          <td>254</td>
+          </tr>
+          <tr>
+          <td>10DQ06TA</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,52</td>
+          <td>254</td>
+          </tr>
+          <tr>
+          <td>10DQ04TA</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,52</td>
+          <td>254</td>
+          </tr>
+          <tr>
+          <td>1N4001</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>1,78</td>
+          <td>54</td>
+          </tr>
+          <tr>
+          <td>1A1</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,52</td>
+          <td>254</td>
+          </tr>
+          <tr>
+          <td>10DQ03TA</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,52</td>
+          <td>254</td>
+          </tr>
+          <tr>
+          <td>10CTQ150</td>
+          <td> </td>
+          <td>4,7</td>
+          <td>254</td>
+          </tr>
+          <tr>
+          <td>SSWFS-S01-AE05-HWH</td>
+          <td>Części elektroniczne</td>
+          <td>16,99</td>
+          <td>432</td>
+          </tr>
+          <tr>
+          <td>Czapka MB&amp;SP.com</td>
+          <td>Odzież</td>
+          <td>60</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HSL0814-3R8106-R</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>18,65</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>BRP002R8L106FA</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>8,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>BRP002R8S207FB 200F</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>46,43</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>B0820-2R5225-R</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>21,37</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>B0810-2R5105-R</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>19,94</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>DS5U506M18040BB</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>14,53</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>BRP002R8S157FA 150F</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>33,76</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>DRE10/2.5</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>7,76</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>DRL106S0TI25RRASP</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>12</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>33nF 100V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,25</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>100nF 50V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,25</td>
+          <td>-10</td>
+          </tr>
+          <tr>
+          <td>10uF 25V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,45</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>2200uF 16V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>1,45</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>10uF 25V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>100uF 25V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>10uF 100V</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>NE5532DR</td>
+          <td>Części elektroniczne;Półprzewodniki;Wzmacniacze operacyjne</td>
+          <td>1,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>TL082IDR</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>1,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>LM321MFX/NOPB</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>4,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>22 1/8W</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,75</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>30k 1206</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,04</td>
+          <td>10</td>
+          </tr>
+          <tr>
+          <td>100R pot</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>1,5</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>220 1/2W</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>220 603</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,04</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>2,2M 1/2W</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>110 1/2W</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>600 1/2W</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,56</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>ETB11020B000Z</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>2,7</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>DG301-5.0-03P-12-18A(H)</td>
+          <td>Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>3,5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>SS9014</td>
+          <td>Części elektroniczne;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>0,65</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>100k 1/8W</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,85</td>
+          <td>13</td>
+          </tr>
+          <tr>
+          <td>100k 1/2W</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,85</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>220 1206</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>26</td>
+          <td>13</td>
+          </tr>
+          <tr>
+          <td>10k 1206</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,5</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>10k 603</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>0,5</td>
+          <td>21</td>
+          </tr>
+          <tr>
+          <td>RKT6V-10K</td>
+          <td>MB&amp;SP.com Basic</td>
+          <td>1,5</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>100 603</td>
+          <td>MB&amp;SP.com Basic</td>
+          <td>0,4</td>
+          <td>20</td>
+          </tr>
+          <tr>
+          <td>PT10MH01-105A-PM</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>1,5</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>CA9V 100K</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>1,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>PT6KV104A2020</td>
+          <td>Części elektroniczne;Elementy Pasywne;MB&amp;SP.com Basic</td>
+          <td>2,5</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Jumpery 1szt.</td>
+          <td>Elektronika;Części elektroniczne;MB&amp;SP.com Basic</td>
+          <td>0,2</td>
+          <td>11</td>
+          </tr>
+          <tr>
+          <td>Jumpery 20szt.</td>
+          <td>Części elektroniczne;Elektronika;MB&amp;SP.com Basic</td>
+          <td>4</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SF-DEV-11520</td>
+          <td>Części elektroniczne;Elektronika</td>
+          <td>270</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Wlepy MB&amp;SP.com</td>
+          <td>Odzież</td>
+          <td>1</td>
+          <td>23</td>
+          </tr>
+          <tr>
+          <td>Bateria 9V alkaliczna</td>
+          <td>Części elektroniczne;Akcesoria elektroniczne;MB&amp;SP.com Basic</td>
+          <td>4,75</td>
+          <td>15</td>
+          </tr>
+          <tr>
+          <td>PIC16C711-04/SO</td>
+          <td>Logiczne układy scalone</td>
+          <td>28,88</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>PIC16C58B-20/P</td>
+          <td>Logiczne układy scalone</td>
+          <td>19,88</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>PIC16C56A-20/P</td>
+          <td>Logiczne układy scalone</td>
+          <td>27,75</td>
+          <td>24</td>
+          </tr>
+          <tr>
+          <td>PIC16C55A-20/P</td>
+          <td>Logiczne układy scalone</td>
+          <td>20,76</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>PIC16C54C-04/SO</td>
+          <td>Części elektroniczne;Logiczne układy scalone</td>
+          <td>16,45</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>PIC16C54A-04/P</td>
+          <td>Logiczne układy scalone</td>
+          <td>14,54</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>PIC16C505-04/P</td>
+          <td>Logiczne układy scalone</td>
+          <td>18,54</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>PIC18F4520-I/P</td>
+          <td>Części elektroniczne;Logiczne układy scalone</td>
+          <td>59,82</td>
+          <td>13</td>
+          </tr>
+          <tr>
+          <td>PIC18F4520-E/P</td>
+          <td>Części elektroniczne;Logiczne układy scalone</td>
+          <td>57,7</td>
+          <td>13</td>
+          </tr>
+          <tr>
+          <td>PICKIT 3 Kit3 PIC Programmer Set</td>
+          <td>Akcesoria elektroniczne;Elektronika;Logiczne układy scalone</td>
+          <td>59,85</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Brother DCP-1623WE</td>
+          <td>Akcesoria komputerowe</td>
+          <td>749</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>Genesis Krypton 290 biała</td>
+          <td>Akcesoria komputerowe;Gaming i akcesoria komputerowe;Klawiatury i itd.;Nowe i popularne</td>
+          <td>79</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>Genesis Krypton 550</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Nowe i popularne</td>
+          <td>129,85</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Genesis Krypton 220</td>
+          <td>Akcesoria komputerowe;Gaming i akcesoria komputerowe;Klawiatury i itd.;Nowe i popularne</td>
+          <td>69</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>Genesis Krypton 200</td>
+          <td>Akcesoria komputerowe;Gaming i akcesoria komputerowe;Klawiatury i itd.;Nowe i popularne</td>
+          <td>59,9</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>PIC12F675-I/P</td>
+          <td>Części elektroniczne;Logiczne układy scalone</td>
+          <td>10,94</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>RJ45 – 8P8C</td>
+          <td>Części elektroniczne</td>
+          <td>1</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Dell Optiplex 9030 All-in-One Intel Core i5 IV-GEN, 16GB, 500GB,Windows 10 Pro</td>
+          <td>PC i Laptopy;Główne</td>
+          <td>2229,99</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Dell Optiplex 9030 All-in-One Intel Core i3 IV-GEN, 16GB, 500GB, Windows 10 Home</td>
+          <td> </td>
+          <td>1799</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Lenovo 15.6&quot; ThinkPad E15 i3-10110U 2.1GHz, 16GB, 240GB SSD, Windows 11 Pro, iHD</td>
+          <td>Główne;PC i Laptopy</td>
+          <td>3200</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Slash - World On Fire CD PL</td>
+          <td>Muzyka</td>
+          <td>40</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Unitek Y-247A USB stereo</td>
+          <td>Akcesoria elektroniczne</td>
+          <td>59,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Genesis Xenon 220 G2 RGB czarna</td>
+          <td> </td>
+          <td>59,99</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>TP-Link TL-WN823N mini (802.11b/g/n 300Mb/s) WPS</td>
+          <td>Akcesoria komputerowe</td>
+          <td>59,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>TP-Link TG-3468 (1000Mbit)</td>
+          <td>Elektronika;Akcesoria komputerowe</td>
+          <td>68,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>TP-Link Archer T3U (1300MB/s) DualBand</td>
+          <td>Elektronika;Akcesoria komputerowe</td>
+          <td>99,9</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>TP-Link Archer T3U Plus (1300MB/s) DualBand</td>
+          <td>Elektronika;Akcesoria komputerowe</td>
+          <td>110,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>ASUS PCE-AX1800 (1800MB/s BT 5.2)</td>
+          <td>Elektronika;Akcesoria komputerowe;Podzespoły</td>
+          <td>135,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Amiga THEA500 Mini</td>
+          <td> </td>
+          <td>369,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>COMMODORE C64 Mini</td>
+          <td> </td>
+          <td>214,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>HyperX Cloud II Headset (czarno-czerwone)</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>330</td>
+          <td>12</td>
+          </tr>
+          <tr>
+          <td>Metallica - 72 Seasons CD PL</td>
+          <td>Muzyka</td>
+          <td>78,99</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Gang Albanii - Królowie życia CD PL</td>
+          <td>Muzyka</td>
+          <td>39,99</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Marshall Major IV Bluetooth Czarny</td>
+          <td>Gry i gadżety;Klawiatury i itd.</td>
+          <td>425</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>Lady Gaga - The Fame Monster 2CD PL</td>
+          <td>Muzyka</td>
+          <td>71,99</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Lady Gaga - The Fame CD PL</td>
+          <td>Muzyka</td>
+          <td>36</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>Gigabyte B560 HD3</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>535</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>ASRock H510M-HDV R2.0</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>319</td>
+          <td>12</td>
+          </tr>
+          <tr>
+          <td>Gainward GeForce GT 710 2GB DDR3</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>219,76</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Inno3D GeForce GTX 1650 Twin X2 OC V2 4GB GDDR6</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>799</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Gigabyte GeForce RTX 3070 EAGLE 8GB, karta graficzna</td>
+          <td>Akcesoria komputerowe;Promocje;Podzespoły</td>
+          <td>2834</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>MSI GeForce GTX 1660 SUPER VENTUS XS OC 6GB GDDR6</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>2456,54</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Gigabyte GeForce RTX 3060 EAGLE OC LHR 12GB GDDR6</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>1419</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Intel Core i5-9400F</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>715</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Intel Core i5-10400F</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>499</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>Intel Core i5-13600KF</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>1423</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>Intel Core i5-12400F</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>715</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Gigabyte GeForce RTX 4070 EAGLE OC 12GB GDDR6X</td>
+          <td>Akcesoria komputerowe;Bestsellery;Gaming i akcesoria komputerowe;Podzespoły</td>
+          <td>3129,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>FSY12S12H</td>
+          <td>Akcesoria elektroniczne;Części elektroniczne;Elektronika</td>
+          <td>36</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>ASG AGM-03-000957</td>
+          <td>ASG</td>
+          <td>115,98</td>
+          <td>232</td>
+          </tr>
+          <tr>
+          <td>ASG AGM MP003A</td>
+          <td>ASG</td>
+          <td>135,98</td>
+          <td>432</td>
+          </tr>
+          <tr>
+          <td>ASG Well MB4409D</td>
+          <td>ASG</td>
+          <td>620</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>CM028 - AK47 ASG</td>
+          <td>ASG</td>
+          <td>530</td>
+          <td>432</td>
+          </tr>
+          <tr>
+          <td>Rewolwer ASG 11542</td>
+          <td>ASG</td>
+          <td>224</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>Rewolwer Elite Force H8R Gen 2 6 mm ASG CO2 gazowe</td>
+          <td>ASG</td>
+          <td>299</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Replika Desert Eagle ASG</td>
+          <td>ASG</td>
+          <td>99,9</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>Samsung 1TB M.2 PCIe Gen4 NVMe 980 PRO</td>
+          <td>Akcesoria komputerowe;Podzespoły</td>
+          <td>396</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Logitech G102 LIGHTSYNC</td>
+          <td>Akcesoria komputerowe;Promocje;Klawiatury i itd.</td>
+          <td>150</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Corsair K55 RGB PRO</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>239,99</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>SteelSeries Apex 9 TKL</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Promocje</td>
+          <td>725</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Genesis Rhod 110</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>45</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>KRUX Solar RGB</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>69,99</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>Mikroswitch 1.5mm (6x6) (5mm)</td>
+          <td>Części elektroniczne;Elektronika</td>
+          <td>1,5</td>
+          <td>55</td>
+          </tr>
+          <tr>
+          <td>CD4063BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,5</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>SN74LS85N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>8,98</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>01801.2106</td>
+          <td>Części elektroniczne</td>
+          <td>12,98</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>1-1571076-0</td>
+          <td>Części elektroniczne</td>
+          <td>11,5</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>Dell KB216-B QuietKey</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>79</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Razer Ornata V2</td>
+          <td>Akcesoria komputerowe;Komputery dla graczy;Klawiatury i itd.;Gaming i akcesoria komputerowe</td>
+          <td>359</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>95130</td>
+          <td>Akcesoria komputerowe</td>
+          <td>9,5</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>93241</td>
+          <td>Akcesoria komputerowe</td>
+          <td>6,12</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>51360</td>
+          <td>Akcesoria komputerowe</td>
+          <td>6,98</td>
+          <td>12</td>
+          </tr>
+          <tr>
+          <td>Dell OptiPlex 9020t</td>
+          <td>Komputery dla graczy;PC i Laptopy</td>
+          <td>5500</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>LEDR01</td>
+          <td>Optoelektronika</td>
+          <td>2,65</td>
+          <td>21</td>
+          </tr>
+          <tr>
+          <td>BANANA-PI-M5</td>
+          <td>Akcesoria komputerowe;Akcesoria elektroniczne;Elektronika</td>
+          <td>499,6</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>CD4511BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,5</td>
+          <td>-4</td>
+          </tr>
+          <tr>
+          <td>Dell E2014H</td>
+          <td>Akcesoria komputerowe;Promocje;Klawiatury i itd.</td>
+          <td>345,6</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>Głośniki; Modecom mini Jack</td>
+          <td>Akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>41,99</td>
+          <td>9</td>
+          </tr>
+          <tr>
+          <td>UNI01_220x100x1,5</td>
+          <td>Laminaty</td>
+          <td>10</td>
+          <td>-1</td>
+          </tr>
+          <tr>
+          <td>LAM02_16x10x1</td>
+          <td>Laminaty</td>
+          <td>9,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74LS47N</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>10,21</td>
+          <td>675</td>
+          </tr>
+          <tr>
+          <td>SN74LS145</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>14,89</td>
+          <td>675</td>
+          </tr>
+          <tr>
+          <td>SN7445N</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>14,89</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>SN74LS151N</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>5,21</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>SN74HC42N</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>5,33</td>
+          <td>667</td>
+          </tr>
+          <tr>
+          <td>CD74HCT42E</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>6,67</td>
+          <td>13</td>
+          </tr>
+          <tr>
+          <td>CD4556BE</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>2,86</td>
+          <td>212</td>
+          </tr>
+          <tr>
+          <td>0001.1021</td>
+          <td>Części elektroniczne</td>
+          <td>21,45</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>CD4082BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,63</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>CD4073BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,78</td>
+          <td>554</td>
+          </tr>
+          <tr>
+          <td>CD4081BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,98</td>
+          <td>552</td>
+          </tr>
+          <tr>
+          <td>NTE4085B</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>8,67</td>
+          <td>56</td>
+          </tr>
+          <tr>
+          <td>NTE4081B</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,96</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>CD4516BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>2,99</td>
+          <td>45</td>
+          </tr>
+          <tr>
+          <td>CD4510BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>2,86</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>74HC161PW</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>5,39</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>SN74F163AN</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>5,39</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>2N2907A</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,86</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>2N2907A</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>3,98</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>2N2905A</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>10,65</td>
+          <td>123</td>
+          </tr>
+          <tr>
+          <td>390-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>3,74k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>36,5k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>360k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>3,24k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>30k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2,8k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>270k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>27k-0603</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,06</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>RASPBERRY PI 4 4GB BASIC KIT</td>
+          <td>Akcesoria komputerowe;Akcesoria elektroniczne;Elektronika;Płyty główne</td>
+          <td>380,78</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>RASPBERRY PI 4 2GB BASIC KIT</td>
+          <td>Akcesoria komputerowe;Akcesoria elektroniczne;Elektronika;Płyty główne</td>
+          <td>380,78</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>RASPBERRY PI 3B+</td>
+          <td>Akcesoria komputerowe;Akcesoria elektroniczne;Elektronika;Płyty główne</td>
+          <td>220,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>RASPBERRY PI 3B</td>
+          <td>Akcesoria komputerowe;Elektronika;Akcesoria elektroniczne</td>
+          <td>199,76</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>DE 112-TS-20/7,5/M</td>
+          <td>Części elektroniczne;Elektronika;Optoelektronika</td>
+          <td>11,78</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>DE112-RS-20/6,35</td>
+          <td>Części elektroniczne;Elektronika;Optoelektronika</td>
+          <td>10,78</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>IS62WVS0648FBLL-20NLI</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>16,99</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>BT137-800</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>4,5</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>TSOP4838</td>
+          <td>Optoelektronika</td>
+          <td>4,7</td>
+          <td>-2</td>
+          </tr>
+          <tr>
+          <td>ZTX851</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>4,97</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>ZTX853</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>4,97</td>
+          <td>432</td>
+          </tr>
+          <tr>
+          <td>2N1893</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>4,97</td>
+          <td>432</td>
+          </tr>
+          <tr>
+          <td>2N1711 PBFREE</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>13,45</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2N1711</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>6,7</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2N1613</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>6,2</td>
+          <td>463</td>
+          </tr>
+          <tr>
+          <td>1/8W 1K</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,25</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>0201WMD1000TEE</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,04</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>BCV24300 - Zasilacz 24V 300W</td>
+          <td>Akcesoria elektroniczne;Akcesoria komputerowe;Zasilacze</td>
+          <td>89,79</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>POS-100-24-C</td>
+          <td>Akcesoria elektroniczne;Akcesoria komputerowe;Zasilacze</td>
+          <td>88,75</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>LU301W128GG4</td>
+          <td>Akcesoria komputerowe;Elektronika;Klawiatury i itd.</td>
+          <td>65</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>LU301W064GG4</td>
+          <td>Akcesoria komputerowe;Elektronika;Klawiatury i itd.</td>
+          <td>39,65</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>LU301W016GG4</td>
+          <td>Akcesoria komputerowe;Elektronika;Klawiatury i itd.</td>
+          <td>32</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>BT0056</td>
+          <td>Akcesoria komputerowe;Elektronika;Klawiatury i itd.</td>
+          <td>58</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>LM358ADGKR</td>
+          <td>Części elektroniczne;Półprzewodniki;Wzmacniacze operacyjne</td>
+          <td>8,97</td>
+          <td>57</td>
+          </tr>
+          <tr>
+          <td>INA219AIDR</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>8,97</td>
+          <td>57</td>
+          </tr>
+          <tr>
+          <td>1EZ16</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,68</td>
+          <td>453</td>
+          </tr>
+          <tr>
+          <td>1EZ16</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,68</td>
+          <td>453</td>
+          </tr>
+          <tr>
+          <td>1EZ12</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,68</td>
+          <td>453</td>
+          </tr>
+          <tr>
+          <td>1EZ100</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,68</td>
+          <td>453</td>
+          </tr>
+          <tr>
+          <td>1EZ10</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,68</td>
+          <td>453</td>
+          </tr>
+          <tr>
+          <td>Flaga Królestwa Wielkiej Brytanii 112X70 cm Tunel</td>
+          <td> </td>
+          <td>35</td>
+          <td>-1</td>
+          </tr>
+          <tr>
+          <td>Flaga USA Ameryka Stany Zjednoczone 112x70cm</td>
+          <td> </td>
+          <td>35</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>2N6344G</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>6,54</td>
+          <td>45</td>
+          </tr>
+          <tr>
+          <td>2N6075BG</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>5,32</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>2N6073AG</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>5,32</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>2N6071BG</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>3,6</td>
+          <td>67</td>
+          </tr>
+          <tr>
+          <td>AEA0810470M063R</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>6,3</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>AEA0810331M010R</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>6,89</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>AEA0810220M100R</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>6,89</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>AEA0810101M035R</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>6,89</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>4116R-1-223LF</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>16,71</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>4116R-1-102LF</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>16</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>4116R-1-101LF</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>14</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R2K 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>231</td>
+          </tr>
+          <tr>
+          <td>R270 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>R22K 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>231</td>
+          </tr>
+          <tr>
+          <td>R220 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>231</td>
+          </tr>
+          <tr>
+          <td>R220K 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R1 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R1M 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>R1K 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>229</td>
+          </tr>
+          <tr>
+          <td>R180 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>R15k 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>R150K 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>R120 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>234</td>
+          </tr>
+          <tr>
+          <td>R120K 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>120</td>
+          </tr>
+          <tr>
+          <td>R10 1/2W</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>0,67</td>
+          <td>421</td>
+          </tr>
+          <tr>
+          <td>5W 3,3Ohm</td>
+          <td>Elementy Pasywne;Części elektroniczne</td>
+          <td>1,56</td>
+          <td>73</td>
+          </tr>
+          <tr>
+          <td>1/2W-100K</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,8</td>
+          <td>195</td>
+          </tr>
+          <tr>
+          <td>Podstawka DIP14 THT</td>
+          <td>Części elektroniczne;Logiczne układy scalone</td>
+          <td>0,65</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>CD4040BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,16</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>CD4069BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>2,52</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>CD4027BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>2</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>CD40174BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,21</td>
+          <td>314</td>
+          </tr>
+          <tr>
+          <td>R33K 1/8W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,45</td>
+          <td>543</td>
+          </tr>
+          <tr>
+          <td>R10K 1/4W</td>
+          <td>Części elektroniczne;Elementy Pasywne</td>
+          <td>0,45</td>
+          <td>543</td>
+          </tr>
+          <tr>
+          <td>2N7008-G</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>5,87</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>2N7000</td>
+          <td>Półprzewodniki;Części elektroniczne</td>
+          <td>5,23</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>10N65</td>
+          <td>Półprzewodniki</td>
+          <td>5,23</td>
+          <td>243</td>
+          </tr>
+          <tr>
+          <td>IXGP42N30C3</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>13,45</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>IXGH120N30B3</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>26,56</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>AIGW40N65F5XKSA1</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>37,56</td>
+          <td>7</td>
+          </tr>
+          <tr>
+          <td>Microchip Tech ATF16V8B-15PU</td>
+          <td>Części elektroniczne;Półprzewodniki;Logiczne układy scalone</td>
+          <td>8,21</td>
+          <td>321</td>
+          </tr>
+          <tr>
+          <td>CD74HC4046AE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,02</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>74HC4046AD</td>
+          <td>Części elektroniczne;Logiczne układy scalone</td>
+          <td>3,21</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>SN74S182N</td>
+          <td>Części elektroniczne;Logiczne układy scalone</td>
+          <td>14,04</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>NTE74LS181</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>27,85</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>NANO 328P CH340</td>
+          <td>Elektronika;Akcesoria elektroniczne;Bestsellery</td>
+          <td>37,81</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Raspberry Pi Pico - RP2040 ARM Cortex M0+</td>
+          <td>Elektronika;Akcesoria elektroniczne;Bestsellery</td>
+          <td>31,23</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>CC430F6147IRGCT</td>
+          <td>Logiczne układy scalone;Części elektroniczne;Półprzewodniki</td>
+          <td>7,98</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>MSP430G2101IN14</td>
+          <td>Logiczne układy scalone;Części elektroniczne;Półprzewodniki</td>
+          <td>7,98</td>
+          <td>0</td>
+          </tr>
+          <tr>
+          <td>74LS27</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki;Bestsellery</td>
+          <td>5,23</td>
+          <td>367</td>
+          </tr>
+          <tr>
+          <td>74LS266</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>6,76</td>
+          <td>399</td>
+          </tr>
+          <tr>
+          <td>74LS11</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,56</td>
+          <td>31</td>
+          </tr>
+          <tr>
+          <td>74LS09</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,7</td>
+          <td>329</td>
+          </tr>
+          <tr>
+          <td>74LS08N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,76</td>
+          <td>369</td>
+          </tr>
+          <tr>
+          <td>74LS03N</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>4,78</td>
+          <td>32</td>
+          </tr>
+          <tr>
+          <td>Gigabyte H410M H V2</td>
+          <td>Bestsellery;Podzespoły;Płyty główne;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>312,99</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>CD74HC283E</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,02</td>
+          <td>791</td>
+          </tr>
+          <tr>
+          <td>CD4543BE</td>
+          <td>Części elektroniczne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,02</td>
+          <td>791</td>
+          </tr>
+          <tr>
+          <td>CD4077BE</td>
+          <td>Części elektroniczne;Nowe i popularne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,83</td>
+          <td>428</td>
+          </tr>
+          <tr>
+          <td>CD4012BE</td>
+          <td>Części elektroniczne;Nowe i popularne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>2,89</td>
+          <td>569</td>
+          </tr>
+          <tr>
+          <td>NTE74LS86</td>
+          <td>Części elektroniczne;Nowe i popularne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>8,45</td>
+          <td>41</td>
+          </tr>
+          <tr>
+          <td>CD4030BE</td>
+          <td>Części elektroniczne;Nowe i popularne;Logiczne układy scalone;Półprzewodniki</td>
+          <td>3,13</td>
+          <td>289</td>
+          </tr>
+          <tr>
+          <td>ASRock H310CM-DVS płyta główna</td>
+          <td>Bestsellery;Podzespoły;Płyty główne;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>298</td>
+          <td>18</td>
+          </tr>
+          <tr>
+          <td>Zestaw dla graczy 4w1: Fury Thunderstreak 3.0</td>
+          <td>Klawiatury i itd.;Bestsellery;Akcesoria elektroniczne;Gaming i akcesoria komputerowe;Akcesoria komputerowe</td>
+          <td>104,9</td>
+          <td>14</td>
+          </tr>
+          <tr>
+          <td>Zestaw dla graczy Fury: Hurricane TKL</td>
+          <td>Klawiatury i itd.;Bestsellery;Akcesoria elektroniczne;Gaming i akcesoria komputerowe;Akcesoria komputerowe</td>
+          <td>135,87</td>
+          <td>33</td>
+          </tr>
+          <tr>
+          <td>Transformator 40VA, 230Vac (235V, 3.15V, 3.15V) 0.075A, 3A, 3A</td>
+          <td>Transformator</td>
+          <td>223,79</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Transformator 100VA, 230Vac (230V, 7.2V) 0.03A, 4A</td>
+          <td>Transformator</td>
+          <td>360,78</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Transformator: toroidalny; 15VA; 230VAC; 15V; 15V; 0,5A; 0,5A</td>
+          <td>Transformator toroidalny</td>
+          <td>99,81</td>
+          <td>8</td>
+          </tr>
+          <tr>
+          <td>Transformator impulsowy: 85VAC, 265VAC; 9-18V; 500mA; 6W</td>
+          <td>Transformator do PCB</td>
+          <td>25</td>
+          <td>56</td>
+          </tr>
+          <tr>
+          <td>Zasilacz Lextool LXG300 65 W do Uniwersalne</td>
+          <td>Klawiatury i itd.;Zasilacze;Bestsellery;Kable i przewody;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>65</td>
+          <td>987</td>
+          </tr>
+          <tr>
+          <td>Kabel USB typ C - Apple Lightning 1M</td>
+          <td>Klawiatury i itd.;Bestsellery;Kable i przewody;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>25</td>
+          <td>24</td>
+          </tr>
+          <tr>
+          <td>BASEUS KABEL TYPE-C USB-C QUICK CHARGE 3.0 2A 2M.</td>
+          <td>Klawiatury i itd.;Bestsellery;Kable i przewody;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>29,99</td>
+          <td>198</td>
+          </tr>
+          <tr>
+          <td>Zasilacz komputerowy 500W</td>
+          <td>Zasilacze;Bestsellery;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>180</td>
+          <td>15</td>
+          </tr>
+          <tr>
+          <td>Kabel przewód zasilający 230V ósemka 1,8m</td>
+          <td>Klawiatury i itd.;Bestsellery;Kable i przewody;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>25</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Kabel sieciowy UTP RJ45 KAT 5E 20m</td>
+          <td>Kable i przewody;Akcesoria elektroniczne;Akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>39,99</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Karta microSD 16GB</td>
+          <td>Klawiatury i itd.;Bestsellery;SD, USB Flash;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>27</td>
+          <td>24</td>
+          </tr>
+          <tr>
+          <td>Kingston Karta SD 128 GB MICRO</td>
+          <td>Klawiatury i itd.;Bestsellery;SD, USB Flash;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>55</td>
+          <td>50</td>
+          </tr>
+          <tr>
+          <td>Kabel HDMI 1.5m</td>
+          <td>Klawiatury i itd.;Bestsellery;Kable i przewody;Akcesoria elektroniczne;Akcesoria komputerowe</td>
+          <td>23</td>
+          <td>1</td>
+          </tr>
+          <tr>
+          <td>Kabel DVI-I/VGA Full HD 1m</td>
+          <td>Kable i przewody;Akcesoria elektroniczne;Akcesoria komputerowe;Klawiatury i itd.</td>
+          <td>45</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>VAR20-250 Warystor RMS 250VAC, 320VDC 1W</td>
+          <td>Termistory, warystory;Części elektroniczne</td>
+          <td>3,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>VAR20-300 Warystor RMS 300VAC, 385VDC 1W</td>
+          <td>Termistory, warystory;Części elektroniczne</td>
+          <td>3,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>NTC 10R 22mm 6A termistor</td>
+          <td>Termistory, warystory;Części elektroniczne</td>
+          <td>8</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>NTC 10R 16,5mm 5A termistor</td>
+          <td>Termistory, warystory;Części elektroniczne;Elementy Pasywne</td>
+          <td>3,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>NTC 10R 12,5mm 3A termistor</td>
+          <td>Termistory, warystory;Części elektroniczne;Elementy Pasywne</td>
+          <td>2,6</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>NTC 10R 10,5mm 2A termistor</td>
+          <td>Termistory, warystory;Części elektroniczne;Elementy Pasywne</td>
+          <td>2,6</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM78S05 2A 5V TO220</td>
+          <td>Części elektroniczne;Stabilizatory;Półprzewodniki</td>
+          <td>6,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM7824 1A 24V TO220</td>
+          <td>Części elektroniczne;Stabilizatory;Półprzewodniki</td>
+          <td>3,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM7810 1A 10V TO220</td>
+          <td>Części elektroniczne;Stabilizatory;Półprzewodniki</td>
+          <td>5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM7808 1A 8V TO220</td>
+          <td>Części elektroniczne;Stabilizatory;Półprzewodniki</td>
+          <td>4,6</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM7806 1A 6V TO220</td>
+          <td>Części elektroniczne;Stabilizatory;Półprzewodniki</td>
+          <td>3,9</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM7805 1A 5V TO220 - stabilizator</td>
+          <td>Części elektroniczne;Stabilizatory;Półprzewodniki</td>
+          <td>3,2</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>MB&#39;s File Manager - Menedżer Plików (klucz)</td>
+          <td>Software;Oprogramowanie</td>
+          <td>12,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Marker do PCB 0.6mm</td>
+          <td>Narzędzia;Akcesoria elektroniczne</td>
+          <td>15</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Papier kredowy 150g - kartka</td>
+          <td>Arkusze papierów</td>
+          <td>1</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Papier kredowy 250g A4 - 1 kartka.</td>
+          <td>Arkusze papierów</td>
+          <td>1</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>TBuntu™: The Complete Edition</td>
+          <td>Oprogramowanie;Software</td>
+          <td>150</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM324N</td>
+          <td>Części elektroniczne;Wzmacniacze operacyjne;Półprzewodniki;MB&amp;SP.com Basic</td>
+          <td>2,7</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>LM 741</td>
+          <td>Części elektroniczne;Wzmacniacze operacyjne;Nowe i popularne;Półprzewodniki</td>
+          <td>4,7</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Płytka stykowa/prototypowa</td>
+          <td>Elektronika;Nowe i popularne</td>
+          <td>11</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Biały T-Shirt z logo, damski</td>
+          <td>Odzież</td>
+          <td>60</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Biały T-Shirt z logo</td>
+          <td>Odzież;Nowe i popularne;Bestsellery</td>
+          <td>60</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Zasilacz USB ładowarka, sieciowa</td>
+          <td>Elektronika;Akcesoria elektroniczne</td>
+          <td>25,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Odsysacz cyny, metalowy</td>
+          <td>Narzędzia</td>
+          <td>15</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Pęseta antymagnetyczna (ostra)</td>
+          <td>Narzędzia</td>
+          <td>16</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Pęseta antymagnetyczna (ostra odgięta))</td>
+          <td>Narzędzia</td>
+          <td>20,15</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Pęseta antymagnetyczna (ostra) 115 mm</td>
+          <td>Narzędzia</td>
+          <td>19,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Miernik MT1210</td>
+          <td>Narzędzia;Akcesoria elektroniczne</td>
+          <td>65,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Miernik DT9208A</td>
+          <td>Narzędzia;Akcesoria elektroniczne;Bestsellery</td>
+          <td>55,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Miernik DT830D</td>
+          <td>Narzędzia;Akcesoria elektroniczne</td>
+          <td>30</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>BC847</td>
+          <td>Części elektroniczne;Półprzewodniki</td>
+          <td>0,35</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Diody LED SMD 1206</td>
+          <td>Części elektroniczne;Optoelektronika</td>
+          <td>1,05</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Cyna z topnikiem 0.56mm, 100g</td>
+          <td>Narzędzia;Akcesoria elektroniczne</td>
+          <td>45</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Koszyk do bateri CR20xx THT (leżący)</td>
+          <td>Części elektroniczne;Nowe i popularne</td>
+          <td>1,25</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LAM01_14x22cm</td>
+          <td>Laminaty</td>
+          <td>7,5</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>Bluza z kapturem - MB_Shop (niebieska)</td>
+          <td>Odzież;Nowe i popularne</td>
+          <td>105,55</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Bluza z kapturem - MB_Shop (biała)</td>
+          <td>Odzież;Główne</td>
+          <td>95,5</td>
+          <td>OutOfStock</td>
+          </tr>
+          <tr>
+          <td>Arduino MEGA + Kabel USB</td>
+          <td>Bestsellery;Elektronika;Akcesoria elektroniczne;Nowe i popularne</td>
+          <td>155</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>LM317T (stabilizator)</td>
+          <td>Części elektroniczne;Nowe i popularne;Półprzewodniki</td>
+          <td>3,25</td>
+          <td>2</td>
+          </tr>
+          <tr>
+          <td>Wyświetlacz LED - czerowone</td>
+          <td>Części elektroniczne;Nowe i popularne;Akcesoria elektroniczne</td>
+          <td>4,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Płytka Arduino UNO (obudowa DIP)</td>
+          <td>Bestsellery;Części elektroniczne;Elektronika;Akcesoria elektroniczne</td>
+          <td>84,75</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Potencjometr montażowy 100om</td>
+          <td>Części elektroniczne;Nowe i popularne;Elementy Pasywne</td>
+          <td>2,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Przewody pomiarowe</td>
+          <td>Części elektroniczne;Akcesoria elektroniczne</td>
+          <td>8,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Switch ON-OFF</td>
+          <td>Części elektroniczne</td>
+          <td>4,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Diody LED</td>
+          <td>Części elektroniczne;Optoelektronika</td>
+          <td>1,05</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Napój Eliksir Bąbelkowych</td>
+          <td>Główne</td>
+          <td>3,5</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Koszulka &quot;Bongoniewicz&quot;(bez tła)</td>
+          <td>Odzież;Główne</td>
+          <td>49,9</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>Koszulka &quot;Bongoniewicz&quot;</td>
+          <td>Odzież;Główne</td>
+          <td>49,9</td>
+          <td>InStock</td>
+          </tr>
+          <tr>
+          <td>TBuntu™  22 - Enterprise Edition (edycja pudełkowa)</td>
+          <td>Oprogramowanie pudełkowe;Oprogramowanie</td>
+          <td>49,9</td>
+          <td>OutOfStock</td>
+          </tr>
+          </tbody></table>
+      
+      <script>
+      function searchTestRe() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchTestInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }       
+        }
+      }
+      </script>
+      </seciton>
+    </section>
+</section>
+<div class="main-area">
+	<div class="scroll-products-main">
+    
+        <!-- END OF PRODUCT RENDER --->
+        <hr>
+        </div>
+         <div class="loadMoreButton">
+			<a class="buy-button" style="justify-content: center;" href="#navbarID">Back To Top</a>        
+        </div>
+    </div>
+</div>
+<footer>
+			<a href="http://mbsp.com.pl/about">About Miły's Buy & Sell Parts</a>
+			<a href="http://mbsp.com.pl/support">Tech Support</a>
+			<a href="https://mbnsp.github.io/support/terms.html">Terms</a>
+			<a href="https://mbnsp.github.io/support/refund-en.html">Refund</a>
+			<a href="https://mbnsp.github.io/support/privacy_policy.html">Privacy policy</a>
+			<a href="http://mbsp.com.pl/status">Status</a>
+			<a href="https://mbspshop.wixsite.com/net-pl/blog">Blog</a>
+			<a href="http://mbsp.com.pl/goprime">MB Prime</a>
+			<a href="http://mbsp.com.pl/ads">MB Ads - marketing</a>
+			<a href="https://mbspshop.wixsite.com/net-pl/kontakt">Contact us</a>
+            <a href="#">Dark mode</a>
+			<span>&copy; 2024 Miły's Buy & Sell Parts, Ind. - Miłosz Boguniewicz</span>
+		</footer>
+<!--- END OF SITE --->
+<!--- SEARCH AUTOCOMPLETE --->
+<!--- Backend --->
+
+
+<script src="main.js"></script>
+
+  
+</body>
+</html>
