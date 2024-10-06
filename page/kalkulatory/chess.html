@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gra w Snake</title>
+    <style>
+      body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    border: 2px solid #333;
+    background-color: #222;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+}
+
+#lightboxContent {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Styl dla przycisków mobilnych */
+#mobileControls {
+    display: none; /* Domyślnie ukryte */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.mobileButton {
+    padding: 10px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.mobileButton:hover {
+    background-color: #555;
+}
+
+/* Media query dla urządzeń mobilnych */
+@media (max-width: 600px) {
+    #mobileControls {
+        display: flex; /* Pokaż przyciski na urządzeniach mobilnych */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <h1>Gra w Snake</h1>
+        <button id="startButton">Rozpocznij grę</button>
+        <div id="score">Punkty: 0</div>
+    </div>
+    <canvas id="snakeGame" width="400" height="400"></canvas>
+    <div id="lightbox">
+        <div id="lightboxContent">
+            <p>Koniec gry!</p>
+            <button id="closeButton">Zamknij</button>
+        </div>
+    </div>
+    <div id="mobileControls">
+        <button class="mobileButton" id="leftButton">←</button>
+        <button class="mobileButton" id="upButton">↑</button>
+        <button class="mobileButton" id="downButton">↓</button>
+        <button class="mobileButton" id="rightButton">→</button>
+    </div>
+    <script>
+       const canvas = document.getElementById('snakeGame');
+const ctx = canvas.getContext('2d');
+const startButton = document.getElementById('startButton');
+const lightbox = document.getElementById('lightbox');
+const closeButton = document.getElementById('closeButton');
+const scoreDisplay = document.getElementById('score');
+
+const box = 20;
+let snake, direction, food, score, game;
+
+function initGame() {
+    snake = [{ x: 9 * box, y: 9 * box }];
+    direction = 'RIGHT';
+    food = {
+        x: Math.floor(Math.random() * 20) * box,
+        y: Math.floor(Math.random() * 20) * box
+    };
+    score = 0;
+    scoreDisplay.textContent = `Punkty: ${score}`;
+    lightbox.style.display = 'none';
+    game = setInterval(draw, 100);
+}
+
+document.addEventListener('keydown', directionControl);
+startButton.addEventListener('click', initGame);
+closeButton.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+// Obsługuje kierunki za pomocą klawiszy
+function directionControl(event) {
+    if (event.keyCode === 37 && direction !== 'RIGHT') direction = 'LEFT';
+    else if (event.keyCode === 38 && direction !== 'DOWN') direction = 'UP';
+    else if (event.keyCode === 39 && direction !== 'LEFT') direction = 'RIGHT';
+    else if (event.keyCode === 40 && direction !== 'UP') direction = 'DOWN';
+}
+
+// Obsługuje kierunki za pomocą przycisków mobilnych
+function setDirection(newDirection) {
+    if (newDirection === 'LEFT' && direction !== 'RIGHT') direction = 'LEFT';
+    else if (newDirection === 'UP' && direction !== 'DOWN') direction = 'UP';
+    else if (newDirection === 'RIGHT' && direction !== 'LEFT') direction = 'RIGHT';
+    else if (newDirection === 'DOWN' && direction !== 'UP') direction = 'DOWN';
+}
+
+// Dodaj obsługę przycisków mobilnych
+document.getElementById('leftButton').addEventListener('click', () => setDirection('LEFT'));
+document.getElementById('upButton').addEventListener('click', () => setDirection('UP'));
+document.getElementById('rightButton').addEventListener('click', () => setDirection('RIGHT'));
+document.getElementById('downButton').addEventListener('click', () => setDirection('DOWN'));
+
+function collision(head, array) {
+    for (let i = 0; i < array.length; i++) {
+        if (head.x === array[i].x && head.y === array[i].y) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < snake.length; i++) {
+        ctx.fillStyle = (i === 0) ? 'green' : 'lightgreen';
+        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        ctx.strokeStyle = 'darkgreen';
+        ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+    }
+
+    ctx.fillStyle = 'red';
+    ctx.fillRect(food.x, food.y, box, box);
+
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    if (direction === 'LEFT') snakeX -= box;
+    if (direction === 'UP') snakeY -= box;
+    if (direction === 'RIGHT') snakeX += box;
+    if (direction === 'DOWN') snakeY += box;
+
+    if (snakeX === food.x && snakeY === food.y) {
+        food = {
+            x: Math.floor(Math.random() * 20) * box,
+            y: Math.floor(Math.random() * 20) * box
+        };
+        score++;
+        scoreDisplay.textContent = `Punkty: ${score}`;
+    } else {
+        snake.pop();
+    }
+
+    const newHead = { x: snakeX, y: snakeY };
+
+    if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height || collision(newHead, snake)) {
+        clearInterval(game);
+        lightbox.style.display = 'flex';
+    }
+
+    snake.unshift
+
+    snake.unshift(newHead);
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Prawa Ohma - MB&SP.com</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="http://mbsp.com.pl">
+            <img src="mb_logo_fullhd.webp">
+        </a></div>
+        <a href="https://mbsp.com.pl" class="back-link">Powrót na MBSP.com.pl</a>
+        <a href="https://mbsp.com.pl/support/pl" class="back-link">Pomoc Techniczna</a>
+    </header>
+
+    <div class="container calc-section">
+        <h1>Kalkulator Prawa Ohma</h1>
+        <p>
+            Prawo Ohma jest podstawowym prawem elektrotechniki, które opisuje zależność pomiędzy napięciem (V), natężeniem prądu (I) i oporem (R). Wzór tego prawa to:
+        </p>
+        <p><strong>U = I * R</strong></p>
+        <p>
+            Jest to ważne, ponieważ pozwala obliczyć, jak napięcie, prąd i opór wpływają na siebie, co jest kluczowe w projektowaniu obwodów elektrycznych.
+        </p>
+
+        <div class="calculator">
+            <label for="voltage">Napięcie (V):</label>
+            <input type="number" id="voltage" placeholder="Wprowadź napięcie">
+
+            <label for="current">Natężenie (I):</label>
+            <input type="number" id="current" placeholder="Wprowadź natężenie">
+
+            <label for="resistance">Opór (R):</label>
+            <input type="number" id="resistance" placeholder="Wprowadź opór">
+
+            <button onclick="calculateOhmsLaw()">Oblicz</button>
+
+            <h3>Wynik:</h3>
+            <p id="result">Wprowadź wartości, aby obliczyć wynik.</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateOhmsLaw() {
+    const voltage = parseFloat(document.getElementById('voltage').value);
+    const current = parseFloat(document.getElementById('current').value);
+    const resistance = parseFloat(document.getElementById('resistance').value);
+    const resultElement = document.getElementById('result');
+
+    // Sprawdzamy, które dane są podane, aby obliczyć brakującą wartość
+    if (!isNaN(voltage) && !isNaN(current)) {
+        const resistance = voltage / current;
+        resultElement.textContent = `Opór wynosi ${resistance.toFixed(2)} Ω`;
+    } else if (!isNaN(voltage) && !isNaN(resistance)) {
+        const current = voltage / resistance;
+        resultElement.textContent = `Natężenie wynosi ${current.toFixed(2)} A`;
+    } else if (!isNaN(current) && !isNaN(resistance)) {
+        const voltage = current * resistance;
+        resultElement.textContent = `Napięcie wynosi ${voltage.toFixed(2)} V`;
+    } else {
+        resultElement.textContent = 'Podaj co najmniej dwie wartości, aby obliczyć trzecią.';
+    }
+}
+
+function toggleMenu() {
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileNav.style.display === "flex") {
+        mobileNav.style.display = "none";
+    } else {
+        mobileNav.style.display = "flex";
+    }
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Kondensatorów - MB&SP.com</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="http://mbsp.com.pl">
+            <img src="mb_logo_fullhd.webp">
+        </a></div>
+        <a href="https://mbsp.com.pl" class="back-link">Powrót na MBSP.com.pl</a>
+        <a href="https://mbsp.com.pl/support/pl" class="back-link">Pomoc Techniczna</a>
+    </header>
+    <div class="calculator-container calc-section">
+        <h1>Kalkulator Kondensatorów</h1>
+
+        <div class="input-group">
+            <label for="capacitors">Wprowadź pojemności kondensatorów (w mikrofaradach, oddzielone przecinkami):</label>
+            <input type="text" id="capacitors" placeholder="np. 10, 22, 47" />
+        </div>
+
+        <button onclick="calculateSeries()">Oblicz w szereg</button>
+        <button onclick="calculateParallel()">Oblicz równolegle</button>
+
+        <div class="result">
+            <h2>Wynik (Szeregowo):</h2>
+            <p id="series-result">-</p>
+        </div>
+
+        <div class="result">
+            <h2>Wynik (Równolegle):</h2>
+            <p id="parallel-result">-</p>
+        </div>
+    </div>
+
+    <script>
+        // Funkcja do obliczania pojemności kondensatorów połączonych w szeregu
+function calculateSeries() {
+    let input = document.getElementById('capacitors').value;
+    let capacitors = input.split(',').map(c => parseFloat(c.trim()));
+
+    if (capacitors.some(isNaN) || capacitors.length === 0) {
+        document.getElementById('series-result').textContent = "Proszę wprowadzić poprawne wartości.";
+        return;
+    }
+
+    let inverseSum = capacitors.reduce((sum, capacitance) => sum + 1 / capacitance, 0);
+    let seriesCapacitance = 1 / inverseSum;
+
+    document.getElementById('series-result').textContent = `${seriesCapacitance.toFixed(2)} µF`;
+}
+
+// Funkcja do obliczania pojemności kondensatorów połączonych równolegle
+function calculateParallel() {
+    let input = document.getElementById('capacitors').value;
+    let capacitors = input.split(',').map(c => parseFloat(c.trim()));
+
+    if (capacitors.some(isNaN) || capacitors.length === 0) {
+        document.getElementById('parallel-result').textContent = "Proszę wprowadzić poprawne wartości.";
+        return;
+    }
+
+    let parallelCapacitance = capacitors.reduce((sum, capacitance) => sum + capacitance, 0);
+
+    document.getElementById('parallel-result').textContent = `${parallelCapacitance.toFixed(2)} µF`;
+}
+function toggleMenu() {
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileNav.style.display === "flex") {
+        mobileNav.style.display = "none";
+    } else {
+        mobileNav.style.display = "flex";
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Rezystora do Diody LED - MB&SP.com.pl</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="http://mbsp.com.pl">
+            <img src="mb_logo_fullhd.webp">
+        </a></div>
+        <a href="https://mbsp.com.pl" class="back-link">Powrót na MBSP.com.pl</a>
+        <a href="https://mbsp.com.pl/support/pl" class="back-link">Pomoc Techniczna</a>
+    </header>
+
+    <div class="calculator-container calc-section">
+        <h1>Kalkulator Rezystora do Diody LED</h1>
+
+        <div class="input-group">
+            <label for="voltage">Napięcie zasilania (V):</label>
+            <input type="number" id="voltage" placeholder="np. 9" />
+        </div>
+
+        <div class="input-group">
+            <label for="led-voltage">Napięcie diody LED (V):</label>
+            <input type="number" id="led-voltage" placeholder="np. 2" />
+        </div>
+
+        <div class="input-group">
+            <label for="led-current">Prąd diody LED (mA):</label>
+            <input type="number" id="led-current" placeholder="np. 20" />
+        </div>
+
+        <button onclick="calculateResistor()">Oblicz rezystor</button>
+
+        <div class="result">
+            <h2>Wynik:</h2>
+            <p id="resistor-value">-</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateResistor() {
+    // Pobierz wartości z formularza
+    let voltage = parseFloat(document.getElementById('voltage').value);
+    let ledVoltage = parseFloat(document.getElementById('led-voltage').value);
+    let ledCurrent = parseFloat(document.getElementById('led-current').value);
+
+    // Sprawdź, czy wszystkie wartości są poprawne
+    if (isNaN(voltage) || isNaN(ledVoltage) || isNaN(ledCurrent) || voltage <= 0 || ledVoltage <= 0 || ledCurrent <= 0) {
+        document.getElementById('resistor-value').textContent = "Proszę podać poprawne wartości.";
+        return;
+    }
+
+    // Konwersja prądu diody LED z miliamperów na ampery
+    ledCurrent = ledCurrent / 1000;
+
+    // Oblicz rezystancję (w Ohmach)
+    let resistorValue = (voltage - ledVoltage) / ledCurrent;
+
+    // Sprawdź, czy wynik jest poprawny
+    if (resistorValue > 0) {
+        document.getElementById('resistor-value').textContent = `${resistorValue.toFixed(2)} Ω`;
+    } else {
+        document.getElementById('resistor-value').textContent = "Wartości są nieprawidłowe.";
+    }
+}
+
+    </script>
+</body>
+</html>
