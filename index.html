@@ -81,6 +81,7 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 	<title>Miły's Buy & Sell Parts - MBSP.com.pl - Dostawca części elektronicznych</title>
 	<link rel="stylesheet" type="text/css" href="style-login.css">
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VB7P0MQR2B"></script>
@@ -105,7 +106,7 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 				</div>
 				<div class="main-text">
 					<h1>Wszystko, czego potrzebujesz, <span>w jednym miejscu!</span></h1>
-					<h3>Twój dostawca części i komponentów elektronicznych</h3>
+					<h3>Twój dostawca części, komponentów elektronicznych i akcesoriów komputerowych.</h3>
 				</div>
 				<div class="buttons">
 					<div class="search-box">
@@ -113,11 +114,11 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 					</div>
 					<div class="adi-text">
 						<a href="https://mbnsp.github.io/page/advanced_search/adv_search.html">Zaawansowana wyszukiwarka</a><br><br>
-						<a href="https://mbnsp.github.io/page/advanced_search/searchTable.html">Wyszukiwarka stanów magazynowych</a><br><br>
 					</div>
-					<a href="http://mbsp.com.pl/home" class="btn-redirect-g"><span>Przeglądaj kategorie</span></a>
+					<a href="http://mbsp.com.pl/home" class="btn-redirect-g"><span>Przeglądaj produkty</span></a>
 					<a href="https://mbspshop.wixsite.com/net-pl/order-payment" class="btn-redirect-g-d" style="margin-bottom: 20px; margin-top: 20px;"><span>Zamów online / Poproś o wycenę</span></a>
 					<a href="https://mbnsp.github.io/support/tech-pl.html" class="btn-redirect-g-d"><span>Pomoc Techniczna MB&SP.com</span></a>
+					<button style="margin-top: 20px;" class="btn-redirect-g-d" id="openPopup">Więcej</button>
 				</div>
 				<div class="adi-text">
 					<p>Warto zobaczyć:</p>
@@ -127,21 +128,18 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 				<button onclick="myFunction()" class="btn-redirect-g" style="margin: 15px;">
 				Tryb ciemny / jasny
 				</button>
-				
 			</div>
 		</div>
 		<div class="wrapper">
 			<header>
 			  <h2>Witamy w witrynie MBSP.com.pl</h2>
 			</header>
-		
 			<div class="data">
 			  <p>Ok, ale... powiedz mi więcej<br><br> <a
 				  href="http://mbsp.com.pl/intro"> Jak korzystać z MB&SP.com?</a><br>
 				  <a href="http://mbsp.com.pl/about">O MB&SP.com</a>
 		</p>
 			</div>
-		
 			<div class="buttons">
 			  <button class="button" id="acceptBtn">Nie pokazuj ponownie</button>
 			  <button class="button" id="declineBtn">Zamknij</button>
@@ -149,6 +147,7 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 		  </div>
 		<footer>
 			<a href="http://mbsp.com.pl/about">o Miły's Buy & Sell Parts</a>
+			<a href="https://about-mbsp.github.io/credits.html">Kto to zrobił</a>
 			<a href="http://mbsp.com.pl/support/pl">Tech Support</a>
 			<a href="http://mbsp.com.pl/faq">FAQ</a>
 			<a href="https://mbnsp.github.io/support/store-rules-pl.html">Zasady sklepu</a>
@@ -159,8 +158,41 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 			<a href="http://mbsp.com.pl/goprime">MB Prime</a>
 			<a href="http://mbsp.com.pl/ads">MB Ads - marketing</a>
 			<a href="https://mbspshop.wixsite.com/net-pl/kontakt">Kontakt z nami</a>
-			<span>&copy; 2024 Miły's Buy & Sell Parts, Ind. - Miłosz Boguniewicz</span>
+			<span>&copy; 2024 Miły's Buy & Sell Parts, Ind.<br>Produkcja: Miłosz Boguniewicz</span>
 		</footer>
+		<!-- Overlay -->
+		<div id="popupOverlay" class="overlay"></div>
+		<!-- Wyskakujące okienko -->
+		<div id="popup" class="popup">
+		  <div class="popup-header">
+			<h2>Więcej od Miły's Buy & Sell Parts</h2>
+			<button class="close-popup-btn" id="closePopup"><i class="fas fa-times"></i></button>
+		  </div>
+		  <div class="popup-content">
+			<ul>
+				<p style="color: black; font-size: 19px;">Dla zalogowanych użytkowników</p>
+			  <li><a href="http://mbsp.com.pl/trackorder">Śledzenie zamówienia (Gdzie jest Moje Zamówienie?)</a></li>
+			  <li><a href="http://mbsp.com.pl/goprime">MB Prime</a></li>
+			  <li><a href="https://mbspshop.wixsite.com/net-pl/mb-quick">MB Quick</a></li>
+			  <li><a href="https://mbnsp.github.io/page/advanced_search/searchTable.html">Mily DB</a></li>
+			  <li><a href="http://mbsp.com.pl/ai">Mily AI</a></li>
+			  <li><a href="https://mbspshop.wixsite.com/net-pl/kalkulatory">Kalkulatory dla elektroników</a></li>
+			  <p style="color: black; font-size: 19px;">Potrzebujesz pomocy?</p>
+			  <li><a href="http://mbsp.com.pl/support/pl">Pomoc Techniczna</a></li>
+			  <li><a href="http://mbsp.com.pl/faq">Często Zadawane Pytania</a></li>
+			  <li><a href="https://mbspshop.wixsite.com/net-pl/opinie">Opinie</a></li>
+			  <p style="color: black; font-size: 19px;">Pozostałe:</p>
+			  <li><a href="http://mbsp.com.pl/ads">MB Ads</a></li>
+			</ul>
+		  </div>
+		</div>
+		  <!-- Banner cookie -->
+		  <div id="cookieBanner" class="cookie-banner">
+			<p><strong>Nowy update!</strong> na mbsp.com.pl. 
+			   <a href="https://mbspshop.wixsite.com/net-pl/post/lista-zmian-7-10-2024-du%C5%BCa-aktualizacja">Zobacz co nowego.</a>
+			</p>
+			<button id="acceptCookies" class="cookie-btn">Ok</button>
+		  </div>
 	</body>
 	<script src="assets/js/mb-search.js"></script>
 	<script>
@@ -215,4 +247,42 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 		  
 			gtag('config', 'G-VB7P0MQR2B');
 		  </script>
+		  <script>
+			const openPopupBtn = document.getElementById('openPopup');
+		const closePopupBtn = document.getElementById('closePopup');
+		const popup = document.getElementById('popup');
+		const overlay = document.getElementById('popupOverlay');
+		
+		// Otwieranie popupu
+		openPopupBtn.addEventListener('click', () => {
+		  popup.style.display = 'block';
+		  overlay.style.display = 'block';
+		  document.body.style.overflow = 'hidden';
+		});
+		
+		// Zamykanie popupu
+		closePopupBtn.addEventListener('click', () => {
+		  popup.style.display = 'none';
+		  overlay.style.display = 'none';
+		  document.body.style.overflow = 'auto';
+		});
+		
+		// Zamykanie po kliknięciu w tło (overlay)
+		overlay.addEventListener('click', () => {
+		  popup.style.display = 'none';
+		  overlay.style.display = 'none';
+		  document.body.style.overflow = 'auto';
+		});
+		
+		</script>
+		<script>
+			const cookieBanner = document.getElementById('cookieBanner');
+const acceptCookies = document.getElementById('acceptCookies');
+
+// Zamknięcie banera po kliknięciu w przycisk
+acceptCookies.addEventListener('click', () => {
+  cookieBanner.style.display = 'none';
+});
+
+		</script>
 </html>
