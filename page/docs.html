@@ -1,0 +1,2800 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MB&SP.com Docs</title>
+    <style>
+        /* Og�lny styl */
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2b2b2b;
+            color: #e2e2e2;
+        }
+
+        /* Menu */
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #023e75;
+            color: #ffffff;
+        }
+
+        .menu .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu .logo span {
+            font-weight: normal;
+            font-size: 16px;
+        }
+
+        .menu button {
+            padding: 10px 15px;
+            font-size: 14px;
+            background-color: #fff;
+            color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .menu button:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* G��wna sekcja */
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .search-bar input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+        
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        table th:hover {
+            background-color: #e0e0e0;
+        }
+
+        th {
+            color: black;
+        }
+
+        #loadMoreButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #loadMoreButton:hover {
+            background-color: #0056b3;
+        }
+
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .lightbox-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .lightbox-buttons button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .lightbox-buttons button#proceedButton {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .lightbox-buttons button#proceedButton:hover {
+            background-color: #0056b3;
+        }
+
+        .lightbox-buttons button#cancelButton {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .lightbox-buttons button#cancelButton:hover {
+            background-color: #d6d6d6;
+        }
+    </style>
+      <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+    <div id="lightbox" style="display: none;">
+        <div class="lightbox-content">
+            <p>To Cie przekieruje na zewn�trzn� stron�. Czy chcesz kontynuowa�?</p>
+            <div class="lightbox-buttons">
+                <button id="proceedButton">Przechodz� do arkusza</button>
+                <button id="cancelButton">Anuluj</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu">
+        <div class="logo">
+            <a href="http://mbsp.com.pl">
+                <img src="https://static.wixstatic.com/media/2ec6e0_82efa277b1224b29a02292382d190299~mv2.png/v1/crop/x_0,y_300,w_1920,h_460/fill/w_288,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/mb_logo_fullhd.png" width="200px"></a>
+            <span>Docs</span>
+        </div>
+        <button onclick="window.location.href='https://mbsp.com.pl/'">Zamów na mbsp.com.pl</button>
+    </div>
+
+    <!-- G��wna zawarto�� -->
+    <div class="container">
+        <h1>Wyszukiwarka dokumentacji</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Wpisz numer katalogowy, producenta lub parametry">
+        </div>
+        <div class="table-container">
+            <table id="docsTable">
+                <thead>
+                    <tr>
+                        <th>Arkusz danych</th>
+                        <th>Nr kat. MB&amp;SP.com</th>
+                        <th>Numer katalogowy</th>
+                        <th>Producent</th>
+                        <th>Opis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Przyk�adowe dane -->
+                    <tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/2N7002DW.pdf'>Arkusz danych</a><td>
+                            <td>2N7002DW-7-F</td>
+                            <td>Diodes Incorporated</td>
+                            <td>MOSFET 2N-CH 60V 0.23A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/20/SSM6N7002KFU.pdf'>Arkusz danych</a><td>
+                            <td>SSM6N7002KFU,LF</td>
+                            <td>Toshiba Semiconductor and Storage</td>
+                            <td>MOSFET 2N-CH 60V 0.3A US6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/2n7002dw-d.pdf'>Arkusz danych</a><td>
+                            <td>2N7002DW</td>
+                            <td>onsemi</td>
+                            <td>MOSFET 2N-CH 60V 0.115A SC88</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/ds30203.pdf'>Arkusz danych</a><td>
+                            <td>BSS138DW-7-F</td>
+                            <td>Diodes Incorporated</td>
+                            <td>MOSFET 2N-CH 50V 0.2A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/BSS138PS.pdf'>Arkusz danych</a><td>
+                            <td>BSS138PS,115</td>
+                            <td>Nexperia USA Inc.</td>
+                            <td>MOSFET 2N-CH 60V 0.32A 6TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/ntzd3154n-d.pdf'>Arkusz danych</a><td>
+                            <td>NTZD3154NT1G</td>
+                            <td>onsemi</td>
+                            <td>MOSFET 2N-CH 20V 0.54A SOT563</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/ntjd4001n-d.pdf'>Arkusz danych</a><td>
+                            <td>NTJD4001NT1G</td>
+                            <td>onsemi</td>
+                            <td>MOSFET 2N-CH 30V 0.25A SC88</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.wolfspeed.com/uploads/2024/01/Wolfspeed_CAB450M12XM3_data_sheet.pdf'>Arkusz danych</a><td>
+                            <td>CAB450M12XM3</td>
+                            <td>Wolfspeed, Inc.</td>
+                            <td>MOSFET 2N-CH 1200V 450A MODULE</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/fdmq86530l-d.pdf'>Arkusz danych</a><td>
+                            <td>FDMQ86530L</td>
+                            <td>onsemi</td>
+                            <td>MOSFET 4N-CH 60V 8A 12MLP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/fds9926a-d.pdf'>Arkusz danych</a><td>
+                            <td>FDS9926A</td>
+                            <td>onsemi</td>
+                            <td>MOSFET 2N-CH 20V 6.5A 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='http://www.infineon.com/dgdl/irf7341pbf.pdf?fileId=5546d462533600a4015355f64f031b63'>Arkusz danych</a><td>
+                            <td>IRF7341TRPBF</td>
+                            <td>Infineon Technologies</td>
+                            <td>MOSFET 2N-CH 55V 4.7A 8SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.digikey.com/htmldatasheets/production/1034359/0/0/1/ao4882.pdf'>Arkusz danych</a><td>
+                            <td>AO4882</td>
+                            <td>Alpha &amp; Omega Semiconductor Inc.</td>
+                            <td>MOSFET 2N-CH 40V 8A 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/DMC2400UV.pdf'>Arkusz danych</a><td>
+                            <td>DMC2400UV-7</td>
+                            <td>Diodes Incorporated</td>
+                            <td>MOSFET N/P-CH 20V SOT563</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.vishay.com/docs/64737/si9945bdy.pdf'>Arkusz danych</a><td>
+                            <td>SI9945BDY-T1-GE3</td>
+                            <td>Vishay Siliconix</td>
+                            <td>MOSFET 2N-CH 60V 5.3A 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.infineon.com/dgdl/irf7343pbf.pdf?fileId=5546d462533600a4015355f68c1a1b73'>Arkusz danych</a><td>
+                            <td>IRF7343TRPBF</td>
+                            <td>Infineon Technologies</td>
+                            <td>MOSFET N/P-CH 55V 4.7A/3.4A 8SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/BSS138BKS.pdf'>Arkusz danych</a><td>
+                            <td>BSS138BKS,115</td>
+                            <td>Nexperia USA Inc.</td>
+                            <td>MOSFET 2N-CH 60V 0.32A 6TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://toshiba.semicon-storage.com/info/SSM6L56FE_datasheet_en_20190801.pdf?did=66256&amp;prodName=SSM6L56FE'>Arkusz danych</a><td>
+                            <td>SSM6L56FE,LM</td>
+                            <td>Toshiba Semiconductor and Storage</td>
+                            <td>MOSFET N/P-CH 20V 0.8A ES6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.vishay.com/docs/73411/si4946be.pdf'>Arkusz danych</a><td>
+                            <td>SI4946BEY-T1-E3</td>
+                            <td>Vishay Siliconix</td>
+                            <td>MOSFET 2N-CH 60V 6.5A 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.rohm.com/datasheet?p=UM6K33N&amp;dist=Digi-key&amp;media=referral&amp;source=digi-key.com&amp;campaign=Digi-key'>Arkusz danych</a><td>
+                            <td>UM6K33NTN</td>
+                            <td>Rohm Semiconductor</td>
+                            <td>MOSFET 2N-CH 50V 0.2A UMT6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.infineon.com/dgdl/2N7002DW_Rev2.2_.pdf?folderId=db3a3043156fd573011622e10b5c1f67&amp;fileId=db3a30431a5c32f2011ad94ed41363f2'>Arkusz danych</a><td>
+                            <td>2N7002DWH6327XTSA1</td>
+                            <td>Infineon Technologies</td>
+                            <td>MOSFET 2N-CH 60V 0.3A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/DMG6601LVT.pdf'>Arkusz danych</a><td>
+                            <td>DMG6601LVT-7</td>
+                            <td>Diodes Incorporated</td>
+                            <td>MOSFET N/P-CH 30V 3.8A TSOT26</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.infineon.com/dgdl/BSD840N_Rev2.3_.pdf?folderId=db3a3043156fd573011622e10b5c1f67&amp;fileId=db3a30431b0626df011b12b4486c7c02'>Arkusz danych</a><td>
+                            <td>BSD840NH6327XTSA1</td>
+                            <td>Infineon Technologies</td>
+                            <td>MOSFET 2N-CH 20V 0.88A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/2N7002BKS.pdf'>Arkusz danych</a><td>
+                            <td>2N7002BKS,115</td>
+                            <td>Nexperia USA Inc.</td>
+                            <td>MOSFET 2N-CH 60V 0.3A 6TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.vishay.com/docs/65366/si7288dp.pdf'>Arkusz danych</a><td>
+                            <td>SI7288DP-T1-GE3</td>
+                            <td>Vishay Siliconix</td>
+                            <td>MOSFET 2N-CH 40V 20A PPAK SO8</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://source.z2data.com/2016/10/4/6/7/38/295/177643/dmg1029sv.pdf'>Arkusz danych</a><td>
+                            <td>DMG1029SV-7</td>
+                            <td>Diodes Incorporated</td>
+                            <td>MOSFET N/P-CH 60V 0.5A SOT563</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mbt3904dw1t1-d.pdf'>Arkusz danych</a><td>
+                            <td>MBT3904DW1T1G</td>
+                            <td>onsemi</td>
+                            <td>TRANS 2NPN 40V 0.2A SC88/SC70-6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/e4/fa/1c/16/4e/39/49/04/CD00000179.pdf/files/CD00000179.pdf/jcr:content/translations/en.CD00000179.pdf'>Arkusz danych</a><td>
+                            <td>ULN2804A</td>
+                            <td>STMicroelectronics</td>
+                            <td>TRANS 8NPN DARL 50V 0.5A 18DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mbt3946dw1t1-d.pdf'>Arkusz danych</a><td>
+                            <td>MBT3946DW1T1G</td>
+                            <td>onsemi</td>
+                            <td>TRAN NPN/PNP 40V 0.2A SC88/SC70</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/bc846bdw1t1-d.pdf'>Arkusz danych</a><td>
+                            <td>BC847BDW1T1G</td>
+                            <td>onsemi</td>
+                            <td>TRANS 2NPN 45V 0.1A SC88/SC70-6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mc1413-d.pdf'>Arkusz danych</a><td>
+                            <td>MC1413DR2G</td>
+                            <td>onsemi</td>
+                            <td>TRANS 7NPN DARL 50V 0.5A 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mmpq2222a-d.pdf'>Arkusz danych</a><td>
+                            <td>MMPQ2222A</td>
+                            <td>onsemi</td>
+                            <td>TRANS 4NPN 40V 0.5A 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mc1413-d.pdf'>Arkusz danych</a><td>
+                            <td>MC1413BDR2G</td>
+                            <td>onsemi</td>
+                            <td>TRANS 7NPN DARL 50V 0.5A 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mbt3906dw1t1-d.pdf'>Arkusz danych</a><td>
+                            <td>MBT3906DW1T1G</td>
+                            <td>onsemi</td>
+                            <td>TRANS 2PNP 40V 0.2A SC88/SC70-6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/BC847BS.pdf'>Arkusz danych</a><td>
+                            <td>BC847BS,115</td>
+                            <td>Nexperia USA Inc.</td>
+                            <td>TRANS 2NPN 45V 0.1A 6TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mbt2222adw1t1-d.pdf'>Arkusz danych</a><td>
+                            <td>MBT2222ADW1T1G</td>
+                            <td>onsemi</td>
+                            <td>TRANS 2NPN 40V 0.6A SC88/SC70-6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/DMMT3904W.pdf'>Arkusz danych</a><td>
+                            <td>DMMT3904W-7-F</td>
+                            <td>Diodes Incorporated</td>
+                            <td>TRANS 2NPN 40V 0.2A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='-'>Arkusz danych</a><td>
+                            <td>DMMT5401-7-F</td>
+                            <td>Diodes Incorporated</td>
+                            <td>TRANS 2PNP 150V 0.2A SOT26</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/bc846bpdw1t1-d.pdf'>Arkusz danych</a><td>
+                            <td>BC846BPDW1T1G</td>
+                            <td>onsemi</td>
+                            <td>TRAN NPN/PNP 65V 0.1A SC88/SC70</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/bc846bdw1t1-d.pdf'>Arkusz danych</a><td>
+                            <td>BC846BDW1T1G</td>
+                            <td>onsemi</td>
+                            <td>TRANS 2NPN 65V 0.1A SC88/SC70-6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/b8/3c/b5/48/9e/4b/40/e6/CD00000181.pdf/files/CD00000181.pdf/jcr:content/translations/en.CD00000181.pdf'>Arkusz danych</a><td>
+                            <td>ULQ2803A</td>
+                            <td>STMicroelectronics</td>
+                            <td>TRANS 8NPN DARL 50V 0.5A 18DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/4e/0b/ee/73/6a/08/48/a5/CD00000180.pdf/files/CD00000180.pdf/jcr:content/translations/en.CD00000180.pdf'>Arkusz danych</a><td>
+                            <td>ULQ2003D1013TR</td>
+                            <td>STMicroelectronics</td>
+                            <td>TRANS 7NPN DARL 50V 0.5A 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/BC847BPN.pdf'>Arkusz danych</a><td>
+                            <td>BC847BPN,115</td>
+                            <td>Nexperia USA Inc.</td>
+                            <td>TRANS NPN/PNP 45V 0.1A 6TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/4e/0b/ee/73/6a/08/48/a5/CD00000180.pdf/files/CD00000180.pdf/jcr:content/translations/en.CD00000180.pdf'>Arkusz danych</a><td>
+                            <td>ULQ2003A</td>
+                            <td>STMicroelectronics</td>
+                            <td>TRANS 7NPN DARL 50V 0.5A 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.analog.com/media/en/technical-documentation/data-sheets/MAT12.pdf'>Arkusz danych</a><td>
+                            <td>MAT12AHZ</td>
+                            <td>Analog Devices Inc.</td>
+                            <td>TRANS 2NPN 40V 0.02A TO78-6</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/ds30312.pdf'>Arkusz danych</a><td>
+                            <td>DMMT3906W-7-F</td>
+                            <td>Diodes Incorporated</td>
+                            <td>TRANS 2PNP 40V 0.2A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/BC846BPN.pdf'>Arkusz danych</a><td>
+                            <td>BC846BPN,115</td>
+                            <td>Nexperia USA Inc.</td>
+                            <td>TRANS NPN/PNP 65V 0.1A 6TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/ds30088.pdf'>Arkusz danych</a><td>
+                            <td>MMDT3904-7-F</td>
+                            <td>Diodes Incorporated</td>
+                            <td>TRANS 2NPN 40V 0.2A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/ffb3904-d.pdf'>Arkusz danych</a><td>
+                            <td>MMPQ3904</td>
+                            <td>onsemi</td>
+                            <td>TRANS 4NPN 40V 0.2A 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn75468'>Arkusz danych</a><td>
+                            <td>SN75468N</td>
+                            <td>Texas Instruments</td>
+                            <td>TRANS 7NPN DARL 100V 0.5A 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/ds30222.pdf'>Arkusz danych</a><td>
+                            <td>BC847BS-7-F</td>
+                            <td>Diodes Incorporated</td>
+                            <td>TRANS 2NPN 45V 0.1A SOT363</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://datasheets.maximintegrated.com/en/ds/MAX98357A-MAX98357B.pdf'>Arkusz danych</a><td>
+                            <td>MAX98357AETE+T</td>
+                            <td>Analog Devices Inc./Maxim Integrated</td>
+                            <td>IC AMP CLASS D MONO 3.2W 16TQFN</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm3886'>Arkusz danych</a><td>
+                            <td>LM3886T/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLSS AB MONO 68W TO220-11</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1020/IRS2092.pdf'>Arkusz danych</a><td>
+                            <td>IRS2092STRPBF</td>
+                            <td>Infineon Technologies</td>
+                            <td>IC AMP CLASS D MONO 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm3886'>Arkusz danych</a><td>
+                            <td>LM3886TF/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP AB MONO 68W TO220-11</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftpa3116d2'>Arkusz danych</a><td>
+                            <td>TPA3116D2DADR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS D STER 50W 32HTSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm386'>Arkusz danych</a><td>
+                            <td>LM386N-4/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS AB MONO 1W 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.analog.com/media/en/technical-documentation/data-sheets/MAX9814.pdf'>Arkusz danych</a><td>
+                            <td>MAX9814ETD+T</td>
+                            <td>Analog Devices Inc./Maxim Integrated</td>
+                            <td>IC AMP CLASS AB MONO 14TDFN</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm1875'>Arkusz danych</a><td>
+                            <td>LM1875T/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS AB MONO 25W TO220-5</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/4f/18/a6/c8/21/33/41/8d/CD00001887.pdf/files/CD00001887.pdf/jcr:content/translations/en.CD00001887.pdf'>Arkusz danych</a><td>
+                            <td>TDA7293V</td>
+                            <td>STMicroelectronics</td>
+                            <td>IC AMP AB MONO 100W 15MULTIWATT</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm386'>Arkusz danych</a><td>
+                            <td>LM386N-1/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS AB MONO 325MW 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm386'>Arkusz danych</a><td>
+                            <td>LM386MX-1/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS AB MONO 325MW 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.diodes.com/assets/Datasheets/PAM8302A.pdf'>Arkusz danych</a><td>
+                            <td>PAM8302AASCR</td>
+                            <td>Diodes Incorporated</td>
+                            <td>IC AMP CLASS D MONO 2.5W 8MSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/ab/d6/fa/99/84/36/49/ee/CD00000017.pdf/files/CD00000017.pdf/jcr:content/translations/en.CD00000017.pdf'>Arkusz danych</a><td>
+                            <td>TDA7294V</td>
+                            <td>STMicroelectronics</td>
+                            <td>IC AMP AB MONO 100W 15MULTIWATT</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.analog.com/media/en/technical-documentation/data-sheets/max9791-max9792.pdf'>Arkusz danych</a><td>
+                            <td>MAX9791BETI+</td>
+                            <td>Analog Devices Inc./Maxim Integrated</td>
+                            <td>IC AMP CLASS D STER 2.2W 28TQFN</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/3d/05/8a/ee/2f/3d/45/f7/CD00179160.pdf/files/CD00179160.pdf/jcr:content/translations/en.CD00179160.pdf'>Arkusz danych</a><td>
+                            <td>TDA7388</td>
+                            <td>STMicroelectronics</td>
+                            <td>IC AMP AB QUAD 41W 25FLEXIWATT</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm386'>Arkusz danych</a><td>
+                            <td>LM386M-1/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS AB MONO 325MW 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm3886'>Arkusz danych</a><td>
+                            <td>LM3886TF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP AB MONO 68W TO220-11</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm386'>Arkusz danych</a><td>
+                            <td>LM386N-3/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS AB MONO 700MW 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.infineon.com/dgdl/irs20957spbf.pdf?fileId=5546d462533600a401535676143e2799'>Arkusz danych</a><td>
+                            <td>IRS20957STRPBF</td>
+                            <td>Infineon Technologies</td>
+                            <td>IC AMP CLASS D MONO 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftpa3111d1'>Arkusz danych</a><td>
+                            <td>TPA3111D1PWPR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS D MONO 10W 28HTSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://datasheets.maximintegrated.com/en/ds/MAX98357A-MAX98357B.pdf'>Arkusz danych</a><td>
+                            <td>MAX98357AEWL+T</td>
+                            <td>Analog Devices Inc./Maxim Integrated</td>
+                            <td>IC AMP CLASS D MONO 3.2W 9WLP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.nxp.com/docs/en/data-sheet/TDA8954.pdf'>Arkusz danych</a><td>
+                            <td>TDA8954TH/N1,118</td>
+                            <td>NXP USA Inc.</td>
+                            <td>IC AMP D MONO/STEREO 420W 24HSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftpa3255'>Arkusz danych</a><td>
+                            <td>TPA3255DDVR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLSS D STER 315W 44HTSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftpa3110d2'>Arkusz danych</a><td>
+                            <td>TPA3110D2PWPR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS D STER 15W 28HTSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftpa3118d2'>Arkusz danych</a><td>
+                            <td>TPA3118D2DAPR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AMP CLASS D STER 30W 32HTSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm358'>Arkusz danych</a><td>
+                            <td>LM358P</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm224'>Arkusz danych</a><td>
+                            <td>LM324N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 4 CIRCUIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1172/LM741_Series_Rev_July_2016.pdf'>Arkusz danych</a><td>
+                            <td>LM741CN/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 1 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm358'>Arkusz danych</a><td>
+                            <td>LM358DR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.st.com/content/ccc/resource/technical/document/datasheet/61/46/87/01/98/ed/44/c5/CD00000464.pdf/files/CD00000464.pdf/jcr:content/translations/en.CD00000464.pdf'>Arkusz danych</a><td>
+                            <td>LM358DT</td>
+                            <td>STMicroelectronics</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf'>Arkusz danych</a><td>
+                            <td>MCP6001T-I/OT</td>
+                            <td>Microchip Technology</td>
+                            <td>IC OPAMP GP 1 CIRCUIT SOT23-5</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.analog.com/media/en/technical-documentation/data-sheets/AD620.pdf'>Arkusz danych</a><td>
+                            <td>AD620ANZ</td>
+                            <td>Analog Devices Inc.</td>
+                            <td>IC INST AMP 1 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fua741'>Arkusz danych</a><td>
+                            <td>UA741CP</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 1 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fina180'>Arkusz danych</a><td>
+                            <td>INA180A2IDBVR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC CURR SENSE 1 CIRCUIT SOT23-5</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fina333'>Arkusz danych</a><td>
+                            <td>INA333AIDGKR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC INST AMP 1 CIRCUIT 8VSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/tl071.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&amp;ts=1721694323530'>Arkusz danych</a><td>
+                            <td>TL072CP</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP JFET 2 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fopa134'>Arkusz danych</a><td>
+                            <td>OPA2134PA</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AUDIO 2 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftl084'>Arkusz danych</a><td>
+                            <td>TL084CN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP JFET 4 CIRCUIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fne5532'>Arkusz danych</a><td>
+                            <td>NE5532P</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.analog.com/media/en/technical-documentation/data-sheets/AD8605_8606_8608.pdf'>Arkusz danych</a><td>
+                            <td>AD8605ARTZ-REEL7</td>
+                            <td>Analog Devices Inc.</td>
+                            <td>IC OPAMP GP 1 CIRCUIT SOT23-5</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/snas326k/snas326k.pdf'>Arkusz danych</a><td>
+                            <td>LM4562NA/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC AUDIO 2 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://ww1.microchip.com/downloads/en/DeviceDoc/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf'>Arkusz danych</a><td>
+                            <td>MCP6002-I/SN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fbuf634a'>Arkusz danych</a><td>
+                            <td>BUF634AIDR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 1 CIRCUIT 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm224'>Arkusz danych</a><td>
+                            <td>LM324ADR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 4 CIRCUIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm358'>Arkusz danych</a><td>
+                            <td>LM358ADR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hsbslfymvc/slos263w.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>LMV321IDBVR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 1 CIRCUIT SOT23-5</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fopa192'>Arkusz danych</a><td>
+                            <td>OPA192IDBVR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 1 CIRCUIT SOT23-5</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm158-n'>Arkusz danych</a><td>
+                            <td>LM358N/NOPB</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Flm2904v'>Arkusz danych</a><td>
+                            <td>LM2904DR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 2 CIRCUIT 8SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Flm224'>Arkusz danych</a><td>
+                            <td>LM324DR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC OPAMP GP 4 CIRCUIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4027b'>Arkusz danych</a><td>
+                            <td>CD4027BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF JK TYPE DUAL 1BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4027b'>Arkusz danych</a><td>
+                            <td>CD4027BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF JK TYPE DUAL 1BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1109/CD4013BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4013BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40175b'>Arkusz danych</a><td>
+                            <td>CD40175BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE SNGL 4BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40174b'>Arkusz danych</a><td>
+                            <td>CD40174BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE SNGL 6BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14SOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1109/CD4013BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4013BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4027b'>Arkusz danych</a><td>
+                            <td>CD4027BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF JK TYPE DUAL 1BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4027b'>Arkusz danych</a><td>
+                            <td>CD4027BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF JK TYPE DUAL 1BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4076b'>Arkusz danych</a><td>
+                            <td>CD4076BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE SNGL 4BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1109/CD4013BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4013BCMX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40174b'>Arkusz danych</a><td>
+                            <td>CD40174BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE SNGL 6BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4013b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4013BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BM96G4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/7ke4hkn5s0/CD4095B-CD4096B.pdf?t.download=true&amp;u=ovmfp3'>Arkusz danych</a><td>
+                            <td>CD4096BF3</td>
+                            <td>Texas Instruments</td>
+                            <td>CMOS GATED J-K MASTER-SLAVE FLIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/plis3jqajd/RCASS00210-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4013AF/3</td>
+                            <td>Texas Instruments</td>
+                            <td>CMOS DUAL D-TYPE FLIP-FLOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4013b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4013BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40175b'>Arkusz danych</a><td>
+                            <td>CD40175BPWG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE SNGL 4BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4013b'>Arkusz danych</a><td>
+                            <td>CD4013BMT</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF D-TYPE DUAL 1BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4027b'>Arkusz danych</a><td>
+                            <td>CD4027BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC FF JK TYPE DUAL 1BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4051BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4066b.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&amp;ts=1715152610882&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd4066b'>Arkusz danych</a><td>
+                            <td>CD4066BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC QUAD BILATERAL SWITCH 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4066b.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&amp;ts=1715152610882&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd4066b'>Arkusz danych</a><td>
+                            <td>CD4066BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC QUAD BILATERAL SWITCH 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4051BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4053BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SPDT X 3 240OHM 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4052BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SP4T X 2 240OHM 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4052b'>Arkusz danych</a><td>
+                            <td>CD4052BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SP4T X 2 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4051BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4053BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SPDT X 3 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4052b'>Arkusz danych</a><td>
+                            <td>CD4052BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SP4TX2 240OHM 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4067b'>Arkusz danych</a><td>
+                            <td>CD4067BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 16:1 240OHM 24SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4051BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4066b.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&amp;ts=1715152610882&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd4066b'>Arkusz danych</a><td>
+                            <td>CD4066BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC QUAD BILATERAL SWITCH 14TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4066b.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&amp;ts=1715152610882&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd4066b'>Arkusz danych</a><td>
+                            <td>CD4066BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC QUAD BILATERAL SWITCH 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4053BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SPDTX3 240OHM 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4067b'>Arkusz danych</a><td>
+                            <td>CD4067BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 16:1 240OHM 24TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4067b'>Arkusz danych</a><td>
+                            <td>CD4067BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 16:1 240OHM 24DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4052b'>Arkusz danych</a><td>
+                            <td>CD4052BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SP4T X 2 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4053BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC SWITCH SPDT X 3 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1092/CD4066BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4066BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC QUAD BILATERAL SWITCH 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4067b'>Arkusz danych</a><td>
+                            <td>CD4097BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX DUAL 8:1 240OHM 24SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/906/CD4051BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4051BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b-q1'>Arkusz danych</a><td>
+                            <td>CD4051BQPWRQ1</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4051BM96G3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4051b'>Arkusz danych</a><td>
+                            <td>CD4051BMT</td>
+                            <td>Texas Instruments</td>
+                            <td>IC MUX 8:1 240OHM 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4026BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4040BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4020BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40110b'>Arkusz danych</a><td>
+                            <td>CD40110BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/nmdurw4lvs/cd4017b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4040BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4059a'>Arkusz danych</a><td>
+                            <td>CD4059AM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4024b'>Arkusz danych</a><td>
+                            <td>CD4024BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4040BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4020BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4026BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4022BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4033BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40193BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4020BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4040BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.laird.com/document/pmbu-doc-000015495'>Arkusz danych</a><td>
+                            <td>CD4060BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2406/CD4017BC%2C%20CD4022BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4017BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/561/CD4060BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4060BCMX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2406/CD4017BC%2C%20CD4022BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4017BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40161b'>Arkusz danych</a><td>
+                            <td>CD40161BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40192BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BMT</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40102BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BCD COUNTER DUAL 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/836/CD4040.pdf'>Arkusz danych</a><td>
+                            <td>CD4040BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4026BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/jrtwtuuxua/RCASS00678-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017BD/3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40193b'>Arkusz danych</a><td>
+                            <td>CD40193BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/561/CD4060BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4060BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40192BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4045b'>Arkusz danych</a><td>
+                            <td>CD4045BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 21-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/wusetf6sqj/cd4020b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>JM38510/05653BEA</td>
+                            <td>Texas Instruments</td>
+                            <td>CD4020B-MIL CMOS 14-STAGE RIPPLE</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4040BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4022BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1132/CD4024BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4024BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14MDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4022BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4040BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BM96G4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BM96E4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40161b'>Arkusz danych</a><td>
+                            <td>CD40161BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40161b'>Arkusz danych</a><td>
+                            <td>CD40161BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4040BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4060b.pdf'>Arkusz danych</a><td>
+                            <td>CD4060BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/tlgk9oygv2/FAIRS16767-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017BCSJ</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16SOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/utyzvtjckk/HRISS503-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4024BM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4022b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4017BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4060b.pdf'>Arkusz danych</a><td>
+                            <td>CD4060BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BMG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1036/CD4020BC_4040BC_4060BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4020BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4022BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4024BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4059a'>Arkusz danych</a><td>
+                            <td>CD4059AE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/dyaaib1snd/INSLS11302-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4026BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4017BMG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40102BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BCD COUNTER DL 4BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4020BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4026BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4033BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4024BFX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/nmdurw4lvs/cd4017b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4022BE</td>
+                            <td>Texas Instruments</td>
+                            <td>CD4022B CMOS OCTAL COUNTER WITH</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4022b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4017BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1036/CD4020BC_4040BC_4060BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4020BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40193BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40163BD</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd40103b.pdf'>Arkusz danych</a><td>
+                            <td>CD40103BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/ydrot04lkh/cd40192b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40193BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BMT</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/no5w1eyksd/FAIRS32295-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4020BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4033BD</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4060b.pdf'>Arkusz danych</a><td>
+                            <td>CD4060BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd40103b.pdf'>Arkusz danych</a><td>
+                            <td>CD40103BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/wdfg9m2c5o/CD40175B.pdf?t.download=true&amp;u=ovmfp3'>Arkusz danych</a><td>
+                            <td>CD40175BF3</td>
+                            <td>Texas Instruments</td>
+                            <td>CMOS DECADE COUNTER WITH 10 DECO</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/4288/CD4060BM.pdf'>Arkusz danych</a><td>
+                            <td>CD4060BMW-MIL</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4026BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BPWRE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1132/CD4024BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4024BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.laird.com/document/pmbu-doc-000015495'>Arkusz danych</a><td>
+                            <td>CD4029BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/vocygo00bb/FAIRS24802-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4040BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/y0exw1ua0d/FAIRS16899-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4029BCWMX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/d5fql51yp2/RCASS00218-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017AF/3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017BD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40102BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BCD COUNTER DL 4BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4040BPWRG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2406/CD4017BC%2C%20CD4022BC.pdf'>Arkusz danych</a><td>
+                            <td>CD4022BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4059a-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4059AD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BMT</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BMT</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4022BFX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/u7ohjlv4a2/FAIRS16897-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4024BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4029b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4029BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd40160b.pdf'>Arkusz danych</a><td>
+                            <td>CD40160BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4020BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4022b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4017BE-P2</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40102BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BCD COUNTER DUAL 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/1w2ezbukrt/cd4045b.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4045BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 21-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/l6kila10ul/FAIRS16754-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4040BCSJX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16SOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4040BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/lcwlczsxwh/INSLS11658-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4060BK</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/gdferi5dej/cd40160b.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40161BNS</td>
+                            <td>Texas Instruments</td>
+                            <td>PROGRAMMABLE 4-BIT COUNTER</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/7cu5l1gqvm/cd40102b.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40102BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BCD COUNTER DUAL 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4020BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4018BD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BPWRG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/836/CD4040.pdf'>Arkusz danych</a><td>
+                            <td>CD4040BCMX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BME4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4059a'>Arkusz danych</a><td>
+                            <td>CD4059AM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/890/CD40193BC.pdf'>Arkusz danych</a><td>
+                            <td>CD40193BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/836/CD4040.pdf'>Arkusz danych</a><td>
+                            <td>CD4040BCM</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/nmdurw4lvs/cd4017b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4022BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/ydrot04lkh/cd40192b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40192BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4022BF3</td>
+                            <td>Texas Instruments</td>
+                            <td>CMOS COUNTER/DIVIDER</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40103BD</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='-'>Arkusz danych</a><td>
+                            <td>CD4020AF3</td>
+                            <td>Texas Instruments</td>
+                            <td>CMOS 14-STAGE BINARY RIPPLE COUN</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/diwpy3wrgj/cd4018b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4018BF</td>
+                            <td>Texas Instruments</td>
+                            <td>CD4018B-MIL CMOS PRESETTABLE DIV</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4020BPWE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4029b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4029BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4033BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4024BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/wusetf6sqj/cd4020b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4040BNS</td>
+                            <td>Texas Instruments</td>
+                            <td>IC 12BIT BIN RIPPL COUNTER 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4020BNS</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4024AD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4020BK</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/kthk18xuxv/cd4029b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>8101602EA</td>
+                            <td>Texas Instruments</td>
+                            <td>CD4029B-MIL CMOS PRESETTABLE UP/</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2343/CD4045B.pdf'>Arkusz danych</a><td>
+                            <td>CD4045BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 21BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4020BNSRG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4018b'>Arkusz danych</a><td>
+                            <td>CD4018BPWE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40193BNSRE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4022BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40161b'>Arkusz danych</a><td>
+                            <td>CD40161BPWE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BPWE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd40103b.pdf'>Arkusz danych</a><td>
+                            <td>CD40103BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4059a'>Arkusz danych</a><td>
+                            <td>CD4059AM96E4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='-'>Arkusz danych</a><td>
+                            <td>CD4024BKMSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7BIT 14CFLTPK</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd40192b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD40192BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BCD COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd40192b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD40193BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/kthk18xuxv/cd4029b-mil.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4029BNS</td>
+                            <td>Texas Instruments</td>
+                            <td>CMOS PRESETTABLE UP/DOWN COUNTER</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40102BEX</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BCD COUNTER DUAL 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40193BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/4n6f4yrppu/RCASS00676-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4026BF/3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/dyaaib1snd/INSLS11302-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4026BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/6qd43h3oxp/INSLS12643-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4045BF</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 21-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4020BK3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/lcwlczsxwh/INSLS11658-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017AK</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4060b'>Arkusz danych</a><td>
+                            <td>CD4060BM96G4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BNSRG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4059a'>Arkusz danych</a><td>
+                            <td>CD4059AMG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='-'>Arkusz danych</a><td>
+                            <td>CD4024BHSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT DIE</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/w9umsanu48/CD4026A-CD4033A.pdf?t.download=true&amp;u=ovmfp3'>Arkusz danych</a><td>
+                            <td>CD4026AF/3</td>
+                            <td>Texas Instruments</td>
+                            <td>DECADE COUNTERS/DIVIDERS</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40193BD</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4029BD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/glv9xzyd5w/NATLS16802-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4018BMJ-MIL</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 5-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/lcwlczsxwh/INSLS11658-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4060AK3</td>
+                            <td>Texas Instruments</td>
+                            <td>14-STAGEBINARYCOUNTER</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40192BPWRE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40192BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40161b'>Arkusz danych</a><td>
+                            <td>CD40161BPWG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4017b'>Arkusz danych</a><td>
+                            <td>CD4022BNSRE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4020BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 14-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4020b'>Arkusz danych</a><td>
+                            <td>CD4024BMG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2458/CD40192BC%2C%20CD40193BC.pdf'>Arkusz danych</a><td>
+                            <td>CD40192BCN</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4033BNSRE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4059a'>Arkusz danych</a><td>
+                            <td>CD4059AM96G4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4059a'>Arkusz danych</a><td>
+                            <td>CD4059AEG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DIVIDER BY N 16-BIT 24DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4022b-mil.pdf'>Arkusz danych</a><td>
+                            <td>CD4022BF3A</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40161BD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4022BD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/3bzn0px40i/CD4020B-CD4024B-CD4040B.pdf?t.download=true&amp;u=ovmfp3'>Arkusz danych</a><td>
+                            <td>CD4024BK352353</td>
+                            <td>Texas Instruments</td>
+                            <td>CMOS 7-STAGE BINARY RIPPLE COUNT</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017BK3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/ffa2zz94j4/CD40192B-CD40193B.pdf?t.download=true&amp;u=ovmfp3'>Arkusz danych</a><td>
+                            <td>CD40193BK3</td>
+                            <td>Texas Instruments</td>
+                            <td>PRESETTABLE UP/DOWN COUNTER</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4024AK3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 7-BIT 14CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BPWG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40192b'>Arkusz danych</a><td>
+                            <td>CD40192BPWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4029b'>Arkusz danych</a><td>
+                            <td>CD4029BEG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BPWRE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BPWRG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40102b'>Arkusz danych</a><td>
+                            <td>CD40103BEG4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD40103BD3</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 8-BIT 16CDIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/lcwlczsxwh/INSLS11658-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4018AK</td>
+                            <td>Texas Instruments</td>
+                            <td>PRESETTABLE DIVIDE-BY-N COUNTER</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4017BK</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 10BIT 16CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/hldu1fv9s2/HRISS057-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD4029BK</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16CFP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd40161b'>Arkusz danych</a><td>
+                            <td>CD40161BPW</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 4-BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/cd4020b.pdf'>Arkusz danych</a><td>
+                            <td>CD4040BEE4</td>
+                            <td>Texas Instruments</td>
+                            <td>IC BINARY COUNTER 12-BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4026b'>Arkusz danych</a><td>
+                            <td>CD4033BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC DECADE COUNTER 5-BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/kek1lz192q/RSEL-S-A0000197371-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>ICM7213IPD</td>
+                            <td>Texas Instruments</td>
+                            <td>TIME BASE GENERATOR CMOS PDIP14</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74hc280'>Arkusz danych</a><td>
+                            <td>CD74HC280M96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/74HC_HCT280.pdf'>Arkusz danych</a><td>
+                            <td>74HCT280D,653</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='-'>Arkusz danych</a><td>
+                            <td>RO-3-2513</td>
+                            <td>Texas Instruments</td>
+                            <td>CHARACTER GENERATOR</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/sdls071/sdls071.pdf'>Arkusz danych</a><td>
+                            <td>SN74180N</td>
+                            <td>Texas Instruments</td>
+                            <td>PARITY GENERATOR/CHECKER, 8-BIT,</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74hc280'>Arkusz danych</a><td>
+                            <td>CD74HC280E</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74f280b'>Arkusz danych</a><td>
+                            <td>SN74F280BNSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/74HC_HCT280.pdf'>Arkusz danych</a><td>
+                            <td>74HC280D,653</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/pvxid7aoef/sn54ls280.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>SN54LS280J</td>
+                            <td>Texas Instruments</td>
+                            <td>54LS280 9-BIT ODD/EVEN PARITY GE</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2243/SN54%28LS%2CS%29280.pdf'>Arkusz danych</a><td>
+                            <td>SN74LS280N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74hc280'>Arkusz danych</a><td>
+                            <td>CD74HC280MT</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74f280b'>Arkusz danych</a><td>
+                            <td>SN74F280BD</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74f280b'>Arkusz danych</a><td>
+                            <td>SN74F280BDR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2243/SN54%28LS%2CS%29280.pdf'>Arkusz danych</a><td>
+                            <td>SN74S280N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/sn74as280.pdf'>Arkusz danych</a><td>
+                            <td>SN74AS280N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/l16nxdubi2/MOTOS04295-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>MC74F182N</td>
+                            <td>Texas Instruments</td>
+                            <td>LOOK-AHEAD CARRY GENERATOR, F/FA</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74act280'>Arkusz danych</a><td>
+                            <td>CD74ACT280M96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74act280'>Arkusz danych</a><td>
+                            <td>CD74AC280M</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74ls280'>Arkusz danych</a><td>
+                            <td>SN74LS280D</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/v9v5swp2ji/TXII-S-A0001282974-1.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>SNJ54LS280FK</td>
+                            <td>Texas Instruments</td>
+                            <td>PARITY GENERATOR/CHECKER, 9-BIT</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/sn74as280.pdf'>Arkusz danych</a><td>
+                            <td>SN74AS280NSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74act280'>Arkusz danych</a><td>
+                            <td>CD74AC280E</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74act280'>Arkusz danych</a><td>
+                            <td>CD74AC280M96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='//mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1097/CY54%2C74FCT480T.pdf'>Arkusz danych</a><td>
+                            <td>CY74FCT480BTPC</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 8-BIT 24DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74hc280'>Arkusz danych</a><td>
+                            <td>CD74HCT280E</td>
+                            <td>Texas Instruments</td>
+                            <td>IC PARITY GEN/CHKER 9-BIT 14DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/74HC_HCT85.pdf'>Arkusz danych</a><td>
+                            <td>74HC85PW,118</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74ls85'>Arkusz danych</a><td>
+                            <td>SN74LS85N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/sn74hc688.pdf'>Arkusz danych</a><td>
+                            <td>SN74HC688PWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 20TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74hc85'>Arkusz danych</a><td>
+                            <td>CD74HC85E</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://rocelec.widen.net/view/pdf/sfv2yam16o/schs196c.pdf?t.download=true&amp;u=5oefqw'>Arkusz danych</a><td>
+                            <td>CD74HCT688M96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4585b'>Arkusz danych</a><td>
+                            <td>CD4585BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/74HC_HCT85.pdf'>Arkusz danych</a><td>
+                            <td>74HC85D,653</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74ls682'>Arkusz danych</a><td>
+                            <td>SN74LS682N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 8BIT 20DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4063b'>Arkusz danych</a><td>
+                            <td>CD4063BE</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74ls682'>Arkusz danych</a><td>
+                            <td>SN74LS688N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd74hc688'>Arkusz danych</a><td>
+                            <td>CD74HCT688E</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/74HC688.pdf'>Arkusz danych</a><td>
+                            <td>74HC688D,653</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8BIT 20SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/sn74hc688.pdf'>Arkusz danych</a><td>
+                            <td>SN74HC688DWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/lit/ds/symlink/sn74hc688.pdf'>Arkusz danych</a><td>
+                            <td>SN74HC688N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74f521'>Arkusz danych</a><td>
+                            <td>SN74F521N</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20DIP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74hc85'>Arkusz danych</a><td>
+                            <td>CD74HC85M96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.onsemi.com/pdf/datasheet/mc14585b-d.pdf'>Arkusz danych</a><td>
+                            <td>MC14585BDR2G</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74ls682'>Arkusz danych</a><td>
+                            <td>SN74LS688DWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd74hc85'>Arkusz danych</a><td>
+                            <td>CD74HC85PWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://assets.nexperia.com/documents/data-sheet/74HC688.pdf'>Arkusz danych</a><td>
+                            <td>74HC688PW,118</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 20TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.renesas.com/us/en/document/dst/upc271-311-datasheet?r=502151'>Arkusz danych</a><td>
+                            <td>UPC311G2-E1-A</td>
+                            <td>Texas Instruments</td>
+                            <td>LINEAR IC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd74hc688'>Arkusz danych</a><td>
+                            <td>CD74HC688PWR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 20TSSOP</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fcd4063b'>Arkusz danych</a><td>
+                            <td>CD4063BM96</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR MAG 4BIT 16SOIC</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd74hc688'>Arkusz danych</a><td>
+                            <td>CD74HC688NSR</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8BIT 20SO</td>
+                        </tr>
+                        <tr>
+							<td><a href='https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fcd74hc688'>Arkusz danych</a><td>
+                            <td>CD74HCT688M</td>
+                            <td>Texas Instruments</td>
+                            <td>IC COMPARATOR IDENTITY 8B 20SOIC</td>
+                        </tr>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="loadMoreButton">Wczytaj więcej</button>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("searchInput");
+    const docsTable = document.getElementById("docsTable").getElementsByTagName("tbody")[0];
+    const rows = Array.from(docsTable.rows);
+    const loadMoreButton = document.getElementById("loadMoreButton");
+
+    const maxResults = 40; // Maksymalna liczba wynik�w na stron�
+    let visibleRows = [];
+    let currentVisibleCount = 0;
+    let typingTimer; // Timer dla op�nienia
+
+    // Funkcja do filtrowania wierszy na podstawie tekstu w polu wyszukiwania
+    function filterRows() {
+        const query = searchInput.value.toLowerCase(); // Tekst wprowadzony przez u�ytkownika
+        currentVisibleCount = 0; // Reset liczby wy�wietlanych wynik�w
+
+        // Filtruj wiersze na podstawie zawarto�ci
+        visibleRows = rows.filter(row => {
+            return Array.from(row.cells).some(cell =>
+                cell.textContent.toLowerCase().includes(query)
+            );
+        });
+
+        updateTable(); // Zaktualizuj tabel�
+    }
+
+    // Funkcja do aktualizowania widocznych wierszy tabeli
+    function updateTable() {
+        docsTable.innerHTML = ""; // Wyczy�� widoczne wiersze
+        const rowsToShow = visibleRows.slice(0, currentVisibleCount + maxResults); // Pobierz wiersze do wy�wietlenia
+
+        rowsToShow.forEach(row => docsTable.appendChild(row)); // Dodaj widoczne wiersze
+        currentVisibleCount = rowsToShow.length; // Zaktualizuj licznik widocznych wierszy
+
+        // Poka�/ukryj przycisk "Wczytaj wi�cej"
+        loadMoreButton.style.display =
+            currentVisibleCount < visibleRows.length ? "block" : "none";
+    }
+
+    // Funkcja do �adowania kolejnych wierszy po klikni�ciu "Wczytaj wi�cej"
+    function loadMore() {
+        currentVisibleCount += maxResults; // Zwi�ksz liczb� widocznych wierszy
+        updateTable(); // Zaktualizuj tabel�
+    }
+
+    // Nas�uchiwanie zdarze�
+    searchInput.addEventListener("input", () => {
+        // Wyczy�� poprzedni timer
+        clearTimeout(typingTimer);
+
+        // Ustaw nowy timer
+        typingTimer = setTimeout(() => {
+            filterRows(); // Uruchom filtrowanie po op�nieniu
+        }, 300); // Op�nienie 300ms
+    });
+
+    loadMoreButton.addEventListener("click", loadMore); // Obs�uga przycisku "Wczytaj wi�cej"
+
+    // Wy�wietl wszystkie wiersze na pocz�tku
+    visibleRows = rows;
+    updateTable();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Pobierz wszystkie linki w tabeli
+    const links = document.querySelectorAll("#docsTable a");
+
+    // Dodaj atrybut target="_blank" do każdego linku
+    links.forEach(function(link) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer"); // Dodanie bezpieczeństwa
+    });
+});
+
+
+
+    </script>
+</body>
+</html>
