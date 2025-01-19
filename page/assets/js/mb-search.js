@@ -1,23 +1,38 @@
 let searchBox = document.querySelector('.searchBox');
 let searchBtn = document.querySelector('.btn-redirect-g');
-var dark_theme = document.getElementById("dark-theme-button");
-var element = document.body;
+let categorySelect = document.querySelector('#category');
 
-
-searchBtn.onclick = function() {
-    let url = 'https://mbspshop.wixsite.com/net-pl/search?q='+searchBox.value;
+searchBtn.onclick = function () {
+    let query = searchBox.value.trim(); // Pobiera wartość wpisaną w polu wyszukiwania
+    let selectedCategory = categorySelect.value; // Pobiera wartość wybranej kategorii
+    
+    // Budowanie URL
+    let url = 'https://mbspshop.wixsite.com/net-pl/search?q=' + encodeURIComponent(query);
+    
+    if (selectedCategory !== 'all') {
+        url += '&collections=' + encodeURIComponent(selectedCategory);
+    }
+    
+    // Otwórz w nowej karcie
     window.open(url);
 }
 
-
-
-
+// Obsługa naciśnięcia Enter
 document.querySelector('.searchBox').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        let url = 'https://mbspshop.wixsite.com/net-pl/search?q='+searchBox.value;
+        let query = searchBox.value.trim();
+        let selectedCategory = categorySelect.value;
+        
+        let url = 'https://mbspshop.wixsite.com/net-pl/search?q=' + encodeURIComponent(query);
+        
+        if (selectedCategory !== 'all') {
+            url += '&collections=' + encodeURIComponent(selectedCategory);
+        }
+        
         window.open(url);
     }
 });
+
 
 
 dark_theme.onclick = function() {
