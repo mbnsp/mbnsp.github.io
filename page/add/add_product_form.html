@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj produkt - formularz dodawania produktu - MB&SP.com</title>
+    <link rel = "stylesheet" href = "style.css" type="text/css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+</head>
+		<!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VB7P0MQR2B"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-VB7P0MQR2B');
+        </script>
+<body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); body { font-family: 'Ubuntu', sans-serif; margin: 0; padding: 0; background-color: #e6e4e4; } h1 { text-align: center; color: #333; } form { background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 40%; margin: 0 auto 20px; } form label { box-sizing: border-box; font-weight: 600; display: block; margin: 10px 0; } form input, form textarea, form select { width: 100%; padding: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; margin-right: 50px; font-family: 'Ubuntu', sans-serif; } form input[type="checkbox"] { width: auto; margin-right: 10px; } form .button-container { display: flex; justify-content: space-between; } button { background-color: #0050a7; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-family: 'Ubuntu', sans-serif; font-size: 16px; } button:hover { background-color: #0056b3; } table { width: 90%; border-collapse: collapse; margin-top: 20px; margin-left: 20px; background: #fff; } table th, table td { border: 1px solid #ccc; padding: 10px; text-align: left; } table th { background-color: #f0f0f0; } .menu { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #023e75; color: #ffffff; } .menu .logo { font-size: 20px; font-weight: bold; } .menu .logo span { font-weight: normal; font-size: 16px; } .menu button { padding: 10px 15px; font-size: 14px; background-color: #fff; color: #007bff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s; } .menu button:hover { background-color: #e0e0e0; }
+
+    /* Lightbox background */ #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; } #lightbox-3 { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; } /* Lightbox content */ .lightbox-content { background: #fff; padding: 20px 30px; border-radius: 8px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); } .lightbox-content h2 { color: #007bff; font-size: 20px; margin-bottom: 15px; } .lightbox-content ul { text-align: left; margin: 10px 0; padding-left: 20px; font-size: 14px; color: #333; } .lightbox-content ul li { margin-bottom: 10px; } /*Polityka prywatności*/ .privacyPolicy { letter-spacing: -0.4px; line-height: 10px; margin-bottom: 10px; } .preview { background: #fff; padding: 10px; margin-bottom: 20px; border-radius: 8px; border-color: #0050a7; border-width: 1px; box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1); width: 55%; } .preview h2 { font-size: 20px; color: #333; } .preview p { color: #666; } .preview .price { font-size: 24px; font-weight: bold; color: #007bff; } .preview table { width: 100%; border-collapse: collapse; margin-top: 20px; } .preview table th, .preview table td { border: 1px solid #ccc; padding: 10px; text-align: left; } .preview table th { background-color: #f0f0f0; } .main-thing { display: flex; flex-direction: row; margin-bottom: 30px; margin-left: 10px; margin-right: 10px; } #previewName { font-size: 28px; } #infoMBCommunity { font-size: 10px; } a { font-size: 16px; text-decoration: none; color: #333; } a:hover { text-decoration: underline; color: #0050a7; transition: 0.5s; }
+
+    /* Footer Styling */
+    
+    footer { background-color: #000; color: #fff; padding: 40px 20px; margin-top: 30px; } .footer-container { display: grid; grid-template-columns: repeat(4, 1fr) 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; } .footer-column h3 { color: #0c61c2; font-size: 18px; margin-bottom: 15px; } .footer-column ul { list-style: none; } .footer-column ul li { margin-bottom: 10px; } .footer-column ul li a { color: #ccc; text-decoration: none; transition: color 0.3s ease; } .footer-column ul li a:hover { color: #0c61c2; position: relative; } .footer-column ul li a::after { content: ''; display: block; width: 0; height: 2px; background: #0c61c2; transition: width 0.3s; position: absolute; left: 0; bottom: -5px; } .footer-column ul li a:hover::after { width: 100%; } .beta { background-color: #FFD700; color: black; font-size: 12px; padding: 2px 4px; margin-left: 5px; border-radius: 3px; } /* Secure Shopping Badge */ .footer-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; } .footer-badge img { width: 60px; margin-bottom: 10px; } .footer-badge p { font-size: 14px; color: #ccc; } /* Footer Bottom */ .footer-bottom { text-align: center; margin-top: 20px; font-size: 14px; color: #ccc; }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) { .footer-container { grid-template-columns: repeat(2, 1fr); gap: 15px; } .footer-badge { grid-column: span 2; margin-top: 20px; } } @media (max-width: 480px) { .footer-container { grid-template-columns: 1fr; gap: 10px; } .footer-badge { grid-column: span 1; margin-top: 15px; } } .links_menu { display: flex; margin: 20px; justify-content: space-around; }
+
+    </style>
+    <!-- Lightbox HTML -->
+<div id="lightbox" style="display: none;">
+    <div class="lightbox-content">
+        <h2>Dziękujemy za to, że chcesz ulepszać naszą ofertę.</h2>
+        <p>Dalsze instrukcje:</p>
+        <ul>
+            <li>Odwiedź stronę <strong>MB&SP.com</strong>.</li>
+            <li>Otwórz czat dostępny na stronie.</li>
+            <li>Po włączeniu czatu prześlij listę produktów w załączniku.</li>
+        </ul>
+        <p>Możesz też ewentualnie wysłać email, klikając <a href="mailto:handlowy.mb.sp@gmail.com?subject=Dodaj%20produkt%20-%20MBSP">tutaj.</a></p>
+        <p>Gotowe – to wszystko, co musisz zrobić, aby pomóc nam ulepszać naszą ofertę!</p>
+        <button id="closeLightbox">Zamknij</button>
+    </div>
+</div>
+<div id="lightbox-1" style="display: none;">
+    <div class="lightbox-content">
+        <h2>Podaj więcej informacji. Aby wyeksporotwać produkt</h2>
+        <button id="closeLightbox">Zamknij</button>
+    </div>
+</div>
+<div id="lightbox-2" style="display: none;">
+    <div class="lightbox-content">
+        <h2>Można dodać do tabelki tylko 10 produktów maksymalnie.</h2>
+        <button id="closeLightbox">Zamknij</button>
+    </div>
+</div>
+<div id="lightbox-3" style="display: none;">
+    <div class="lightbox-content">
+        <h2>Produkt dodany przez Społeczność</h2>
+        <p>W MB&SP.com dbamy o to, aby nasi klienci mieli dostęp do pełnych i rzetelnych informacji o produktach przed dokonaniem zakupu.<br><br> Dlatego produkty przesyłane przez naszą społeczność są specjalnie wyróżniane. Zanim jednak pojawią się w naszym serwisie, każdy z nich musi przejść proces weryfikacji zgodności z naszymi standardami jakości i zasadami.<br><br> Dzięki temu możemy zagwarantować, że oferowane produkty spełniają najwyższe oczekiwania naszych klientów.</p>
+        <button id="closeLightbox-3">Zamknij</button>
+    </div>
+</div>
+    <!-- Menu -->
+    <div class="menu">
+        <div class="logo">
+            <a href="http://mbsp.com.pl">
+                <img src="https://static.wixstatic.com/media/2ec6e0_82efa277b1224b29a02292382d190299~mv2.png/v1/crop/x_0,y_300,w_1920,h_460/fill/w_288,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/mb_logo_fullhd.png" width="200px"></a>
+            <span>Dodaj produkt</span>
+        </div>
+        <button onclick="window.location.href='https://mbspshop.wixsite.com/net-pl/suggest-product'">Powrót na mbsp.com.pl</button>
+    </div>
+    
+    <div>
+        <h1>Dodaj produkt</h1>
+    </div>
+<div class="main-thing">
+        <form id="productForm">
+            <label for="productName">Nazwa produktu:</label>
+            <input type="text" id="productName" placeholder="Wprowadź nazwę produktu" required>
+
+            <label for="productDescription">Opis produktu:</label>
+            <textarea id="productDescription" placeholder="Wprowadź opis produktu" required></textarea>
+
+            <label for="productLink">Link do produktu u dostawcy (opcjonalnie):</label>
+            <input type="text" id="productLink" placeholder="Wprowadź link do produktu">
+
+            <label for="productPrice">Cena rynkowa (zł):</label>
+            <input type="number" id="productPrice" placeholder="Wprowadź cenę" min="0" required>
+
+            <label for="additionalInfo">Dodatkowe informacje (opcjonalnie):</label>
+            <textarea id="additionalInfo" placeholder="Wprowadź dodatkowe informacje"></textarea>
+
+            <label for="productCategory">Kategoria produktu:</label>
+            <select id="productCategory" required>
+                <option value="" disabled selected>Wybierz kategorię</option>
+                <option value="Akcesoria komputerowe">Akcesoria komputerowe</option>
+                <option value="Akcesoria elektroniczne">Akcesoria elektroniczne</option>
+                <option value="Części elektroniczne">Części elektroniczne</option>
+                <option value="Książki">Książki</option>
+                <option value="Narzędzia">Narzędzia</option>
+                <option value="Moduły elektroniczne">Moduły elektroniczne</option>
+            </select>
+
+            <label class="privacyPolicy">
+                <input type="checkbox" id="terms" required>
+                Akceptuję <a href="https://mbspshop.wixsite.com/net-pl/suggest-product" class="privacyPolicy">warunki i zasady dodania produktu</a> do MB&SP.com i oświadczam, że propozycje spełniają te standardy
+            </label>
+
+            <div class="button-container">
+                <button type="button" id="addProduct">Dodaj następny</button>
+                <button type="button" id="exportCSV">Wyeksportuj produkty do CSV</button>
+            </div>
+        </form>
+    <!-- Podgląd produktu -->
+<div class="preview">
+    <h2 id="previewName">Nazwa produktu</h2>
+    <p id="previewDescription">Tutaj pojawi się opis produktu.</p>
+    <p class="price" id="previewPrice"> -- zł</p>
+    <button>Dodaj do koszyka</button>
+    <p>Produkt dodany przez <strong>Społeczność MB&SP.com</strong></p>
+    <button type="button" id="infoMBCommunity">?</button>
+    <!--Tutaj został dodany CSS prosto do Div'a-->
+    <table\ style="width: 50%">
+        <tr>
+            <th >Kategoria</th>
+            <td id="previewCategory">--</td>
+        </tr>
+    </table>
+    <p>Dostawa od <strong>15.00 zł</strong> w Polska</p>
+</div>
+</div>
+
+    
+
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>Nazwa produktu</th>
+                <th>Opis</th>
+                <th>Link</th>
+                <th>Cena (zł)</th>
+                <th>Dodatkowe informacje</th>
+                <th>Kategoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Produkty będą tutaj dodawane -->
+        </tbody>
+
+        <!-- Menu linków,-->
+        <div class="links_menu">
+            <p><a href="http://mbsp.com.pl/support/pl">Potrzebujesz pomocy?</a></p>
+        <p><a href="https://mbspshop.wixsite.com/net-pl/opinie">Podziel się opinią</a></p>
+        <p><a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Zasady wystawienia produktu</a></p>
+        <p>Zbyt skomplikowane? <a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Skorzystaj ze starszego formularza</a></p>
+        </div>
+
+    </table>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>O nas</h3>
+                <ul>
+                    <li><a href="http://mbsp.com.pl/about">O Miły's Buy & Sell Parts</a></li>
+                    <li><a href="https://about-mbsp.github.io/credits.html">Kto to stworzył?</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>MB&SP.com</h3>
+                <ul>
+                    <li><a href="http://mbsp.com.pl/order">Złóż zamówienie</a></li>
+                    <li><a href="http://mbsp.com.pl/goprime">MB Prime</a></li>
+                    <li><a href="https://mbspshop.wixsite.com/net-pl/mb-quick">MB Quick</a></li>
+                    <li><a href="http://mbsp.com.pl/ads">MB Ads</a></li>
+                    <li><a href="https://mbspshop.wixsite.com/net-pl/blog">MB Blog</a></li>
+                   <li><a href="http://mbsp.com.pl/ai">Miły AI <span class="beta">Nadchodzi</span></a></li>
+                    <li><a href="http://mbsp.com.pl/status">Status</a></li>
+                    <li><a href="https://mbnsp.github.io/page/advanced_search/searchTable.html">Mily DB <span class="beta">Nowe</span></a></li>
+                  <li><a href="https://mbnsp.github.io/page/docs.html">MB&SP.com Docs <span class="beta">Nowe</span></a></li>
+                  <li><a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Dodaj produkt</a><span class="beta">Nowe</span></li>
+                    <li><a href="https://mbspshop.wixsite.com/net-pl/kalkulatory">Kalkulatory dla elektroników</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Pomoc Techniczna</h3>
+                <ul>
+                    <li><a href="http://mbsp.com.pl/faq">FAQ</a></li>
+                    <li><a href="http://mbsp.com.pl/support/pl">Strona główna pomocy</a></li>
+                    <li><a href="http://mbsp.com.pl/trackorder">Gdzie są moje rzeczy? <span class="beta">Nowe</span></a></li>
+                    <li><a href="https://mbnsp.github.io/support/mbsp_account-pl.html">Jak założyć konto?</a></li>
+                    <li><a href="https://mbnsp.github.io/support/how_to_order-pl.html">Jak zamawiać?</a></li>
+                    <li><a href="https://mbnsp.github.io/support/store-rules-pl.html">Zasady sklepu</a></li>
+                    <li><a href="https://mbnsp.github.io/support/refund-pl.html">Zwroty</a></li>
+                    <li><a href="https://mbnsp.github.io/support/privacy_policy-pl.html">Polityka prywatności</a></li>
+                    <li><a href="https://mbnsp.github.io/support/shipping_pl.html">Informacje o dostawie</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Pierwszy raz na MB&SP.com?</h3>
+                <ul>
+                    <li><a href="http://mbsp.com.pl/intro">Co to MB&SP.com?</a></li>
+                </ul>
+            </div>
+            <div class="footer-badge">
+                <img src="https://png.pngtree.com/png-clipart/20220602/original/pngtree-satisfaction-guarantee-badges-png-image_7885136.png" alt="Bezpieczne zakupy">
+                <p>Bezpieczne Zakupy</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2017-2025 Miły's Buy & Sell Parts.com, Ind. MB&SP.com - Wszelkie prawa zastrzeżone</p>
+            <p>Produkcja: Miłosz Boguniewicz</p>
+        </div>
+    </footer>
+    <script>
+        // Pobierz wszystkie elementy <a>
+        const links = document.querySelectorAll('a');
+    
+        // Dodaj nasłuchiwacz zdarzeń do każdego linku
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                // Zablokuj domyślne działanie linku
+                event.preventDefault();
+                // Otwórz link w nowej karcie
+                window.open(link.href, '_blank');
+            });
+        });
+    </script>
+
+
+    <script>
+     const form = document.getElementById('productForm'), addProductButton = document.getElementById('addProduct'), exportCSVButton = document.getElementById('exportCSV'), productTable = document.getElementById('productTable').querySelector('tbody'), products = []; addProductButton.addEventListener('click', () => { const productName = document.getElementById('productName').value, productDescription = document.getElementById('productDescription').value, productLink = document.getElementById('productLink').value, productPrice = document.getElementById('productPrice').value, additionalInfo = document.getElementById('additionalInfo').value, productCategory = document.getElementById('productCategory').value, terms = document.getElementById('terms').checked; if (!terms) { alert('Musisz zaakceptować warunki i zasady.'); return; } const product = { name: productName, description: productDescription, link: productLink, price: productPrice, additionalInfo: additionalInfo, category: productCategory }; products.push(product); updateTable(); form.reset(); }); exportCSVButton.addEventListener('click', () => { if (products.length === 0) { alert('Brak produktów do eksportu.'); return; } const csvContent = "data:text/csv;charset=utf-8," + ["Nazwa produktu,Opis,Link,Cena (zł),Dodatkowe informacje,Kategoria"].join(",") + "\n" + products.map(p => [p.name, p.description, p.link || "", p.price, p.additionalInfo || "", p.category].join(",")).join("\n"); const encodedUri = encodeURI(csvContent), link = document.createElement("a"); link.setAttribute("href", encodedUri); link.setAttribute("download", "produkty.csv"); document.body.appendChild(link); link.click(); document.body.removeChild(link); }); function updateTable() { productTable.innerHTML = products.map(p => `<tr><td>${p.name}</td><td>${p.description}</td><td>${p.link || "-"}</td><td>${p.price}</td><td>${p.additionalInfo || "-"}</td><td>${p.category}</td></tr>`).join(''); }
+
+    const lightbox = document.getElementById('lightbox'); // Lightbox element
+    const closeLightboxButton = document.getElementById('closeLightbox'); // Przycisk zamknięcia
+
+    const lightbox3 = document.getElementById('lightbox-3');
+    const infoButtonHelp = document.getElementById('infoMBCommunity');
+    const closeLightbox3Button = document.getElementById('closeLightbox-3');
+
+    // Funkcja pokazująca lightbox
+    function showLightbox() {
+        lightbox.style.display = 'flex';
+    }
+
+    function showLightbox3() {
+        lightbox3.style.display = 'flex';
+    }
+
+    // Funkcja zamykająca lightbox
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+    }
+
+    function closeLightbox3() {
+        lightbox3.style.display = 'none';
+    }
+
+    // Powiązanie funkcji z przyciskiem eksportu
+    exportCSVButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Opcjonalne: aby zapobiec domyślnemu zachowaniu
+        showLightbox();
+    });
+
+    infoButtonHelp.addEventListener('click', (event) => {
+        event.preventDefault();
+        showLightbox3();
+    });
+
+    // Powiązanie zamykania z przyciskiem "Zamknij"
+    closeLightboxButton.addEventListener('click', closeLightbox);
+    closeLightbox3Button.addEventListener('click', closeLightbox3)
+        
+
+    // Pobierz elementy formularza
+const productNameInput = document.getElementById('productName');
+const productDescriptionInput = document.getElementById('productDescription');
+const productPriceInput = document.getElementById('productPrice');
+const productCategorySelect = document.getElementById('productCategory');
+
+// Pobierz elementy podglądu
+const previewName = document.getElementById('previewName');
+const previewDescription = document.getElementById('previewDescription');
+const previewPrice = document.getElementById('previewPrice');
+const previewCategory = document.getElementById('previewCategory');
+
+// Aktualizuj nazwę produktu w podglądzie
+productNameInput.addEventListener('input', () => {
+    previewName.textContent = productNameInput.value || 'Nazwa produktu';
+});
+
+// Aktualizuj opis produktu w podglądzie
+productDescriptionInput.addEventListener('input', () => {
+    previewDescription.textContent = productDescriptionInput.value || 'Tutaj pojawi się opis produktu.';
+});
+
+// Aktualizuj cenę produktu w podglądzie
+productPriceInput.addEventListener('input', () => {
+    previewPrice.textContent = productPriceInput.value ? ` ${productPriceInput.value} zł` : '-- zł';
+});
+
+// Aktualizuj kategorię produktu w podglądzie
+productCategorySelect.addEventListener('change', () => {
+    previewCategory.textContent = productCategorySelect.value || '--';
+});
+
+    </script>
+
+</body>
+</html>
