@@ -100,47 +100,54 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 				<div class="buttons">
 					<form>
 						<div class="search-box" style="margin-bottom: 20px;">
-												<input type="text" name="searchBox" class="searchBox" placeholder="Nazwa produktu lub słowa klucze">
+												<input type="text" name="searchBox" class="searchBox" placeholder="Nazwa produktu, nazwa katalogowa lub słowa klucze">
 												<select id="category" name="category">
-													<option value="Elementy pasywne">Wszystkie kategorie</option>
-													<option value="Półprzewodniki">Części elektroniczne</option>
-													<option value="Półprzewodniki">MB&SP.com Basic</option>
-													<option value="Półprzewodniki">Dla MB Prime</option>
-													<option value="Półprzewodniki">Akcesoria komputerowe</option>
-													<option value="Półprzewodniki">PC i Laptopy</option>
-													<option value="Półprzewodniki">Muzyka CD</option>
-													<option value="Półprzewodniki">Książki</option>
+													<option value="all">Wszystkie kategorie</option>
+													<option value="Części+elektroniczne">Części elektroniczne</option>
+													<option value="MB%26SP.com+Basic">MB&SP.com Basic</option>
+													<option value="Akcesoria+komputerowe">Akcesoria komputerowe</option>
+													<option value="PC+i+Laptopy">PC i Laptopy</option>
+													<option value="Gaming+i+akcesoria+komputerowe">Gaming</option>
+													<option value="Muzyka">Muzyka CD</option>
+													<option value="Książki">Książki</option>
+													<option value="Narzędzia">Narzędzia</option>
+													<option value="Elementy+Pasywne">Elementy pasywne</option>
+													<option value="Półprzewodniki">Półprzewodniki</option>
+													<option value="Optoelektronika">Optoelektronika</option>
+													<option value="Logiczne+układy+scalone">Logiczne układy scalone</option>
+													
 												</select>
 											</div>
 											<h4>Więcej opcji:</h4>
 											<div class="search-box" style="margin-top: 20px;">
 												<input type="text" class="searchBox" placeholder="Wartość elementu: np. 1k ohm">
-												<select id="category" name="category">
-													<option value="Elementy pasywne">Wszystkie działy</option>
-													<option value="Elementy pasywne">Elementy pasywne</option>
-													<option value="Półprzewodniki">Półprzewodniki</option>
-													<option value="Półprzewodniki">MB&SP.com Basic</option>
-													<option value="Półprzewodniki">Optoelektronika</option>
-													<option value="Półprzewodniki">Moduły elektroniczne</option>
-													<option value="Półprzewodniki">Narzędzia</option>
-												</select>
+												<br>
 												<input type="text" class="searchBox" placeholder="Moc elementu: np. 1/4W">
-												<select id="category" name="category">
+												<select id="stock_info" name="stock_info">
 													<option value="W magazynie">W magazynie</option>
 													<option value="Na specjalne zamówienie">Na specjalne zamówienie</option>
 												</select>
 												<h4 style="margin-bottom:  20px;">Zakres cenowy:</h4>
-												<input type="text" class="searchBox" placeholder="min." style="margin-bottom: 20px;">
-												<input type="text" class="searchBox" placeholder="max.">
+												<input id="miniPriceText" type="text" class="searchBox" placeholder="min. (zł)" style="margin-bottom: 20px;">
+												<input id="maxPriceText" type="text" class="searchBox" placeholder="max. (zł)">
+												<br><br>
+												<h4 style="margin-bottom:  20px;">Sortuj wyniki:</h4>
+												<select id="sort_results" name="sort_results">
+													<option value="default_sort">Trafność</option>
+													<option value="rosnaco_sort">Cena (od najniższej do najwyższej)</option>
+													<option value="malejaco_sort">Cena (od najwyższej do najniższej)</option>
+												</select>
 												<input style="margin-top: 20px;" id="btn-redirect-g" type="reset" value="Wyczyść">
 											</div>
 											<div class="goto-mb-txt"><p>lub</p></div>
 											<a class="btn-redirect-g"><span>Wyszukaj</span></a>
+											<div class="goto-mb-txt"><p>lub</p></div>
+											<a id="btn-redirect-g" href="http://mbsp.com.pl/docs"><span>Zobacz dokumentacje</span></a>
 					</form>
 					
 				</div>
 				<div class="adi-text">
-					<a href="http://mbsp.com.pl/home">Powrót na MB&SP.com.pl</a>
+					<a href="http://mbsp.com.pl/">Powrót na MB&SP.com.pl</a>
 				</div>
 				<button onclick="myFunction()" class="btn-redirect-g" style="margin: 15px;">
 				Tryb ciemny / jasny
@@ -167,16 +174,18 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 		  </div>
 		<footer>
 			<a href="http://mbsp.com.pl/about">o Miły's Buy & Sell Parts</a>
-			<a href="http://mbsp.com.pl/support">Tech Support</a>
-			<a href="https://mbnsp.github.io/support/terms.html">Warunki</a>
+			<a href="https://about-mbsp.github.io/credits.html">Kto to zrobił</a>
+			<a href="http://mbsp.com.pl/support/pl">Tech Support</a>
+			<a href="http://mbsp.com.pl/faq">FAQ</a>
+			<a href="https://mbnsp.github.io/support/store-rules-pl.html">Zasady sklepu</a>
 			<a href="https://mbnsp.github.io/support/refund-pl.html">Zwroty</a>
 			<a href="https://mbnsp.github.io/support/privacy_policy-pl.html">Polityka prywatności</a>
 			<a href="http://mbsp.com.pl/status">Status</a>
-			<a href="https://mbnsp.blogspot.com/">Blog</a>
+			<a href="https://mbspshop.wixsite.com/net-pl/blog">Blog</a>
 			<a href="http://mbsp.com.pl/goprime">MB Prime</a>
 			<a href="http://mbsp.com.pl/ads">MB Ads - marketing</a>
-			<a href="http://mbsp.com.pl/contact">Kontakt z nami</a>
-			<span>&copy; 2024 Miły's Buy & Sell Parts, Ind. - Miłosz Boguniewicz</span>
+			<a href="https://mbspshop.wixsite.com/net-pl/kontakt">Kontakt z nami</a>
+			<span>&copy; 2025 Miły's Buy & Sell Parts, Ind.<br>Produkcja: Miłosz Boguniewicz</span>
 		</footer>
 	</body>
 	<script src="assets/js/mb-search.js"></script>
