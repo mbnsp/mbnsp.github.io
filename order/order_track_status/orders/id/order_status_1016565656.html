@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Realizacji Zamówienia</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #cacaca;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("header.webp");
+    background-color: #004794;
+    padding: 15px;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.status-step {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-step h2 {
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.status-step.completed h2 {
+    color: grey;
+}
+
+.progress-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(#007bff 0%, #ddd 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background 1s ease-in-out; /* Animacja zmiany tła */
+}
+
+.progress-circle span {
+    font-size: 14px;
+}
+
+.status-step.active h2 {
+    text-decoration: underline;
+}
+
+.status-step.completed .progress-circle {
+    background: conic-gradient(#28a745 100%, #28a745 0%);
+    color: white;
+    transition: background 1s ease-in-out;
+}
+
+.info {
+    margin-top: 30px;
+}
+
+.info h3 {
+    color: #007bff;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="http://mbsp.com.pl">
+            <img src="mb_logo_fullhd.webp">
+        </a></div>
+        <a href="https://mbsp.com.pl/" class="back-link">Powrót na MBSP.com.pl</a>
+        <a href="https://mbsp.com.pl/support/pl" class="back-link">Pomoc Techniczna</a>
+    </header>
+
+    <main>
+        <section class="status">
+            <div class="status-step" id="step1">
+                <div class="step-info">
+                    <h2>Przyjęcie zamówienia</h2>
+                    <p class="description">Twoje zamówienie zostało przyjęte.</p>
+                </div>
+                <div class="progress-circle" id="progress1">
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="status-step" id="step2">
+                <div class="step-info">
+                    <h2>Weryfikacja zamówienia</h2>
+                    <p class="description">W tym kroku sprawdzamy czy wszystko się zgadza oraz sprawdzamy czy została dokonana płatność.</p>
+                </div>
+                <div class="progress-circle" id="progress2">
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="status-step" id="step3">
+                <div class="step-info">
+                    <h2>Realizacja zamówienia</h2>
+                    <p class="description">Kompletujemy Twoje zamówienie.</p>
+                </div>
+                <div class="progress-circle" id="progress3">
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="status-step" id="step4">
+                <div class="step-info">
+                    <h2>Przygotowane do wysyłki</h2>
+                    <p class="description">Przygotowywujemy Twoje zamówienie do wysyłki.</p>
+                </div>
+                <div class="progress-circle" id="progress4">
+                    <span>0%</span>
+                </div>
+            </div>
+
+            <div class="status-step" id="step5">
+                <div class="step-info">
+                    <h2>Gotowe do odbioru</h2>
+                    <p class="description">Twoje zamówienie zostało wysłane i resztę możesz monitorować w emailu do śledzenia przesyłki. Znajdziesz go w emailu potwierdzenia wysyłki.</p>
+                </div>
+                <div class="progress-circle" id="progress5">
+                    <span>0%</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="info">
+            <h3>Jak działa status zamówienia?</h3>
+            <p>Śledź postęp realizacji swojego zamówienia w pięciu krokach. Gdy jeden z kroków zostanie w pełni ukończony, jego kolor zmieni się na zielony. Aktualny krok będzie wyróżniony.</p>
+            <p>&copy Miły's Buy & Sell Parts.com, Ind. - Produkcja: Miłosz Boguniewicz</p>
+        </section>
+    </main>
+
+    <script>
+       // Aktualne wartości progress barów
+let progressValues = {
+    step1: 100,
+    step2: 50,
+    step3: 0,
+    step4: 0,
+    step5: 0
+};
+
+// Aktualnie wykonywany krok
+let currentStep = 'step3';
+
+// Funkcja do animacji konkretnego progress bara
+function animateProgressBar(stepId, targetValue, element) {
+    let currentValue = 0;
+    let interval = setInterval(() => {
+        if (currentValue <= targetValue) {
+            let percentage = Math.min(currentValue, 100);
+            let color = percentage === 100 ? '#28a745' : '#007bff';
+
+            // Ustawienie procentowego wypełnienia okręgu
+            element.style.background = `conic-gradient(${color} ${percentage}%, #ddd ${percentage}%)`;
+            element.querySelector('span').innerText = percentage + '%';
+
+            currentValue++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 12); // Szybkość animacji - mniejsze wartości = szybsza animacja
+}
+
+// Funkcja aktualizująca progress bary
+function updateProgressBars() {
+    for (let i = 1; i <= 5; i++) {
+        let stepId = 'step' + i;
+        let progressCircle = document.getElementById('progress' + i);
+        let progressValue = progressValues[stepId];
+        
+        // Animacja wypełnienia progress bara
+        animateProgressBar(stepId, progressValue, progressCircle);
+
+        // Podkreślenie aktywnego kroku i wyszarzenie ukończonych
+        let stepElement = document.getElementById(stepId);
+        if (progressValue === 100) {
+            stepElement.classList.add('completed');
+        } else if (stepId === currentStep) {
+            stepElement.classList.add('active');
+        } else {
+            stepElement.classList.remove('active');
+        }
+    }
+}
+
+// Wywołanie funkcji po załadowaniu strony
+updateProgressBars();
+
+
+
+    </script>
+</body>
+</html>
