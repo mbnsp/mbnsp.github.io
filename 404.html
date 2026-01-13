@@ -58,85 +58,216 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 ██      ██   ██  ██████   █████  ███████  ██████    ██           ███████  ██████   ██████   ██████  ██      ██ ██   ██ 
                                                                                                                        
                                                                                                                        
-@version: MB 2.0.1 "Labrador Update"
+@version: MB 3.0.0 "Next Gen Update"
 -->
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Sklep internetowy z częściami elektronicznymi, komputerami, muzyką">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>MBSP.com.pl - Koszyk</title>
-	<link rel="stylesheet" type="text/css" href="style-mb.css">
-	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MB&SP.com.pl</title>
+  <meta name="description" content="Części elektroniczne, komponenty komputerowe, akcesoria, książki, muzyka – wszystko w jednym miejscu."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="shortcut icon" href="assets/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0d1b2a;
+      --text-soft: #4a5568;
+      --primary: #003087;
+      --primary-hover: #002366;
+      --border: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Bardzo czysty header – tylko logo i minimalne CTA */
+    header {
+      padding: 32px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
+
+    /* Hero – ogromny, centralny, spotify-podobny */
+    .hero {
+      padding: 140px 0 120px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(3.8rem, 10vw, 7.2rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--text-soft);
+      max-width: 780px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .hero-cta .btn {
+      padding: 1.1rem 2.8rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: scale(1.05);
+    }
+
+    /* Kategorie – wielkie, proste kafelki jak playlisty Spotify */
+    .categories {
+      padding: 80px 0;
+    }
+
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .category-card {
+      background: transparent;
+      text-align: center;
+      transition: transform 0.4s ease;
+    }
+
+    .category-card:hover {
+      transform: scale(1.06);
+    }
+
+    .category-icon {
+      font-size: 7.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      display: block;
+    }
+
+    .category-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-card a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Stopka – ultra minimalistyczna */
+    footer {
+      padding: 100px 0 60px;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--text-soft);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    /* Responsywność */
+    @media (max-width: 1024px) {
+      .hero { padding: 100px 0 80px; }
+      h1 { font-size: 5.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 80px 0 60px; }
+      h1 { font-size: 4.2rem; }
+      .hero-subtitle { font-size: 1.3rem; }
+      .categories-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .category-icon { font-size: 6.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 3.2rem; }
+      .hero-cta .btn { width: 100%; border-radius: 12px; }
+    }
+  </style>
 </head>
 <body>
-	<nav>
-		<a href="index.html"><img src="images/mb_logo_neworder.png" width="115"></a>
-		<div class="search-box">
-			
-			<input type="text" name="amongus" class="searchBox" placeholder="Czego szukasz?">
-			<button class="btn-redirect-g"><img src="assets/ico/magnifying-glass.png" class="search-icon"></button>
-		</div>
-		<div class="account-text">
-			<p>Witaj, gość</p>
-			<h1><a href="signin.html">Zaloguj się</a></h1>
-		</div>
-		<a href="#" class="cart-icon-nav">
-			<img src="assets/ico/cart-icon-file.png" alt="koszyk" width="35px">
-			<h4 class="cart-text"><a href="cart.html">Koszyk</a> <p> (0)</p></h4>
-		</a>
-	</nav>
-	<div class="nav-banner-text">
-		<div>
-			<a href="https://mbspshop.wixsite.com/net-pl/account/my-account">Moje konto </a>
-			<a href="https://mbnsp.github.io/support/tech-pl.html">Pomoc </a>
-			<a href="https://mbspshop.wixsite.com/net-pl/cart-page">Koszyk </a>
-			<a href="https://mbspshop.wixsite.com/net-pl/account/my-wishlist">Lista życzeń</a>
-			<p> | </p>
-			<a href="en.html">English</a>
-			<a class="selected-a" href="index.html">Polski</a>
-			<a href="dk.html">Danske</a>
-			<a href="de.html">Deutsch</a>
-		</div>
-	</div>
-	<!--cart-->
-	<div class="cart">
-		<div class="cart-left">
-			<h1>404</h1>
-			<hr>
-			<div class="product-cart-list">
-				<p>Przykro nam, ale ta strona nie istnieje lub została przeniesiona</p>
-				<br>
-			</div>
-			<br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br>
-	<br><br><br><br><br><br><br><br>
-		</div>
-	</div>
-	<!--  footer -->
-	<footer>
-		<img src="images/mb_logo_neworder.png" width="150px">
-		<p>&copy 2017-2024, Miły's Buy & Sell Parts, Ind. - MBSP.com.pl - Miłosz Boguniewicz</p>
 
-	</footer>
-	<div class="footer-links">
-		<a href="http://mbsp.com.pl/about">o Miły's Buy & Sell Parts</a>
-			<a href="http://mbsp.com.pl/support">Tech Support</a>
-			<a href="https://mbnsp.github.io/support/terms.html">Warunki</a>
-			<a href="https://mbnsp.github.io/support/refund-pl.html">Zwroty</a>
-			<a href="https://mbnsp.github.io/support/privacy_policy-pl.html">Polityka prywatności</a>
-			<a href="http://mbsp.com.pl/status">Status</a>
-			<a href="https://mbnsp.blogspot.com/">Blog</a>
-			<a href="http://mbsp.com.pl/goprime">MB Prime</a>
-			<a href="http://mbsp.com.pl/ads">MB Ads - marketing</a>
-			<a href="https://mbspshop.wixsite.com/net-pl/kontakt">Kontakt z nami</a>
-			<a href="">Informacje prasowe</a>
-	</div>
+<header>
+  <div class="container">
+    <div class="logo"><img width="100px" src="https://mbnsp.github.io/page/assets/images/mb-ico.png" alt="MB&SP.com Logo"></div>
+  </div>
+</header>
 
-	<script type="text/javascript" src="assets/js/mb-search.js"></script>
-	<script type="javascript" src="mbengine.js"></script>
+<section class="hero">
+  <div class="container">
+    <h1>UPS...<br>Coś poszło nie tak</h1>
+    <p class="hero-subtitle">Aktualnie mamy problem z naszą stroną</p>
+
+    <div class="hero-cta">
+      <a href="https://mbsp.com.pl/status" class="btn btn-primary">Status dostępności strony</a>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <p>© 2026 Miły's Buy & Sell Parts</p>
+    <p style="margin-top:1rem;">
+  </div>
+</footer>
+
 </body>
+</html>
