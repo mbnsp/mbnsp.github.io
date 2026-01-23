@@ -1,87 +1,1777 @@
-<!-- 
-
-
-DOCTYPE mb
-
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&&##BBBBGGGGGGGGGGBBBB##&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&#BBGGP55YYYYYJJJJJJJJJJYYYYY55PGGB##&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@&#BBGP5YJJJYY55PPPPPPPPGGPPPPPPPP55YYJJJY5PGBB#&@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@&#BGP5YJJY55PGGPPP55YYYYYYYYYYYYYYYY55PPPGGP55YJJY5PBB#&@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@&#BGPYJJY5PGGP55YYYYJJYYYJJJJJJJYJJJYYYYJYYYYY55PGGP5YJJYPGB#&@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@&BGPYJJYPGGP5YYJYYYJYJJY!?~JYYY~^7YYYY?~!?YJ?JYYJJJYY5PGGPYJJYPGB&@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@#BG5JJYPGP5YYJJJYJ?7J?^!^Y^^.7YYY^^!7YYY^:^??:~?J!JYYYJJJYY5GGPYJJ5GB#@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@#GGYJJ5GG5YYJJYYYYY7.^:J~~^~J~~:YYY~^.?YY?^~:J:~7J^!YY!7YYYYJJYY5GG5JJYGG#@@@@@@@@@@@@@
-@@@@@@@@@@@#GGY?JPGP5YJJYYJ7!JYYY7.^:J^~^J7!7YYYJ?JYYYJ7!J7:7J:~YJ^~JYYYYJYYJJY5PGPJ?YGB#@@@@@@@@@@@
-@@@@@@@@@&BG5?JPGPYYJJYY???:^:!JYY7^~?YJYYYYYYYYYYYYYYYYYYYYJJ7!?:^YYYYJ!^~JYYYJYYPGPJ?5GB&@@@@@@@@@
-@@@@@@@@#GPJ?5GG5JJYYYJ???YJ!~^^JYYYYYYYYYYJJJJJJJJJJJJJJYYYYYYYJ?7JYJ!::^!?7?JYYJJ5GG5?JPG#@@@@@@@@
-@@@@@@&BG5?YGG5YJYYYY7~^:!JYYJ7JYYYYYYJJJJYYYY55555555YYYYJJJJYYYYYYY?!JJ7~:^:JYYYYJY5GGJ?5GB&@@@@@@
-@@@@@&GGY?5GGYJJYYY?JJ?~~!.7YYYYYYYJJYY55PGGGPPPPPPPPPPGGGP55YYJJYYYYYYY7~^^!?!~!YYYJJYGG5?YGG&@@@@@
-@@@@&GGY?PGPYJYYYJ?7~^7J?77JYYYYJJYYPGGPPYJJ???777777???JJYPPGG5YYJJYYYYY?7!~.^^~JJYYYJYPGP?YGG&@@@@
-@@@&GGJ?PGPYJYYYY?!!!!!~~JYYYYJJY5GGPYJ?77777777777777777777?JYPGG5YJJYYYYJ?^!JJ?~:JYYYJYPGP?YGG&@@@
-@@@GGY7PGPYJYYYJ^~!!!!!?YYYYYJYPGG5J7777777777777777777777777777J5GGPYJYYYYYJ7!!!?7?YYYYJYPGP7YGB@@@
-@@BG575GPYJYYYY~:~~~~~JYYYYJJ5GG5?77777777777777777777777777777777?5GG5JJYYYYJ???~^~^YYYYJYPG57PGB@@
-@&GG?JGGYJJJJJJ?7!~~~?YYYYJYPGPJ777777777777777777777777777777777777JPGPYJYYYY7:~^~?7JJJJJJ5GGJ?GG&@
-@BG57PGGGGPP55YYYYJJ?JJJJJYPG5?777??77777?????77777777777777??7??7777?5GPYJJJJJJJJYYYY55PPGGGGP75GB@
-&GG?JGGJJJY55PPGGGPP55YYYYPG5?7777~^7?77?7^:^7?777777777??7?!~^:!?7777?PGPYYYY55PPGGGPP55YJJJGGJ?GG&
-BGP75G577777????JJY55PPGGGGG?777?7  :7??~:~. :7?777777?7:!7~~!! :7?7777?GGGGGPP55YJJ??7777777PG57PG#
-BG57PGY7777!~7??7~7777??JGGY7777?!   ~?~ ^!^ .!7777777?! :^~77^.~!???777YGGJ??7777!7???777777YGP75GB
-GGY?GGJ7777~..~^..!?7777?GGJ7777?~    : :!7~ .!7777777?^  ~!~:.^^^!!7?77JGG?7777?7:.~!:.!?777JGG?YGG
-GGJ?GGJ77777~   :7?77777JGG?77777. ^^. .~!?! :!777777?7.  :.:~!!^  :~777?GGJ77777?7.  .!?7777JGG?JGG
-GGY?GGJ7777:.^!^..7?7777?GGJ77777. ^77!!!7?7.^!777777?7  .^^!!~:^..~7777JGG?7777?!.:~~..!?777JGG?YGG
-BG57PGY777777???7!7777??JGGY77777. ^7??7?77?::7?7??77?~  :!77::~^ ^!?777YGGJ??777777??7!77777YGP75GB
-BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP55YJJ??7777777PG57PG#
-&GG?JGGJJJY55PPGGGPP55YYYYPGP?77?!^^!?777777..!7?~:~7?7~^~7! ::.^~7?77?PGPYYYY55PPGGGPP55YJJJGGJ?GG&
-@BG57PGGGGPP55YYYYJJJJJJJJYPG5?77??77777777?~.~77?77777?7777!^^!!7?77?5GPYJJJJJJJJYYYY55PPGGGGP75GB@
-@&GG?JGGYJJJJJJJJYYYYYYYYYJYPGPJ777?77777777?7!7777?77777777??777777JPGPYJYYYYYYYYYJJJJJJJJYGGJ?GG&@
-@@BG575GPYJYYYYYYYYYYYYYYYYJJ5GG5?77777777777??7777777777777777777?5GG5JJYYYYYYYYYYYYYYYYJYPG575GB@@
-@@@GGY7PGPYJYYYYYYYYYYYYYYYYYJYPGG5J7777777777777777777777777777J5GG5YJYYYYYYYYYYYYYYYYYJYPGP7YGG@@@
-@@@&GGY?PGPYJYYYYYYYYYYYYYYYYYJJY5GGPYJ?77777777777777777777?JYPGG5YJJYYYYYYYYYYYYYYYYYJYPGP?YGG&@@@
-@@@@&GGY?PGPYJYYYYYYYY?~~7JYYYYYJJYYPGGGP5YJ???777777???JY5PGGGPYYJJYYYYYJ7JYYYYYYYYYYJYPGP?YGG&@@@@
-@@@@@&GGY?5GGYJJYYYYJ~^~^^:7YYYYYYYJJYY55PGGGPPPPPPPPPPGGGP55YYJJYYYYYJ?JY!^!JYJJYYYJJYGG5?YGG&@@@@@
-@@@@@@&BG5?JGG5YJYY?^~^~~^!JY!!7JYYYYYJJJJYYYY55555555YYYYJJJJYYYYYYY?:^^7YJ!^~~?YYJY5GGJ?5GB&@@@@@@
-@@@@@@@@#GPJ?5GG5JJJJ7!^~JYJ^:^:JY?7JYYYYYYJJJJJJJJJJJJYYYYYYYJJYYYYYJ7^.~YYYJ7JYJJ5GG5?JPG#@@@@@@@@
-@@@@@@@@@&BG5?JPGPYYJYJJYY7:~.~JY7.~^JY?!7JYYYYYYYJYYYJJJYY?~~^^~YYYYYYJ~^JYYYYJYYPGPJ?5GB&@@@@@@@@@
-@@@@@@@@@@@#GGY?JPGP5YJYYY?~~7YY?^^.?YJ.~.7YYYYY?^^!YY^^:7Y?.!:7:!YYY7?YY?JYJJY5PGPJ?YGB#@@@@@@@@@@@
-@@@@@@@@@@@@@#GGYJJ5GG5YYJYYYYYY~^^!YY!.~!JYYYYY!:JJYY~^!^YY7:!:7:?YY?JYYYJYYPGG5JJ5GB#@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@#BG5JJYPGG5YYJJJYYJJYYJ^7YYYY?JYY!.7!YY?.~.JYY~77?JJYYYJJYY5GGPYJJ5GB#@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@&BGPYJJYPGGP5YYJJYJJYYYYYYY7?YYJ!~7YYY?7?JYYYYYYYJJYY5PGGPYJJYPGB&@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@&#BGPYJJY5PGGP55YYYJJJJJJYYJJYYYYJJJYYYJJJJYYY55PGGP5YJJYPGB#&@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@&#BBP5YJJY5PPGGPPP555YYYYYYYYYYYYYY555PPPGGP55YJJY5PBB#&@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@&#BBGP5YJJJYY55PPPPPPPPGGPPPPPPPP55YYJJJY5PGBB#&@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&#BBGGP55YYYYYYYJJJJJJYYYYYYY55PGGBB#&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&&##BBBBGGGGGGGGGGBBBB##&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
-
-
-
-
-██████  ██████   ██████       ██ ███████  ██████ ████████        ███████ ██    ██  ██████   ██████  ███    ███  █████  
-██   ██ ██   ██ ██    ██      ██ ██      ██         ██    ██     ██      ██    ██ ██       ██    ██ ████  ████ ██   ██ 
-██████  ██████  ██    ██      ██ █████   ██         ██           ███████ ██    ██ ██   ███ ██    ██ ██ ████ ██ ███████ 
-██      ██   ██ ██    ██ ██   ██ ██      ██         ██    ██          ██ ██    ██ ██    ██ ██    ██ ██  ██  ██ ██   ██ 
-██      ██   ██  ██████   █████  ███████  ██████    ██           ███████  ██████   ██████   ██████  ██      ██ ██   ██ 
-                                                                                                                       
-                                                                                                                       
-
-
-
-
-
-
--->
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Miły's Buy & Sell Parts">
-	<title>Miły's Buy & Sell Parts - MBSP.com.pl - Dostawca części elektronicznych</title>
-	<link rel="stylesheet" type="text/css" href="style-login.css">
-	<link rel="shortcut icon" href="assets/images/favicon.ico">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miły's Buy & Sell Parts - MBSP.com.pl - Electronic Components</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1e2bd8">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Ubuntu', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #d4d4d4;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+            background-color: #083880;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+       
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0e49b8;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .dropdown > a::after {
+            
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover > a::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #282828;
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-top: 1rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #b3b3b3;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 500px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-signup {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-signup:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-login:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+            width: 100%;
+            background: linear-gradient(to right, rgba(17, 37, 82, 0.89),rgb(44, 44, 44));
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: "Bowlby One SC", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: #b3b3b3;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            display: flex;
+            position: relative; /* DODAJ TO! */
+            gap: 0.5rem;
+            align-items: stretch;
+        }
+
+        .search-select {
+            padding: 0.75rem 1rem;
+            border: none;
+            background: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #000;
+            font-weight: 500;
+            outline: none;
+            min-width: 120px;
+            border-radius: 500px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            display: flex;
+            background: #fff;
+            border-radius: 500px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            min-width: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            outline: none;
+            color: #000;
+            min-width: 0;
+            border-radius: 500px;
+        }
+
+        .search-input::placeholder {
+            color: #666;
+        }
+
+        .search-btn {
+            background: #0e49b8;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 500px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(20, 86, 207, 0.3);
+            transition: all 0.25s;
+        }
+
+        .search-btn:hover {
+            background: #0e49b8;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(6, 21, 44, 0.4);
+        }
+
+        .search-icon {
+            display: none;
+        }
+
+        .hero .btn-primary {
+            background: #0e49b8;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: 1rem 3rem;
+        }
+
+        .hero .btn-primary:hover {
+            background: #0e49b8;
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(37, 37, 37, 0.89);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgb(27, 27, 27);
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #b3b3b3;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 3rem 2rem 1rem;
+            
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #b3b3b3;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #b3b3b3;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100vh;
+            background: #121212;
+            padding: 5rem 2rem;
+            transition: right 0.3s;
+            z-index: 99;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .mobile-menu .dropdown {
+            width: 100%;
+        }
+
+        .mobile-menu .dropdown > a {
+            width: 100%;
+            padding: 0.75rem 0;
+        }
+
+        .mobile-menu .dropdown-menu {
+            position: static;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            background: transparent;
+            padding: 0 0 0 1rem;
+            margin-top: 0.5rem;
+            box-shadow: none;
+            display: none;
+        }
+
+        .mobile-menu .dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-menu .dropdown-menu a {
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu .auth-buttons {
+            flex-direction: column;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .mobile-menu .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1150px) {
+            header nav,
+            header .auth-buttons {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .features h2 {
+                font-size: 2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .search-select {
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 0.75rem;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+                gap: 1rem;
+                margin: 0 1rem 2rem;
+                max-width: none;
+            }
+
+            .search-select {
+                padding: 1.25rem 1.5rem;
+                border-radius: 20px;
+                font-size: 1rem;
+                font-weight: 600;
+                color: #000;
+                background: #fff;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="%23000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                background-repeat: no-repeat;
+                background-position: right 1.5rem center;
+                padding-right: 3rem;
+                min-width: auto;
+                width: 100%;
+            }
+
+            .search-input-wrapper {
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+                border-radius: 20px;
+            }
+
+            .search-input {
+                padding: 1.25rem 1.5rem;
+                font-size: 1rem;
+                min-height: 56px;
+                border-radius: 20px;
+            }
+
+            .search-input::placeholder {
+                font-size: 0.95rem;
+                color: #999;
+            }
+
+            .search-input:focus {
+                outline: none;
+                background: #fafafa;
+            }
+
+            .search-select:focus {
+                outline: none;
+                background: #fafafa;
+            }
+
+            .search-btn {
+                border-radius: 20px;
+                padding: 1.25rem;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                min-height: 56px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                box-shadow: 0 4px 16px rgba(29, 185, 84, 0.4);
+                width: 100%;
+            }
+
+            .search-btn:active {
+                transform: scale(0.98);
+                background: #1aa34a;
+            }
+
+            .search-btn .search-text {
+                display: inline;
+            }
+
+            .search-icon {
+                display: inline-block;
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 2rem 0 3rem;
+            }
+        }
+
+        .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to right, rgba(92, 81, 245, 0.493),rgb(0, 36, 77));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 12px 16px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    /* Ukrywanie paska */
+    .bottom-bar.hidden {
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Przyciski / elementy */
+    .bar-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      font-size: 0.95rem;
+    }
+
+    .bar-text {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+  
+
+    .btn-primary {
+      background: #fff;
+      color: rgb(0, 0, 0);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #0055dd;
+    }
+
+    .btn-close {
+      background: rgba(255,255,255,0.08);
+      color: #ff4d4d;
+      border: 1px solid rgba(255,77,77,0.3);
+    }
+
+    .btn-close:hover {
+      background: rgba(255,77,77,0.15);
+      border-color: #ff4d4d;
+    }
+
+    /* Responsywność */
+    @media (max-width: 680px) {
+      .bottom-bar {
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .bar-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 220px;
+      }
+    }
+
+     /* Nakładka (ciemne tło) */
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  /* Boczny panel */
+  .category-sidebar {
+    position: fixed;
+    top: 0;
+    left: -380px; /* ukryty poza ekranem */
+    width: 380px;
+    max-width: 90vw;
+    height: 100%;
+    background: #111;
+    color: #e0e0e0;
+    z-index: 1000;
+    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .category-sidebar.open {
+    left: 0;
+  }
+
+  /* Nagłówek */
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #222;
+    background: #0a0a0a;
+  }
+
+  .sidebar-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .close-btn:hover {
+    color: #ff4d4d;
+  }
+
+  /* Wyszukiwarka */
+  .search-container-sidebar {
+    display: flex;
+    padding: 16px 24px;
+    background: #181818;
+    border-bottom: 1px solid #222;
+  }
+
+  .search-input-sidebar {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 1rem;
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 25px 25px 25px 25px;
+    color: white;
+    outline: none;
+  }
+
+  .search-btn-sidebar {
+    background: var(--primary, #0066ff);
+    color: white;
+    border: none;
+    padding: 0 18px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  /* Lista kategorii */
+  .category-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 0;
+  }
+
+  .category-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    color: #ddd;
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+    transition: background 0.2s;
+  }
+
+  .category-item:hover {
+    background: #1a1a1a;
+  }
+
+  .category-item .icon {
+    margin-right: 14px;
+    font-size: 1.3rem;
+    color: #888;
+  }
+
+  /* Responsywność */
+  @media (max-width: 480px) {
+    .category-sidebar {
+      width: 100%;
+      right: -100%;
+    }
+
+    .sidebar-header h2 {
+      font-size: 1.35rem;
+    }
+  }
+
+  
+.search-btn {
+    position: relative;
+}
+
+.search-text,
+.loading-dots {
+    display: inline-block;
+    transition: opacity 0.2s ease;
+}
+
+.search-text.hidden {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.loading-dots {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loading-dots.active {
+    opacity: 1;
+    position: static;
+    transform: none;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-dots.hidden {
+    display: none;
+}
+
+
+
+  /* Animacja samych kropek */
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.loading-dots.active {
+    opacity: 1;
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+ /* Product Slider Container */
+        .product-slider-section {
+            max-width: 100%;
+            margin-top: 20px;
+            background-color: #d4d4d4;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .slider-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e3264;
+        }
+
+        .view-all-btn {
+            padding: 0.75rem 2rem;
+            background: #0e49b8;
+            color: white;
+            border: none;
+            border-radius: 500px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .view-all-btn:hover {
+            background: #0d3d9a;
+            transform: scale(1.05);
+        }
+
+        /* Slider Wrapper */
+        .slider-wrapper {
+            position: relative;
+        }
+
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.4s ease;
+        }
+
+        /* Product Card */
+        .product-card {
+            min-width: 280px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #ccc;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.25rem;
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: #0e49b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e3264;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0e49b8;
+            margin-bottom: 1rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1rem;
+        }
+
+        .rating-count {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #0e49b8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #0d3d9a;
+        }
+
+        /* Navigation Arrows */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .slider-nav:hover {
+            background: #0e49b8;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-nav.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slider-nav.disabled:hover {
+            background: white;
+            color: black;
+            transform: translateY(-50%);
+        }
+
+        .slider-nav-prev {
+            left: -25px;
+        }
+
+        .slider-nav-next {
+            right: -25px;
+        }
+
+        .slider-nav svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Badge */
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ff4444;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product-badge.new {
+            background: #4CAF50;
+        }
+
+        .product-badge.sale {
+            background: #ff4444;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slider-title {
+                font-size: 1.5rem;
+            }
+
+            .view-all-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .product-card {
+                min-width: 240px;
+            }
+
+            .slider-nav {
+                width: 40px;
+                height: 40px;
+            }
+
+            .slider-nav-prev {
+                left: -10px;
+            }
+
+            .slider-nav-next {
+                right: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-slider-section {
+                padding: 0 1rem;
+            }
+
+            .slider-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .product-card {
+                min-width: 200px;
+            }
+
+            .slider-nav {
+                display: none;
+            }
+
+            .slider-track {
+                gap: 1rem;
+            }
+        }
+         .page-layout {
+            display: flex;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* SIDEBAR PANEL - po lewej */
+        .sidebar-panel {
+            width: 280px;
+            min-width: 280px;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-panel.collapsed {
+            width: 50px;
+            min-width: 50px;
+        }
+
+        /* Panel Header */
+        .sidebar-header {
+            background: #0e49b8;
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+
+        .sidebar-panel.collapsed .sidebar-title {
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+        }
+
+        .toggle-btn {
+            font-size: 1.2rem;
+            color: white;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .sidebar-panel.collapsed .toggle-btn {
+            transform: rotate(180deg);
+        }
+
+        /* Panel Content */
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 1.25rem;
+            transition: opacity 0.3s;
+        }
+
+        .sidebar-panel.collapsed .sidebar-content {
+            opacity: 0;
+            padding: 0;
+        }
+
+        /* Scrollbar */
+        .sidebar-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb {
+            background: #0e49b8;
+            border-radius: 3px;
+        }
+
+        /* Category Block */
+        .category-block {
+            background: #242424;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .category-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-subtitle {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        /* Links */
+        .sidebar-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: #b3b3b3;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-link:hover {
+            background: #2e2e2e;
+            color: #fff;
+            padding-left: 1rem;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            height: 1px;
+            background: #333;
+            margin: 1rem 0;
+        }
+
+        /* Section Header */
+        .section-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #0e49b8;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-content {
+            flex: 1;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Demo content styling */
+        .content-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .content-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-box p {
+            color: #b3b3b3;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* FOOTER - przykładowy */
+        .site-footer {
+            background: #000;
+            padding: 2rem;
+            color: #b3b3b3;
+            text-align: center;
+        }
+
+        /* MOBILE STYLES */
+        @media (max-width: 768px) {
+            .page-layout {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .sidebar-panel {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100% !important;
+                min-width: 100% !important;
+                max-height: 70vh;
+                border-radius: 16px 16px 0 0;
+                box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar-panel.collapsed {
+                transform: translateY(calc(100% - 56px));
+                width: 100% !important;
+                min-width: 100% !important;
+            }
+
+            .sidebar-panel.collapsed .sidebar-title {
+                opacity: 1;
+                width: auto;
+            }
+
+            .sidebar-content {
+                max-height: calc(70vh - 56px);
+            }
+
+            .sidebar-panel.collapsed .sidebar-content {
+                max-height: 0;
+                padding: 0 1.25rem;
+                overflow: hidden;
+            }
+
+            .main-content {
+                padding: 0;
+                min-height: calc(100vh - 180px);
+            }
+        }
+         /* Categories Section */
+        .categories-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3264;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Category Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Category Tile */
+        .category-tile {
+            background: linear-gradient(135deg, #1e3264 0%, #0e49b8 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+        }
+
+        .category-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(40%, -40%);
+            transition: all 0.3s ease;
+        }
+
+        .category-tile:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(14, 73, 184, 0.3);
+        }
+
+        .category-tile:hover::before {
+            transform: translate(30%, -30%) scale(1.2);
+        }
+
+        /* Tile Content */
+        .tile-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tile-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tile-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tile-arrow {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .category-tile:hover .tile-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Special Tiles - Larger for Featured Categories */
+        .category-tile.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #0e49b8 0%, #083880 100%);
+        }
+
+        /* Alternative Color Schemes */
+        .category-tile.color-alt-1 {
+            background: linear-gradient(135deg, #2d4a7c 0%, #1e3264 100%);
+        }
+
+        .category-tile.color-alt-2 {
+            background: linear-gradient(135deg, #083880 0%, #062959 100%);
+        }
+
+        .category-tile.color-accent {
+            background: linear-gradient(135deg, #0e49b8 0%, #0a3585 100%);
+        }
+
+        /* Badge */
+        .tile-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tile-badge.new {
+            background: rgba(76, 175, 80, 0.9);
+        }
+
+        .tile-badge.hot {
+            background: rgba(255, 87, 34, 0.9);
+        }
+
+        /* Count Badge */
+        .item-count {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .category-tile.featured {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .categories-section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .category-tile {
+                min-height: 160px;
+                padding: 1.5rem;
+            }
+
+            .tile-icon {
+                font-size: 2.5rem;
+            }
+
+            .tile-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-tile {
+                min-height: 140px;
+            }
+
+            .tile-icon {
+                font-size: 2rem;
+            }
+
+            .tile-title {
+                font-size: 1.1rem;
+            }
+
+            .tile-description {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .category-tile {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .category-tile:nth-child(1) { animation-delay: 0s; }
+        .category-tile:nth-child(2) { animation-delay: 0.1s; }
+        .category-tile:nth-child(3) { animation-delay: 0.2s; }
+        .category-tile:nth-child(4) { animation-delay: 0.3s; }
+        .category-tile:nth-child(5) { animation-delay: 0.4s; }
+        .category-tile:nth-child(6) { animation-delay: 0.5s; }
+          /* Autocomplete Dropdown */
+         /* Autocomplete Dropdown */
+        .autocomplete-dropdown {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 120px; /* offset by select width */
+            right: 0;
+            background: rgb(235, 235, 235);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .autocomplete-dropdown.active {
+            display: block;
+        }
+
+        /* Dropdown Section */
+        .dropdown-section {
+            padding: 0.75rem 0;
+        }
+
+        .dropdown-section:not(:last-child) {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .suggestion-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: background 0.2s;
+            color: #333;
+        }
+
+        .suggestion-item:hover {
+            background: #f5f5f5;
+        }
+
+        .suggestion-item.active {
+            background: #e3f2fd;
+        }
+
+        .suggestion-icon {
+            font-size: 1.2rem;
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .suggestion-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .suggestion-text .highlight {
+            font-weight: 600;
+            color: #0e49b8;
+        }
+
+        .suggestion-category {
+            font-size: 0.8rem;
+            color: #999;
+            margin-left: auto;
+        }
+
+        /* Empty State */
+        .no-results {
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Scrollbar */
+        .autocomplete-dropdown::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .autocomplete-dropdown::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .autocomplete-dropdown::-webkit-scrollbar-thumb {
+            background: #0e49b8;
+            border-radius: 4px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .search-container {
+                flex-direction: column;
+            }
+
+            .autocomplete-dropdown {
+                left: 0;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+        }
+        .search-wrapper {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
+}
+
+.recommend-by-mb {
+        text-align: center;
+        padding: 6rem 2rem;
+        width: 100%;
+        background: linear-gradient(to right, rgb(0, 1, 2),rgb(0, 43, 134));
+        margin: 0 auto;
+}
+
+        .recommend-by-mb  h2 {
+            font-size: 4rem;
+            font-family: "Ubuntu", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .recommend-by-mb  p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: #b3b3b3;
+        }
+
+
+    </style>
 </head>
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VB7P0MQR2B"></script>
@@ -92,211 +1782,908 @@ BGP75G57777777??JJY55PPGGGGG?777?: :7?77777?^:!??~~7??~  ^!7:^!~.:~7777?GGGGGPP5
 
   gtag('config', 'G-VB7P0MQR2B');
 </script>
-	<body>
-		<div id="preloader-logo"></div>
-		<div class="container">
-			<div class="bg-sec">
-				<div class="mb-logo-big">
-					<img src="assets/images/mb-ico.png" class="mb-lg-big-img">
-				</div>
-			</div>
-			<div class="amogus-signup">
-				<div class="just-mb-logo-small">
-					<img src="assets/images/mb-ico.png" class="mb-lg-small-img">
-					<div class="lang">
-						<a href="index.html">PL</a>
-						<a href="en.html">EN</a>
-						<a href="https://mbspshop.wixsite.com/net-pl/language">DE</a>
-						<a href="https://mbspshop.wixsite.com/net-pl/languagel">DK</a>
-					</div>
-				</div>
-				<div class="main-text">
-					<h1>Wszystko, czego potrzebujesz, <span>w jednym miejscu!</span></h1>
-					<h3>Twój dostawca części, komponentów elektronicznych i akcesoriów komputerowych.</h3>
-				</div>
-				<div class="buttons">
-					<div class="col-form">
-						<div class="form-container">
-							<input class="searchBox" type="text" placeholder="Czego szukasz?">
-							<select id="category" name="category ">
-								<option value="all">Wszystkie kategorie</option>
-								<option value="Części+elektroniczne">Części elektroniczne</option>
-								<option value="Podzespoły">Komponenty komputerowe</option>
-								<option value="MB%26SP.com+Basic">MB&SP.com Basic</option>
-								<option value="Akcesoria+komputerowe">Akcesoria komputerowe</option>
-								<option value="PC+i+Laptopy">PC i Laptopy</option>
-								<option value="Gaming+i+akcesoria+komputerowe">Gaming</option>
-								<option value="Muzyka">Muzyka CD</option>
-								<option value="Książki">Książki</option>
-								<option value="Odzież">Merch</option>
-								<option value="Narzędzia">Narzędzia</option>
-							</select>
-							<button class="btn-redirect-g">Szukaj</button>
-							<a href="https://mbnsp.github.io/page/advanced_search/adv_search.html">Zaawansowana wyszukiwarka</a><br><br>
-						</div>
-					</div>
-						<div class="search-box">
-						</div>
-						
-					<div class="adi-text">
-						
-					</div>
-					<a href="https://mbspshop.wixsite.com/net-pl/wszystkie-produkty" class="btn-redirect-g-d" style="margin-bottom: 20px; margin-top: 20px;"><span>Przeglądaj kategorie</span></a>
-					<a href="https://mbspshop.wixsite.com/net-pl/order-payment" class="btn-redirect-g-d" style="margin-bottom: 20px; margin-top: 20px;"><span>Zamów online / Poproś o wycenę</span></a>
-					<a href="https://mbspshop.wixsite.com/net-pl/blog" class="btn-redirect-g-d" style="margin-bottom: 20px; margin-top: 20px;"><span>Blog</span></a>
-					<a href="https://mbnsp.github.io/support/tech-pl.html" class="btn-redirect-g-d"><span>Pomoc Techniczna MB&SP.com</span></a>
-					<button style="margin-top: 20px;" class="btn-redirect-g-d" id="openPopup">Więcej</button>
-				</div>
-				<div class="adi-text">
-					<p>Warto zobaczyć:</p>
-					<a href="http://mbsp.com.pl/intro">Poznaj MB&SP.com.pl</a>
-					<a href="http://mbsp.com.pl/about">O Miły's Buy & Sell Parts</a>
-				</div>
-				<button onclick="myFunction()" class="btn-redirect-g" style="margin: 15px;">
-				Tryb ciemny / jasny
-				</button>
-			</div>
-		</div>
+     <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebarPanel');
+            sidebar.classList.toggle('collapsed');
+        }
 
-		<footer>
-			<a href="http://mbsp.com.pl/about">o Miły's Buy & Sell Parts</a>
-			<a href="https://about-mbsp.github.io/credits.html">Kto to zrobił</a>
-			<a href="http://mbsp.com.pl/support/pl">Tech Support</a>
-			<a href="http://mbsp.com.pl/faq">FAQ</a>
-			<a href="https://mbnsp.github.io/support/store-rules-pl.html">Zasady sklepu</a>
-			<a href="https://mbnsp.github.io/support/refund-pl.html">Zwroty</a>
-			<a href="https://mbnsp.github.io/support/privacy_policy-pl.html">Polityka prywatności</a>
-			<a href="http://mbsp.com.pl/status">Status</a>
-			<a href="https://mbspshop.wixsite.com/net-pl/blog">Blog</a>
-			<a href="http://mbsp.com.pl/goprime">MB Prime</a>
-			<a href="http://mbsp.com.pl/ads">MB Ads - marketing</a>
-			<a href="https://mbspshop.wixsite.com/net-pl/kontakt">Kontakt z nami</a>
-			<span>&copy; 2025 Miły's Buy & Sell Parts, Ind.<br>Produkcja: Miłosz Boguniewicz</span>
-		</footer>
-		<!-- Overlay -->
-		<div id="popupOverlay" class="overlay"></div>
-		<!-- Wyskakujące okienko -->
-		<div id="popup" class="popup">
-		  <div class="popup-header">
-			<h2>Więcej od Miły's Buy & Sell Parts</h2>
-			<button class="close-popup-btn" id="closePopup"><i class="fas fa-times"></i></button>
-		  </div>
-		  <div class="popup-content">
-			<ul>
-				<p style="color: black; font-size: 19px;">Dla zalogowanych użytkowników</p>
-			  <li><a href="http://mbsp.com.pl/trackorder">Śledzenie zamówienia (Gdzie jest Moje Zamówienie?)</a></li>
-			  <li><a href="http://mbsp.com.pl/goprime">MB Prime</a></li>
-			  <li><a href="https://mbspshop.wixsite.com/net-pl/mb-quick">MB Quick</a></li>
-			  <li><a href="https://mbnsp.github.io/page/docs.html">Wyszukiwarka dokumentacji</a></li>
-			  <li><a href="http://mbsp.com.pl/ai">Mily AI</a></li>
-			  <li><a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Dodaj produkt</a></li>
-			  <li><a href="https://mbspshop.wixsite.com/net-pl/kalkulatory">Kalkulatory dla elektroników</a></li>
-			  <p style="color: black; font-size: 19px;">Potrzebujesz pomocy?</p>
-			  <li><a href="http://mbsp.com.pl/support/pl">Pomoc Techniczna</a></li>
-			  <li><a href="http://mbsp.com.pl/faq">Często Zadawane Pytania</a></li>
-			  <li><a href="https://mbspshop.wixsite.com/net-pl/opinie">Opinie</a></li>
-			  <p style="color: black; font-size: 19px;">Pozostałe:</p>
-			  <li><a href="http://mbsp.com.pl/ads">MB Ads</a></li>
-			</ul>
-		  </div>
-		</div>
-		  <!-- Banner cookie -->
-		  <div id="cookieBanner" class="cookie-banner">
-			<p><strong>Witamy w witrynie</strong> MBSP.com.pl
-			</p>
-			<button id="acceptCookies" class="cookie-btn">Ok</button>
-		  </div>
-	</body>
-	<script src="assets/js/mb-search.js"></script>
-	<script>
-		function myFunction() {
-		   var element = document.body;
-		   element.classList.toggle("dark-mode");
-		}
-		</script>
-		<script>
-			var loader = document.getElementById("preloader-logo");
+     
 
-			window.addEventListener("load", function(){
-				loader.style.display = "none";
-			})
+        // Obsługa resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const sidebar = document.getElementById('sidebarPanel');
+                if (window.innerWidth <= 768) {
+                    // Mobile - dodaj collapsed jeśli nie ma
+                    if (!sidebar.classList.contains('collapsed')) {
+                        sidebar.classList.add('collapsed');
+                    }
+                } else {
+                    // Desktop - usuń collapsed (domyślnie otwarty)
+                    // ale pozwól użytkownikowi ręcznie zwijać
+                }
+            }, 250);
+        });
+        // Sprawdź przy ładowaniu i ustaw odpowiedni stan
+window.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebarPanel');
+    if (window.innerWidth <= 768) {
+        sidebar.classList.add('collapsed');
+    } else {
+        sidebar.classList.remove('collapsed');
+    }
+});
+    </script>
+<body>
+<header>
+        <div class="logo"><img width="50px"  src="assets/images/logo.png" alt="MB Logo"></div>
+        <nav>
+            <div class="dropdown">
+                <a href="#">Produkty</a>
+                <div class="dropdown-menu">
+                    <a href="https://mbspshop.wixsite.com/net-pl/rekomendacje">Polecane dla Ciebie</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/search?q=sponsorowane&type=products&collections=MB+Ads">Sponsorowane</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/computer-accesories">Akcesoria PC</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/gadgets">Do telefonu</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/smart-devices">Urządzenia Smart</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/pc-components">Podzespoły PC</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/promocje">Promocje</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Części elektroniczne</a>
+                <div class="dropdown-menu">
+                     <a href="https://mbspshop.wixsite.com/net-pl/mbbasics">MB&SP.com Basic</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/semiconductors">Półprzewodniki</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/passive-elements">Elementy bierne</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/optoelectronics">Optoelektronika</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/electronics-modules">Moduły elektroniczne</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/tools">Narzędzia</a>
+                </div>
+            </div>
+            <a href="http://mbsp.com.pl/goprime">MB Prime</a>
+            <a href="http://mbsp.com.pl/support/pl">Pomoc techniczna</a>
+            <div class="dropdown" onclick="toggleDropdown(event)">
+                <a href="#">Więcej od Miły's</a>
+                <div class="dropdown-menu">
+                    <a href="http://mbsp.com.pl/about">O nas</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/opinie">Co mówią klienci?</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/blog">Blog</a>
+                    <a href="https://mbnsp.github.io/order/order_track_status/orders/whereismystuff-pl.html">Śledź zamówienie</a>
+                    <a href="http://mbsp.com.pl/docs">Katalogi i dokumentacja</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Dodaj produkty</a>
+                </div>
+            </div>
+        </nav>
+        <div class="auth-buttons">
+            <a href="http://mbsp.com.pl/order" class="btn btn-signup">Poproś o wycenę</a>
+            <a href="https://mbspshop.wixsite.com/net-pl/account/my-account" class="btn btn-login">Zaloguj się</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 
-			
-		</script>
-		<script>
-			const cookieBox = document.querySelector(".wrapper"),
-			buttons = document.querySelectorAll(".button");
+    <div class="mobile-menu" id="mobileMenu">
+        <nav>
+            <div class="dropdown" onclick="toggleDropdown(event)">
+                <a href="#">Produkty</a>
+                <div class="dropdown-menu">
+                    <a href="https://mbspshop.wixsite.com/net-pl/rekomendacje">Polecane dla Ciebie</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/search?q=sponsorowane&type=products&collections=MB+Ads">Sponsorowane</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/computer-accesories">Akcesoria PC</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/gadgets">Do telefonu</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/smart-devices">Urządzenia Smart</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/pc-components">Podzespoły PC</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/promocje">Promocje</a>
+                </div>
+            </div>
+            <div class="dropdown" onclick="toggleDropdown(event)">
+                <a href="#">Części elektroniczne</a>
+                <div class="dropdown-menu">
+                    <a href="https://mbspshop.wixsite.com/net-pl/mbbasics">MB&SP.com Basic</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/semiconductors">Półprzewodniki</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/passive-elements">Elementy bierne</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/optoelectronics">Optoelektronika</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/electronics-modules">Moduły elektroniczne</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/tools">Narzędzia</a>
+                </div>
+            </div>
+            <a href="http://mbsp.com.pl/goprime">MB Prime</a>
+            <a href="http://mbsp.com.pl/support/pl">Pomoc techniczna</a>
+            <div class="dropdown" onclick="toggleDropdown(event)">
+                <a href="#">Więcej od Miły's</a>
+                <div class="dropdown-menu">
+                    <a href="http://mbsp.com.pl/about">O nas</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/opinie">Co mówią klienci?</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/blog">Blog</a>
+                    <a href="https://mbnsp.github.io/order/order_track_status/orders/whereismystuff-pl.html">Śledź zamówienie</a>
+                    <a href="http://mbsp.com.pl/docs">Katalogi i dokumentacja</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Dodaj produkty</a>
+                </div>
+            </div>
+        </nav>
+        <div class="auth-buttons">
+            <a href="http://mbsp.com.pl/order" class="btn btn-signup">Poproś o wycenę</a>
+            <a href="https://mbspshop.wixsite.com/net-pl/account/my-account" class="btn btn-login">Zaloguj się</a>
+             <p>&copy; 2017-2026 Miły's Buy & Sell Parts <br>produkcja Miłosz Boguniewicz</p>
+        </div>
+    </div>
+    <!-- MAIN: Panel + Content -->
+    <div class="page-layout">
+        <aside class="sidebar-panel" id="sidebarPanel">
+            <div class="sidebar-header" onclick="toggleSidebar()">
+                <span class="sidebar-title"> Zacznij tutaj</span>
+                <span class="toggle-btn">◀</span>
+            </div>
 
-			const executeCodes = () => {
-			//if cookie contains codinglab it will be returned and below of this code will not run
-			if (document.cookie.includes("codinglab")) return;
-			cookieBox.classList.add("show");
+            <div class="sidebar-content">
+                <!-- Building a Project -->
+                <div class="category-block">
+                    <div class="category-title">🔧 Buduję projekt</div>
+                    <a href="https://mbspshop.wixsite.com/net-pl/shop" class="sidebar-link">Moduły i części</a>
+                    <a href="http://mbsp.com.pl/order" class="sidebar-link">Zamów części</a>
+                </div>
 
-			buttons.forEach((button) => {
-				button.addEventListener("click", () => {
-				cookieBox.classList.remove("show");
+                <!-- Learning Electronics -->
+                <div class="category-block">
+                    <div class="category-title">🧠 Uczę się elektroniki</div>
+                    <div class="category-subtitle">Artykuły, poradniki, podstawy</div>
+                    <a href="https://mbspshop.wixsite.com/net-pl/post/jak-zacząć-programować-arduino-przewodnik-dla-początkujących" class="sidebar-link">▶ Rozpocznij z Arduino</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/post/wszystko-co-musisz-wiedzieć-o-półprzewodnikach" class="sidebar-link">▶ Zrozumieć półprzewodniki</a>
+                    <a href="https://mbnsp.github.io/page/kalkulatory/calc-res.html" class="sidebar-link"></a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/post/podstawy-projektowania-pcb-przewodnik-dla-początkujących-w-2026-roku" class="sidebar-link">▶ Podstawy projektowania PCB</a>
+                </div>
 
+                <!-- Looking for Something -->
+                <div class="category-block">
+                    <div class="category-title">⚡ Szukam konkretu</div>
+                    <a href="http://mbsp.com.pl/docs" class="sidebar-link">Wyszukiwarka dokumentacji</a>
+                </div>
 
-				//if button has acceptBtn id
-				});
-			});
-			};
+                <!-- What's New -->
+                <div class="category-block">
+                    <div class="category-title">✨ Co nowego?</div>
+                    <a href="https://mbspshop.wixsite.com/net-pl/search?q=esp32" class="sidebar-link">Nowe moduły ESP32-S3 dostępne</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/search?q=raspberry+pi+5" class="sidebar-link">Raspberry Pi 5 w magazynie</a>
+                    <a href="https://mbspshop.wixsite.com/net-pl/promocje" class="sidebar-link">Promocje sezonowe</a>
+                </div>
 
-			//executeCodes function will be called on webpage load
-			window.addEventListener("load", executeCodes);
+                <!-- Shipping Info -->
+                <div class="category-block">
+                    <div class="category-title">📦 Informacje o dostawach</div>
+                    <a href="https://mbnsp.github.io/support/shipping_pl.html" class="sidebar-link">Czasy i koszty dostawy</a>
+                </div>
 
-		</script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-		  
-			gtag('config', 'G-VB7P0MQR2B');
-		  </script>
-		  <script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-		  
-			gtag('config', 'G-VB7P0MQR2B');
-		  </script>
-		  <script>
-			const openPopupBtn = document.getElementById('openPopup');
-		const closePopupBtn = document.getElementById('closePopup');
-		const popup = document.getElementById('popup');
-		const overlay = document.getElementById('popupOverlay');
-		
-		// Otwieranie popupu
-		openPopupBtn.addEventListener('click', () => {
-		  popup.style.display = 'block';
-		  overlay.style.display = 'block';
-		  document.body.style.overflow = 'hidden';
-		});
-		
-		// Zamykanie popupu
-		closePopupBtn.addEventListener('click', () => {
-		  popup.style.display = 'none';
-		  overlay.style.display = 'none';
-		  document.body.style.overflow = 'auto';
-		});
-		
-		// Zamykanie po kliknięciu w tło (overlay)
-		overlay.addEventListener('click', () => {
-		  popup.style.display = 'none';
-		  overlay.style.display = 'none';
-		  document.body.style.overflow = 'auto';
-		});
-		
-		</script>
-		<script>
-			const cookieBanner = document.getElementById('cookieBanner');
-const acceptCookies = document.getElementById('acceptCookies');
+                <div class="section-divider"></div>
 
-// Zamknięcie banera po kliknięciu w przycisk
-acceptCookies.addEventListener('click', () => {
-  cookieBanner.style.display = 'none';
+                <!-- Quick Shortcuts -->
+                <div class="section-header">Szybkie skróty</div>
+                <a href="https://mbspshop.wixsite.com/net-pl/wszystkie-produkty" class="sidebar-link">📦 Wszystkie produkty</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/blog" class="sidebar-link">📰 Blog / Poradniki</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/rekomendacje" class="sidebar-link">⭐ Polecane dla Ciebie</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/recommended-by-mb" class="sidebar-link">🔥 Najpopularniejsze</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/account/my-wishlist" class="sidebar-link">❤️ Lista życzeń</a>
+
+                <div class="section-divider"></div>
+
+                <!-- Getting Started -->
+                <div class="section-header">Zaczynasz?</div>
+                <!--<a href="#" class="sidebar-link">▶️ Elektronika od zera</a>-->
+                <!--<a href="#" class="sidebar-link">▶️ Pierwszy projekt DIY</a>-->
+                <a href="https://mbspshop.wixsite.com/net-pl/post/jak-rozpocząć-pracę-z-raspberry-pi-przewodnik-dla-początkujących" class="sidebar-link">▶️ Raspberry Pi - Podstawy</a>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <section class="hero">
+        <h1>Wszystko czego potrzebujesz,<br> do kolejnego projektu</h1>
+        <p>Mniej szukania. Więcej tworzenia</p>
+        
+        <div class="search-wrapper">
+    <div class="search-container">
+        <select class="search-select" id="categorySelect">
+            <option value="all">Wszystko</option>
+            <option value="Części+elektroniczne">Części elektroniczne</option>
+            <option value="Podzespoły">Podzespoły PC</option>
+            <option value="MB%26SP.com+Basic">MB&SP.com Basic</option>
+            <option value="Akcesoria+komputerowe">Akcesoria PC</option>
+            <option value="Gaming+i+akcesoria+komputerowe">Gaming</option>
+            <option value="Odzież">Gadżety</option>
+            <option value="Narzędzia">Narzędzia</option>
+        </select>
+        <div class="search-input-wrapper">
+            <input type="text" id="searchInput" class="search-input" placeholder="Czego potrzebujesz?" autocomplete="off">
+        </div>
+        <button class="search-btn" id="searchBtn">
+            <span class="search-text">Szukaj</span>
+            <span class="loading-dots hidden">●●●</span>
+        </button>
+    </div>
+    <!-- Autocomplete Dropdown - POZA search-container! -->
+    <div class="autocomplete-dropdown" id="autocompleteDropdown"></div>
+</div>
+        <a href="#" id="categoryButton" class="btn btn-primary">Przeglądaj katalog Miły's</a>
+    </section>
+    <section class="categories-section">
+        <div class="section-header">
+            <h2 style="font-size: 4rem; color: #062959;" class="section-title">Kupuj według kategorii</h2>
+            <p class="section-subtitle">Znajdź dokładnie to, czego potrzebujesz do swojego projektu</p>
+        </div>
+
+        <div class="category-grid">
+            <!-- Featured Tile -->
+            <a href="https://mbspshop.wixsite.com/net-pl/pc-components" class="category-tile featured">
+                <span class="tile-badge hot">Gorące</span>
+                <div class="tile-icon">💾</div>
+                <div>
+                    <h3 class="tile-title">Podzespoły PC</h3>
+                    <p class="tile-description">Wysokowydajne komponenty do gier i stacji roboczych</p>
+                    <div class="item-count">20+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <!-- Regular Tiles -->
+            <a href="https://mbspshop.wixsite.com/net-pl/semiconductors" class="category-tile color-accent">
+                <span class="tile-badge new">Nowość</span>
+                <div class="tile-icon">⚡</div>
+                <div>
+                    <h3 class="tile-title">Półprzewodniki</h3>
+                    <p class="tile-description">Układy scalone, tranzystory, diody i więcej</p>
+                    <div class="item-count">230+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/electronics-modules" class="category-tile color-alt-1">
+                <div class="tile-icon">📡</div>
+                <div>
+                    <h3 class="tile-title">IoT i Moduły</h3>
+                    <p class="tile-description">ESP32, Arduino, Raspberry Pi i urządzenia smart</p>
+                    <div class="item-count">60+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+             <a href="https://mbspshop.wixsite.com/net-pl/passive-elements" class="category-tile color-alt-2">
+                <div class="tile-icon">🔌</div>
+                <div>
+                    <h3 class="tile-title">Elementy bierne</h3>
+                    <p class="tile-description">Rezystory, kondensatory, cewki, kwarce</p>
+                    <div class="item-count">150+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/search?q=uk%C5%82ady+logiczne" class="category-tile color-alt-2">
+                <div class="tile-icon">📟</div>
+                <div>
+                    <h3 class="tile-title">Układy logiczne</h3>
+                    <p class="tile-description">Przerzutniki, pamięci, bramki</p>
+                    <div class="item-count">150+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/optoelectronics" class="category-tile">
+                <div class="tile-icon">💡</div>
+                <div>
+                    <h3 class="tile-title">Optoelektronika</h3>
+                    <p class="tile-description">LED-y, wyświetlacze, czujniki optyczne</p>
+                    <div class="item-count">15+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/computer-accesories" class="category-tile color-accent">
+                <div class="tile-icon">🖥️</div>
+                <div>
+                    <h3 class="tile-title">Akcesoria PC</h3>
+                    <p class="tile-description">Klawiatury, myszki, kable i peryferia</p>
+                    <div class="item-count">40+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/search?q=gaming" class="category-tile color-alt-1">
+                <div class="tile-icon">🎮</div>
+                <div>
+                    <h3 class="tile-title">Gaming</h3>
+                    <p class="tile-description">Sprzęt gamingowy i akcesoria RGB</p>
+                    <div class="item-count">30+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/tools" class="category-tile color-alt-2">
+                <div class="tile-icon">🔧</div>
+                <div>
+                    <h3 class="tile-title">Narzędzia i wyposażenie</h3>
+                    <p class="tile-description">Stacje lutownicze, multimetry, zestawy</p>
+                    <div class="item-count">65+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/gadgets" class="category-tile">
+                <div class="tile-icon">📱</div>
+                <div>
+                    <h3 class="tile-title">Akcesoria mobilne</h3>
+                    <p class="tile-description">Etui, ładowarki, powerbanki</p>
+                    <div class="item-count">20+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/search?q=bateria+powerbank" class="category-tile color-accent">
+                <div class="tile-icon">🔋</div>
+                <div>
+                    <h3 class="tile-title">Zasilacze</h3>
+                    <p class="tile-description">Baterie, adaptery, regulatory napięcia</p>
+                    <div class="item-count">10+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/merch" class="category-tile color-alt-1">
+                <div class="tile-icon">🎨</div>
+                <div>
+                    <h3 class="tile-title">MB Gadżety</h3>
+                    <p class="tile-description">Oficjalne gadżety marki MB&SP</p>
+                    <div class="item-count">15+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+
+            <a href="https://mbspshop.wixsite.com/net-pl/promocje" class="category-tile color-alt-2">
+                <span class="tile-badge">🔥</span>
+                <div class="tile-icon">⭐</div>
+                <div>
+                    <h3 class="tile-title">Promocje i okazje</h3>
+                    <p class="tile-description">Specjalne oferty i produkty w promocji</p>
+                    <div class="item-count">10+ produktów</div>
+                </div>
+                <span class="tile-arrow">→</span>
+            </a>
+        </div>
+    </section>
+           <section class="recommend-by-mb">
+        <h2>Polecane przez Miły's</h2>
+        <p>Produkty które rzeczywiście polecamy — nie tylko to co się sprzedaje.</p>
+        <a href="https://mbspshop.wixsite.com/net-pl/recommended-by-mb"  class="btn btn-primary">Przeglądaj produkty</a>
+    </section>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>O nas</h4>
+                <a href="https://about-mbsp.github.io/en.html">O Miły's </a>
+            </div>
+            <div class="footer-column">
+                <h4>MB&SP.com</h4>
+                <a href="http://mbsp.com.pl/order">Poproś o wycenę</a>
+                <a href="http://mbsp.com.pl/goprime">MB Prime</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/mb-quick">MB Quick</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/blog">MB Blog</a>
+                <a href="http://mbsp.com.pl/status">Status</a>
+              <a href="https://mbnsp.github.io/page/docs.html">MB&SP.com Dokumentacja </a>
+              <a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Dodaj produkt</a>
+            </div>
+            <div class="footer-column">
+                <h4>Pomoc Techniczna</h4>
+                <a href="http://mbsp.com.pl/faq">FAQ</a>
+                <a href="http://mbsp.com.pl/support/pl">Strona główna wsparcia</a>
+                <a href="http://mbsp.com.pl/trackorder">Śledź zamówienie</a>
+                <a href="https://mbnsp.github.io/support/privacy_policy-pl.html">Polityka prywatności</a>
+            </div>
+            <div class="footer-column">
+                <h4>Przydatne linki</h4>
+                <a href="http://mbsp.com.pl/intro">Pierwszy raz na Miły's?</a>
+                
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2017-2026 Miły's Buy & Sell Parts <br>produkcja Miłosz Boguniewicz</p>
+        </div>
+    </footer>
+  <!-- Pasek dolny -->
+  <div class="bottom-bar" id="bottomBar">
+    <div class="bar-content">
+      <span class="bar-text">Hej! Przeglądasz międzynarodową wersję MBSP.com.pl</span>
+      <a href="index.html" class="btn btn-primary">Przełącz na PL</a>
+      <button class="btn btn-close" onclick="hideBottomBar()">Zamknij</button>
+    </div>
+  </div>
+<div id="categorySidebar" class="category-sidebar">
+  <div class="sidebar-header">
+    <h2>PRODUKTY</h2>
+    <button class="close-btn" onclick="closeSidebar()">×</button>
+  </div>
+
+  <div class="search-container-sidebar">
+  </div>
+
+  <div class="category-list">
+    <a href="https://mbspshop.wixsite.com/net-pl/semiconductors" class="category-item">
+      <span class="icon">↳</span> Półprzewodniki
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/electronics-modules" class="category-item">
+      <span class="icon">↳</span> Moduły elektroniczne i IoT
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/passive-elements" class="category-item">
+      <span class="icon">↳</span> Elementy bierne
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/pc-components" class="category-item">
+      <span class="icon">↳</span> Podzespoły PC
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/computer-accesories" class="category-item">
+      <span class="icon">↳</span> Akcesoria PC
+    </a>
+    <a href="#" class="category-item">
+      <span class="icon">↳</span> Urządzenia Smart
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/optoelectronics" class="category-item">
+      <span class="icon">↳</span> Optoelektronika
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/gadgets" class="category-item">
+      <span class="icon">↳</span> Akcesoria mobilne
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/search?q=przekaźnik" class="category-item">
+      <span class="icon">↳</span> Przekaźniki
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/search?q=kabel" class="category-item">
+      <span class="icon">↳</span> Kable
+    </a>
+    <a href="https://mbspshop.wixsite.com/net-pl/search?q=diy+kit" class="category-item">
+      <span class="icon">↳</span> Zestawy DIY
+    </a>
+  </div>
+</div><!-- Nakładka (overlay) – zaciemnienie tła po otwarciu -->
+<div id="sidebarOverlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+  <script>
+    function hideBottomBar() {
+      const bar = document.getElementById('bottomBar');
+      bar.classList.add('hidden');
+
+      // Opcjonalnie: zapamiętaj zamknięcie (np. na 30 dni)
+      localStorage.setItem('bottomBarHidden', Date.now());
+    }
+
+    // Przy wczytaniu – sprawdź czy wcześniej był ukryty
+    /* 
+    window.addEventListener('load', () => {
+      const hiddenTime = localStorage.getItem('bottomBarHidden');
+      if (hiddenTime) {
+        const daysPassed = (Date.now() - hiddenTime) / (1000 * 60 * 60 * 24);
+        if (daysPassed < 30) { // np. pokazuj ponownie po 30 dniach
+          document.getElementById('bottomBar').classList.add('hidden');
+        }
+      }
+    });
+    */
+    
+  </script>
+<script>
+// Funkcje otwierania / zamykania
+function openSidebar() {
+  document.getElementById('categorySidebar').classList.add('open');
+  document.getElementById('sidebarOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden'; // blokada scrolla strony
+}
+
+function closeSidebar() {
+  document.getElementById('categorySidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('active');
+  document.body.style.overflow = ''; // odblokowanie scrolla
+}
+
+// Podpięcie pod przycisk o id="categoryButton"
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('categoryButton');
+  if (btn) {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openSidebar();
+    });
+  }
+
+  // Zamykanie po kliknięciu Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSidebar();
+  });
+});
+</script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function toggleDropdown(event) {
+  // Jeśli kliknięto na link wewnątrz dropdown-menu – NIE blokuj przekierowania
+  if (event.target.tagName === 'A' && event.target.closest('.dropdown-menu')) {
+    return; // pozwól na normalne działanie linka
+  }
+
+  // Jeśli kliknięto na sam dropdown-toggle lub strzałkę – rozwijamy/zamykamy
+  event.preventDefault();
+  event.stopPropagation();
+
+  const dropdown = event.currentTarget;
+  dropdown.classList.toggle('active');
+
+  // Zamknij wszystkie inne dropdowny (opcjonalne, ale ładne)
+  document.querySelectorAll('.dropdown').forEach(other => {
+    if (other !== dropdown) other.classList.remove('active');
+  });
+}
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+                menu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
+    <script>
+        // Elementy
+const searchBox = document.querySelector('.search-input');
+const searchBtn = document.querySelector('.search-btn');
+const categorySelect = document.querySelector('.search-select');
+
+const btnText = searchBtn.querySelector('.search-text');
+const loadingDots = searchBtn.querySelector('.loading-dots');
+
+// Funkcja startująca animację
+function startLoading() {
+  btnText.classList.add('hidden');
+  loadingDots.classList.remove('hidden');
+  loadingDots.classList.add('active');
+  searchBtn.disabled = true;
+}
+
+// Funkcja kończąca animację (nie jest potrzebna przy przekierowaniu,
+function stopLoading() {
+  btnText.classList.remove('hidden');
+  loadingDots.classList.remove('active');
+  loadingDots.classList.add('hidden');
+  searchBtn.disabled = false;
+}
+
+// Perform Search
+function performSearch() {
+    const query = searchInput.value.trim();
+    if (!query) return;
+
+    startLoading();
+
+    let url = 'https://mbspshop.wixsite.com/net-pl/search?q=' + encodeURIComponent(query);
+
+    const selectedCategory = categorySelect.value;
+    if (selectedCategory && selectedCategory !== 'all') {
+        url += '&collections=' + encodeURIComponent(selectedCategory);
+    }
+
+    // Przekierowanie
+    window.location.href = url;
+}
+
+// Kliknięcie w przycisk
+searchBtn.onclick = function (e) {
+  e.preventDefault();
+  performSearch();
+};
+
+// Enter w polu tekstowym
+searchBox.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    performSearch();
+  }
 });
 
-		</script>
-</html>
 
+
+
+</script>
+<script>
+        function slideProducts(button, direction) {
+            const wrapper = button.closest('.slider-wrapper');
+            const track = wrapper.querySelector('.slider-track');
+            const container = wrapper.querySelector('.slider-container');
+            const prevBtn = wrapper.querySelector('.slider-nav-prev');
+            const nextBtn = wrapper.querySelector('.slider-nav-next');
+            
+            const cardWidth = track.querySelector('.product-card').offsetWidth;
+            const gap = 24; // 1.5rem gap
+            const scrollAmount = (cardWidth + gap) * 2; // Scroll 2 cards at a time
+            
+            const currentScroll = parseInt(track.dataset.scroll || 0);
+            const maxScroll = track.scrollWidth - container.offsetWidth;
+            
+            let newScroll = currentScroll + (scrollAmount * direction);
+            newScroll = Math.max(0, Math.min(newScroll, maxScroll));
+            
+            track.style.transform = `translateX(-${newScroll}px)`;
+            track.dataset.scroll = newScroll;
+            
+            // Update button states
+            prevBtn.classList.toggle('disabled', newScroll === 0);
+            nextBtn.classList.toggle('disabled', newScroll >= maxScroll);
+        }
+
+        // Initialize all sliders
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.slider-track').forEach(track => {
+                track.dataset.scroll = 0;
+            });
+            
+            // Set initial button states
+            document.querySelectorAll('.slider-wrapper').forEach(wrapper => {
+                const prevBtn = wrapper.querySelector('.slider-nav-prev');
+                prevBtn.classList.add('disabled');
+            });
+        });
+
+        // Touch/swipe support for mobile
+        document.querySelectorAll('.slider-container').forEach(container => {
+            let startX = 0;
+            let scrollLeft = 0;
+            
+            container.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX;
+                const track = container.querySelector('.slider-track');
+                scrollLeft = parseInt(track.dataset.scroll || 0);
+            });
+            
+            container.addEventListener('touchmove', (e) => {
+                const x = e.touches[0].pageX;
+                const walk = (startX - x) * 1.5;
+                const track = container.querySelector('.slider-track');
+                const maxScroll = track.scrollWidth - container.offsetWidth;
+                
+                let newScroll = scrollLeft + walk;
+                newScroll = Math.max(0, Math.min(newScroll, maxScroll));
+                
+                track.style.transform = `translateX(-${newScroll}px)`;
+                track.dataset.scroll = newScroll;
+            });
+        });
+    </script>
+    <script>
+        // Data
+        const popularSearches = [
+            "Arduino",
+            "Raspberry Pi 5",
+            "ESP32",
+            "Electronics Starter Kit Diy",
+            "LED",
+            "Bateria 9V"
+        ];
+
+        const suggestions = [
+            { text: "Arduino Uno", category: "Modules" },
+            { text: "Arduino Nano", category: "Modules" },
+            { text: "Arduino Mega", category: "Modules" },
+            { text: "ESP32 WiFi module", category: "Modules" },
+            { text: "Arduino starter kit", category: "Kit" },
+            { text: "Raspberry Pi 4", category: "IoT" },
+            { text: "Power supply 5V", category: "Modules" },
+            { text: "ładowarka do telefonu", category: "Modules" },
+            { text: "kabel usb c", category: "Mobile" },
+            { text: "usb c cable", category: "Mobile" },
+            { text: "zasilacz 12V", category: "Mobile" },
+            { text: "moduł bluetooth", category: "Modules" },
+            { text: "czujniki dla arduino", category: "Modules" },
+            { text: "resistor 1k", category: "Passive" },
+            { text: "stabilizator napięcia", category: "Modules" },
+            { text: "bramka", category: "Logic" },
+            { text: "wyśiwetlacz do raspberry pi", category: "Modules" },
+            { text: "raspberry pi display", category: "Modules" },
+            { text: "electronics starter kit diy", category: "Kit" },
+            { text: "multimetr cyfrowy", category: "Tools" },
+            { text: "LED", category: "Optoelectronics" },
+            { text: "Arduino Mega", category: "Modules" },
+            { text: "Arduino Mega", category: "Modules" },
+            { text: "Raspberry Pi 5", category: "IoT" },
+            { text: "Raspberry Pi Zero", category: "IoT" },
+            { text: "ESP32-S3", category: "IoT" },
+            { text: "ESP32 DevKit", category: "IoT" },
+            { text: "ESP8266", category: "IoT" },
+            { text: "Resistor Kit", category: "Components" },
+            { text: "Resistors 1/4W", category: "Components" },
+            { text: "LED RGB", category: "Optoelectronics" },
+            { text: "LED Strip", category: "Optoelectronics" },
+            { text: "LED 5mm", category: "Optoelectronics" },
+            { text: "Capacitor Kit", category: "Components" },
+            { text: "Electrolytic Capacitors", category: "Components" },
+            { text: "Ceramic Capacitors", category: "Components" },
+            { text: "Soldering Iron", category: "Tools" },
+            { text: "Multimeter", category: "Tools" },
+            { text: "Breadboard", category: "Tools" },
+            { text: "Jumper Wires", category: "Cables" },
+            { text: "USB Cable", category: "Cables" }
+        ];
+
+        // Elements
+        const searchInput = document.getElementById('searchInput');
+        const dropdown = document.getElementById('autocompleteDropdown');
+        let activeIndex = -1;
+
+        // Show Popular Searches
+        function showPopularSearches() {
+            const html = `
+                <div class="dropdown-section">
+                    <div class="section-title">🔥 Popularne wyszukiwania</div>
+                    ${popularSearches.map(term => `
+                        <div class="suggestion-item" data-value="${term}">
+                            <span class="suggestion-icon">🔍</span>
+                            <span class="suggestion-text">${term}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            dropdown.innerHTML = html;
+            dropdown.classList.add('active');
+            attachSuggestionListeners();
+        }
+
+        // Show Suggestions
+        function showSuggestions(query) {
+            if (!query.trim()) {
+                showPopularSearches();
+                return;
+            }
+
+            const filtered = suggestions.filter(item => 
+                item.text.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filtered.length === 0) {
+                dropdown.innerHTML = '<div class="no-results">Brak wyników</div>';
+                dropdown.classList.add('active');
+                return;
+            }
+
+            const html = `
+                <div class="dropdown-section">
+                    <div class="section-title">💡 Sugerowane</div>
+                    ${filtered.map(item => {
+                        const regex = new RegExp(`(${query})`, 'gi');
+                        const highlighted = item.text.replace(regex, '<span class="highlight">$1</span>');
+                        return `
+                            <div class="suggestion-item" data-value="${item.text}">
+                                <span class="suggestion-icon">🔍</span>
+                                <span class="suggestion-text">${highlighted}</span>
+                                <span class="suggestion-category">${item.category}</span>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+            dropdown.innerHTML = html;
+            dropdown.classList.add('active');
+            attachSuggestionListeners();
+        }
+
+        // Attach Click Listeners to Suggestions
+        function attachSuggestionListeners() {
+            const items = dropdown.querySelectorAll('.suggestion-item');
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    searchInput.value = item.dataset.value;
+                    dropdown.classList.remove('active');
+                    performSearch();
+                });
+            });
+        }
+
+        // Keyboard Navigation
+        function handleKeyboardNavigation(e) {
+            const items = dropdown.querySelectorAll('.suggestion-item');
+            
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                activeIndex = Math.min(activeIndex + 1, items.length - 1);
+                updateActiveItem(items);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                activeIndex = Math.max(activeIndex - 1, -1);
+                updateActiveItem(items);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (activeIndex >= 0 && items[activeIndex]) {
+                    searchInput.value = items[activeIndex].dataset.value;
+                    dropdown.classList.remove('active');
+                }
+                performSearch();
+            } else if (e.key === 'Escape') {
+                dropdown.classList.remove('active');
+                activeIndex = -1;
+            }
+        }
+
+        function updateActiveItem(items) {
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === activeIndex);
+            });
+            
+            if (activeIndex >= 0 && items[activeIndex]) {
+                items[activeIndex].scrollIntoView({ block: 'nearest' });
+            }
+        }
+
+        // Perform Search
+function performSearch() {
+    const query = searchInput.value.trim();
+    if (!query) return;
+
+    startLoading();
+
+    const categorySelect = document.getElementById('categorySelect');
+    let url = `https://mbspshop.wixsite.com/net-pl/search?q=${encodeURIComponent(query)}`;
+
+    const selectedCategory = categorySelect.value;
+    if (selectedCategory && selectedCategory !== 'all') {
+        url += '&collections=' + encodeURIComponent(selectedCategory);
+    }
+
+    window.location.href = url;
+}
+
+        // Event Listeners
+        searchInput.addEventListener('focus', () => {
+            if (!searchInput.value.trim()) {
+                showPopularSearches();
+            } else {
+                showSuggestions(searchInput.value);
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            activeIndex = -1;
+            showSuggestions(e.target.value);
+        });
+
+        searchInput.addEventListener('keydown', handleKeyboardNavigation);
+
+        searchBtn.addEventListener('click', performSearch);
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-wrapper')) {
+                dropdown.classList.remove('active');
+                activeIndex = -1;
+            }
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+    </script>
+        <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js");
+    });
+  }
+</script>
+</body>
+</html>
