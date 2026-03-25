@@ -1,314 +1,1046 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodaj produkt - formularz dodawania produktu - MB&SP.com</title>
-    <link rel = "stylesheet" href = "style.css" type="text/css">
+    <title>Dodaj produkt - MB&SP.com</title>
     <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VB7P0MQR2B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VB7P0MQR2B');
+    </script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue: #0050a7;
+            --blue-light: #e8f0fb;
+            --blue-mid: #1a6fd4;
+            --gray-bg: #f4f6fa;
+            --gray-border: #e2e6ed;
+            --gray-text: #6b7280;
+            --text: #1a1f2e;
+            --white: #ffffff;
+            --success: #16a34a;
+            --success-bg: #dcfce7;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,82,167,.06);
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background: var(--gray-bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: #023e75;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; }
+        .nav-logo img { height: 40px; width: auto; }
+        .nav-divider { width: 1px; height: 24px; background: rgba(255,255,255,.25); }
+        .nav-subtitle { color: rgba(255,255,255,.75); font-size: 13px; font-weight: 400; }
+        .nav-back {
+            background: rgba(255,255,255,.12);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.2);
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: inherit;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background .2s;
+        }
+        .nav-back:hover { background: rgba(255,255,255,.2); }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-border);
+            padding: 24px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .page-header p { color: var(--gray-text); font-size: 14px; }
+
+        /* ── STEPS BAR ── */
+        .steps-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-border);
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+        }
+        .steps {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            max-width: 700px;
+            width: 100%;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 16px;
+            font-size: 13px;
+            color: var(--gray-text);
+            position: relative;
+            flex: 1;
+            justify-content: center;
+        }
+        .step.active { color: var(--blue); }
+        .step.done { color: var(--success); }
+        .step-num {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: var(--gray-border);
+            color: var(--gray-text);
+            font-size: 11px;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .step.active .step-num { background: var(--blue); color: #fff; }
+        .step.done .step-num { background: var(--success); color: #fff; }
+        .step-sep { width: 1px; height: 20px; background: var(--gray-border); flex-shrink: 0; }
+        .step-label { font-weight: 500; display: none; }
+        @media(min-width: 500px) { .step-label { display: block; } }
+        .step.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 16px; right: 16px;
+            height: 2px;
+            background: var(--blue);
+            border-radius: 2px 2px 0 0;
+        }
+
+        /* ── LAYOUT ── */
+        .main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px 20px 40px;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            align-items: start;
+        }
+        @media(max-width: 860px) { .main { grid-template-columns: 1fr; } }
+
+        /* ── CARD ── */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 18px 24px 14px;
+            border-bottom: 1px solid var(--gray-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-icon {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: var(--blue-light);
+            color: var(--blue);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+        .card-header h2 { font-size: 15px; font-weight: 600; }
+        .card-header p { font-size: 12px; color: var(--gray-text); margin-top: 1px; }
+        .card-body { padding: 20px 24px; }
+
+        /* ── FORM ── */
+        .field { margin-bottom: 18px; }
+        .field:last-child { margin-bottom: 0; }
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .field-hint { font-size: 11px; color: var(--gray-text); font-weight: 400; margin-left: 4px; }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px 13px;
+            border: 1.5px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text);
+            background: var(--white);
+            transition: border-color .2s, box-shadow .2s;
+            outline: none;
+            appearance: none;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0,80,167,.1);
+        }
+        textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 13px center;
+            padding-right: 36px;
+        }
+        .checkbox-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: var(--gray-bg);
+            border: 1.5px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+        }
+        input[type="checkbox"] {
+            width: 16px; height: 16px;
+            margin-top: 2px;
+            accent-color: var(--blue);
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .checkbox-row label {
+            font-size: 12.5px;
+            font-weight: 400;
+            color: var(--gray-text);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .checkbox-row a { color: var(--blue); text-decoration: none; font-weight: 500; }
+        .checkbox-row a:hover { text-decoration: underline; }
+
+        /* ── BUTTONS ── */
+        .btn-row { display: flex; gap: 10px; margin-top: 20px; }
+        .btn {
+            padding: 11px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .btn-primary { background: var(--blue); color: #fff; flex: 1; justify-content: center; }
+        .btn-primary:hover { background: #004494; transform: translateY(-1px); }
+        .btn-outline {
+            background: var(--white);
+            color: var(--blue);
+            border: 1.5px solid var(--blue);
+            flex: 1;
+            justify-content: center;
+        }
+        .btn-outline:hover { background: var(--blue-light); }
+
+        /* ── PREVIEW CARD ── */
+        .preview-card { position: sticky; top: 80px; }
+        .preview-product {
+            border: 2px dashed var(--gray-border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-top: 16px;
+            background: var(--gray-bg);
+            transition: border-color .3s;
+        }
+        .preview-product.has-data { border-style: solid; border-color: var(--blue); background: var(--white); }
+        .preview-name { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; min-height: 24px; }
+        .preview-desc { font-size: 12.5px; color: var(--gray-text); line-height: 1.5; margin-bottom: 10px; min-height: 18px; }
+        .preview-price { font-size: 22px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+        .preview-tag {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--blue-light);
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        .community-badge {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            border-radius: var(--radius-sm);
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            color: #92400e;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background .2s;
+        }
+        .community-badge:hover { background: #fde68a; }
+        .community-badge .info-icon {
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: #d97706;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .delivery-info {
+            font-size: 12px;
+            color: var(--gray-text);
+            margin-top: 8px;
+            display: flex; align-items: center; gap: 5px;
+        }
+
+        /* ── INFO PANEL ── */
+        .info-panel {
+            background: var(--blue-light);
+            border: 1px solid #bfd4f0;
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .info-icon-blue {
+            width: 20px; height: 20px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .info-panel p { font-size: 12.5px; color: #1e3a5f; line-height: 1.5; }
+
+        /* ── TABLE SECTION ── */
+        .table-section { margin-top: 24px; }
+        .table-section .card-header { justify-content: space-between; }
+        .product-count {
+            background: var(--blue);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+        .table-wrap { overflow-x: auto; padding: 0 24px 20px; }
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            min-width: 600px;
+        }
+        .product-table th {
+            background: var(--gray-bg);
+            color: var(--gray-text);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-border);
+        }
+        .product-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--gray-border);
+            color: var(--text);
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .product-table tr:last-child td { border-bottom: none; }
+        .product-table tr:hover td { background: var(--gray-bg); }
+        .empty-table {
+            text-align: center;
+            padding: 32px;
+            color: var(--gray-text);
+            font-size: 13px;
+        }
+        .empty-table .empty-icon { font-size: 32px; margin-bottom: 8px; }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(10,20,40,.5);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 200;
+            padding: 20px;
+            backdrop-filter: blur(2px);
+        }
+        .modal {
+            background: var(--white);
+            border-radius: 16px;
+            max-width: 440px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,.2);
+            overflow: hidden;
+        }
+        .modal-head {
+            background: var(--blue);
+            color: #fff;
+            padding: 20px 24px 16px;
+        }
+        .modal-head h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .modal-head p { font-size: 13px; opacity: .8; }
+        .modal-body { padding: 20px 24px; }
+        .modal-body p { font-size: 14px; line-height: 1.6; color: var(--gray-text); margin-bottom: 12px; }
+        .modal-steps { list-style: none; }
+        .modal-steps li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-border);
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+        .modal-steps li:last-child { border-bottom: none; }
+        .step-bullet {
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .modal-footer {
+            padding: 0 24px 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .modal-footer a {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all .2s;
+        }
+        .modal-primary { background: var(--blue); color: #fff; }
+        .modal-primary:hover { background: #004494; }
+        .modal-secondary { background: var(--gray-bg); color: var(--text); border: 1px solid var(--gray-border); }
+        .modal-secondary:hover { background: var(--gray-border); }
+        .modal-close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            float: right;
+            line-height: 1;
+            opacity: .7;
+        }
+        .modal-close-btn:hover { opacity: 1; }
+
+        /* ── LINKS MENU ── */
+        .links-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 20px;
+            justify-content: center;
+            padding: 20px 24px;
+            border-top: 1px solid var(--gray-border);
+        }
+        .links-menu a {
+            font-size: 13px;
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: color .2s;
+        }
+        .links-menu a:hover { color: var(--blue); text-decoration: underline; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #0a0e1a;
+            color: #fff;
+            padding: 48px 20px 24px;
+            margin-top: 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto 32px;
+        }
+        .footer-col h4 { color: #3b82f6; font-size: 13px; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 14px; font-weight: 700; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col ul li a { color: #9ca3af; font-size: 13px; text-decoration: none; transition: color .2s; }
+        .footer-col ul li a:hover { color: #60a5fa; }
+        .beta { background: #fbbf24; color: #000; font-size: 10px; padding: 1px 5px; border-radius: 4px; font-weight: 700; margin-left: 4px; vertical-align: middle; }
+        .footer-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .footer-badge img { width: 56px; opacity: .8; }
+        .footer-badge span { font-size: 12px; color: #6b7280; text-align: center; }
+        .footer-bottom { border-top: 1px solid #1f2937; padding-top: 20px; text-align: center; }
+        .footer-bottom p { font-size: 12px; color: #4b5563; line-height: 1.7; }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            background: var(--success);
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.2);
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all .4s cubic-bezier(.34,1.56,.64,1);
+            z-index: 300;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        /* ── PROGRESS ── */
+        .form-progress { margin-bottom: 20px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-text); margin-bottom: 6px; }
+        .progress-bar { height: 4px; background: var(--gray-border); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--blue); border-radius: 4px; transition: width .4s; width: 0%; }
+    </style>
 </head>
-		<!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VB7P0MQR2B"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-VB7P0MQR2B');
-        </script>
 <body>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); body { font-family: 'Ubuntu', sans-serif; margin: 0; padding: 0; background-color: #e6e4e4; } h1 { text-align: center; color: #333; } form { background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 40%; margin: 0 auto 20px; } form label { box-sizing: border-box; font-weight: 600; display: block; margin: 10px 0; } form input, form textarea, form select { width: 100%; padding: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; margin-right: 50px; font-family: 'Ubuntu', sans-serif; } form input[type="checkbox"] { width: auto; margin-right: 10px; } form .button-container { display: flex; justify-content: space-between; } button { background-color: #0050a7; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-family: 'Ubuntu', sans-serif; font-size: 16px; } button:hover { background-color: #0056b3; } table { width: 90%; border-collapse: collapse; margin-top: 20px; margin-left: 20px; background: #fff; } table th, table td { border: 1px solid #ccc; padding: 10px; text-align: left; } table th { background-color: #f0f0f0; } .menu { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #023e75; color: #ffffff; } .menu .logo { font-size: 20px; font-weight: bold; } .menu .logo span { font-weight: normal; font-size: 16px; } .menu button { padding: 10px 15px; font-size: 14px; background-color: #fff; color: #007bff; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s; } .menu button:hover { background-color: #e0e0e0; }
-
-    /* Lightbox background */ #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; } #lightbox-3 { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; } /* Lightbox content */ .lightbox-content { background: #fff; padding: 20px 30px; border-radius: 8px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); } .lightbox-content h2 { color: #007bff; font-size: 20px; margin-bottom: 15px; } .lightbox-content ul { text-align: left; margin: 10px 0; padding-left: 20px; font-size: 14px; color: #333; } .lightbox-content ul li { margin-bottom: 10px; } /*Polityka prywatności*/ .privacyPolicy { letter-spacing: -0.4px; line-height: 10px; margin-bottom: 10px; } .preview { background: #fff; padding: 10px; margin-bottom: 20px; border-radius: 8px; border-color: #0050a7; border-width: 1px; box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1); width: 55%; } .preview h2 { font-size: 20px; color: #333; } .preview p { color: #666; } .preview .price { font-size: 24px; font-weight: bold; color: #007bff; } .preview table { width: 100%; border-collapse: collapse; margin-top: 20px; } .preview table th, .preview table td { border: 1px solid #ccc; padding: 10px; text-align: left; } .preview table th { background-color: #f0f0f0; } .main-thing { display: flex; flex-direction: row; margin-bottom: 30px; margin-left: 10px; margin-right: 10px; } #previewName { font-size: 28px; } #infoMBCommunity { font-size: 10px; } a { font-size: 16px; text-decoration: none; color: #333; } a:hover { text-decoration: underline; color: #0050a7; transition: 0.5s; }
-
-    /* Footer Styling */
-    
-    footer { background-color: #000; color: #fff; padding: 40px 20px; margin-top: 30px; } .footer-container { display: grid; grid-template-columns: repeat(4, 1fr) 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; } .footer-column h3 { color: #0c61c2; font-size: 18px; margin-bottom: 15px; } .footer-column ul { list-style: none; } .footer-column ul li { margin-bottom: 10px; } .footer-column ul li a { color: #ccc; text-decoration: none; transition: color 0.3s ease; } .footer-column ul li a:hover { color: #0c61c2; position: relative; } .footer-column ul li a::after { content: ''; display: block; width: 0; height: 2px; background: #0c61c2; transition: width 0.3s; position: absolute; left: 0; bottom: -5px; } .footer-column ul li a:hover::after { width: 100%; } .beta { background-color: #FFD700; color: black; font-size: 12px; padding: 2px 4px; margin-left: 5px; border-radius: 3px; } /* Secure Shopping Badge */ .footer-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; } .footer-badge img { width: 60px; margin-bottom: 10px; } .footer-badge p { font-size: 14px; color: #ccc; } /* Footer Bottom */ .footer-bottom { text-align: center; margin-top: 20px; font-size: 14px; color: #ccc; }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) { .footer-container { grid-template-columns: repeat(2, 1fr); gap: 15px; } .footer-badge { grid-column: span 2; margin-top: 20px; } } @media (max-width: 480px) { .footer-container { grid-template-columns: 1fr; gap: 10px; } .footer-badge { grid-column: span 1; margin-top: 15px; } } .links_menu { display: flex; margin: 20px; justify-content: space-around; }
-
-    </style>
-    <!-- Lightbox HTML -->
-<div id="lightbox" style="display: none;">
-    <div class="lightbox-content">
-        <h2>Dziękujemy za to, że chcesz ulepszać naszą ofertę.</h2>
-        <p>Dalsze instrukcje:</p>
-        <ul>
-            <li>Odwiedź stronę <strong>MB&SP.com</strong>.</li>
-            <li>Otwórz czat dostępny na stronie.</li>
-            <li>Po włączeniu czatu prześlij listę produktów w załączniku.</li>
-        </ul>
-        <p>Możesz też ewentualnie wysłać email, klikając <a href="mailto:handlowy.mb.sp@gmail.com?subject=Dodaj%20produkt%20-%20MBSP">tutaj.</a></p>
-        <p>Gotowe – to wszystko, co musisz zrobić, aby pomóc nam ulepszać naszą ofertę!</p>
-        <button id="closeLightbox">Zamknij</button>
+<!-- NAV -->
+<nav>
+    <div class="nav-logo">
+        <a href="http://mbsp.com.pl" target="_blank">
+            <img src="https://static.wixstatic.com/media/2ec6e0_82efa277b1224b29a02292382d190299~mv2.png/v1/crop/x_0,y_300,w_1920,h_460/fill/w_288,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/mb_logo_fullhd.png" alt="MB&SP.com">
+        </a>
+        <div class="nav-divider"></div>
+        <span class="nav-subtitle">Dodaj produkt</span>
     </div>
-</div>
-<div id="lightbox-1" style="display: none;">
-    <div class="lightbox-content">
-        <h2>Podaj więcej informacji. Aby wyeksporotwać produkt</h2>
-        <button id="closeLightbox">Zamknij</button>
+    <div style="display:flex;gap:8px;align-items:center">
+        <a href="mailto:handlowy.mb.sp@gmail.com?subject=Dodaj%20produkt%20-%20MB%26SP.com" class="nav-back" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)">
+            ✉ Napisz do nas
+        </a>
+        <a href="https://mbspshop.wixsite.com/net-pl/suggest-product" target="_blank" class="nav-back">
+            ← Powrót na MB&SP.com
+        </a>
     </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <h1>Zaproponuj produkt</h1>
+    <p>Pomóż nam ulepszać ofertę — wypełnij formularz, a my zweryfikujemy Twoją propozycję</p>
 </div>
-<div id="lightbox-2" style="display: none;">
-    <div class="lightbox-content">
-        <h2>Można dodać do tabelki tylko 10 produktów maksymalnie.</h2>
-        <button id="closeLightbox">Zamknij</button>
-    </div>
-</div>
-<div id="lightbox-3" style="display: none;">
-    <div class="lightbox-content">
-        <h2>Produkt dodany przez Społeczność</h2>
-        <p>W MB&SP.com dbamy o to, aby nasi klienci mieli dostęp do pełnych i rzetelnych informacji o produktach przed dokonaniem zakupu.<br><br> Dlatego produkty przesyłane przez naszą społeczność są specjalnie wyróżniane. Zanim jednak pojawią się w naszym serwisie, każdy z nich musi przejść proces weryfikacji zgodności z naszymi standardami jakości i zasadami.<br><br> Dzięki temu możemy zagwarantować, że oferowane produkty spełniają najwyższe oczekiwania naszych klientów.</p>
-        <button id="closeLightbox-3">Zamknij</button>
-    </div>
-</div>
-    <!-- Menu -->
-    <div class="menu">
-        <div class="logo">
-            <a href="http://mbsp.com.pl">
-                <img src="https://static.wixstatic.com/media/2ec6e0_82efa277b1224b29a02292382d190299~mv2.png/v1/crop/x_0,y_300,w_1920,h_460/fill/w_288,h_69,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/mb_logo_fullhd.png" width="200px"></a>
-            <span>Dodaj produkt</span>
+
+<!-- STEPS -->
+<div class="steps-bar">
+    <div class="steps">
+        <div class="step active" id="step1">
+            <div class="step-num">1</div>
+            <span class="step-label">Dane produktu</span>
         </div>
-        <button onclick="window.location.href='https://mbspshop.wixsite.com/net-pl/suggest-product'">Powrót na mbsp.com.pl</button>
+        <div class="step-sep"></div>
+        <div class="step" id="step2">
+            <div class="step-num">2</div>
+            <span class="step-label">Lista produktów</span>
+        </div>
+        <div class="step-sep"></div>
+        <div class="step" id="step3">
+            <div class="step-num">3</div>
+            <span class="step-label">Wyślij do nas</span>
+        </div>
     </div>
-    
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+    <!-- LEFT: FORM -->
     <div>
-        <h1>Dodaj produkt</h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">📦</div>
+                <div>
+                    <h2>Dane produktu</h2>
+                    <p>Wszystkie pola oznaczone * są wymagane</p>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="info-panel">
+                    <div class="info-icon-blue">i</div>
+                    <p>Podaj jak najbardziej dokładne informacje — dzięki temu Twoja propozycja szybciej przejdzie weryfikację i trafi do naszego katalogu.</p>
+                </div>
+
+                <div class="form-progress">
+                    <div class="progress-label">
+                        <span>Uzupełnienie formularza</span>
+                        <span id="progressPct">0%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                </div>
+
+                <form id="productForm" novalidate>
+                    <div class="field">
+                        <label for="productName">Nazwa produktu *</label>
+                        <input type="text" id="productName" placeholder="np. Arduino Uno R3">
+                    </div>
+
+                    <div class="field">
+                        <label for="productCategory">Kategoria produktu *</label>
+                        <select id="productCategory">
+                            <option value="" disabled selected>Wybierz kategorię</option>
+                            <option value="Akcesoria komputerowe">Akcesoria komputerowe</option>
+                            <option value="Akcesoria elektroniczne">Akcesoria elektroniczne</option>
+                            <option value="Części elektroniczne">Części elektroniczne</option>
+                            <option value="Książki">Książki</option>
+                            <option value="Narzędzia">Narzędzia</option>
+                            <option value="Moduły elektroniczne">Moduły elektroniczne</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="productPrice">Cena rynkowa (zł) *</label>
+                        <input type="number" id="productPrice" placeholder="np. 49.90" min="0" step="0.01">
+                    </div>
+
+                    <div class="field">
+                        <label for="productDescription">Opis produktu *</label>
+                        <textarea id="productDescription" rows="4" placeholder="Opisz produkt — co robi, jakie ma cechy, do czego służy..."></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="productLink">Link u dostawcy <span class="field-hint">(opcjonalnie)</span></label>
+                        <input type="text" id="productLink" placeholder="https://...">
+                    </div>
+
+                    <div class="field">
+                        <label for="additionalInfo">Dodatkowe informacje <span class="field-hint">(opcjonalnie)</span></label>
+                        <textarea id="additionalInfo" rows="2" placeholder="Wymiary, waga, kompatybilność, itp."></textarea>
+                    </div>
+
+                    <div class="field">
+                        <div class="checkbox-row">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">
+                                Akceptuję <a href="https://mbspshop.wixsite.com/net-pl/suggest-product" target="_blank">warunki dodania produktu</a> do MB&SP.com i oświadczam, że propozycja spełnia wymagane standardy.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="btn-row">
+                        <button type="button" class="btn btn-outline" id="addProduct">+ Dodaj do listy</button>
+                        <button type="button" class="btn btn-primary" id="exportCSV">Eksportuj CSV →</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- LINKS -->
+            <div class="links-menu">
+                <a href="http://mbsp.com.pl/support/pl" target="_blank">Potrzebujesz pomocy?</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/opinie" target="_blank">Podziel się opinią</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/suggest-product" target="_blank">Zasady wystawienia produktu</a>
+                <a href="https://mbspshop.wixsite.com/net-pl/suggest-product" target="_blank">Starszy formularz</a>
+            </div>
+        </div>
+
+        <!-- PRODUCT TABLE -->
+        <div class="table-section">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📋</div>
+                    <div>
+                        <h2>Lista produktów</h2>
+                        <p>Maksymalnie 10 produktów jednorazowo</p>
+                    </div>
+                    <span class="product-count" id="productCount">0 / 10</span>
+                </div>
+                <div class="table-wrap">
+                    <div class="empty-table" id="emptyState">
+                        <div class="empty-icon">📭</div>
+                        <p>Jeszcze nie dodałeś żadnego produktu.<br>Wypełnij formularz powyżej i kliknij „Dodaj do listy".</p>
+                    </div>
+                    <table class="product-table" id="productTable" style="display:none">
+                        <thead>
+                            <tr>
+                                <th>Nazwa</th>
+                                <th>Kategoria</th>
+                                <th>Cena</th>
+                                <th>Opis</th>
+                                <th>Link</th>
+                                <th>Inf. dodatkowe</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-<div class="main-thing">
-        <form id="productForm">
-            <label for="productName">Nazwa produktu:</label>
-            <input type="text" id="productName" placeholder="Wprowadź nazwę produktu" required>
 
-            <label for="productDescription">Opis produktu:</label>
-            <textarea id="productDescription" placeholder="Wprowadź opis produktu" required></textarea>
-
-            <label for="productLink">Link do produktu u dostawcy (opcjonalnie):</label>
-            <input type="text" id="productLink" placeholder="Wprowadź link do produktu">
-
-            <label for="productPrice">Cena rynkowa (zł):</label>
-            <input type="number" id="productPrice" placeholder="Wprowadź cenę" min="0" required>
-
-            <label for="additionalInfo">Dodatkowe informacje (opcjonalnie):</label>
-            <textarea id="additionalInfo" placeholder="Wprowadź dodatkowe informacje"></textarea>
-
-            <label for="productCategory">Kategoria produktu:</label>
-            <select id="productCategory" required>
-                <option value="" disabled selected>Wybierz kategorię</option>
-                <option value="Akcesoria komputerowe">Akcesoria komputerowe</option>
-                <option value="Akcesoria elektroniczne">Akcesoria elektroniczne</option>
-                <option value="Części elektroniczne">Części elektroniczne</option>
-                <option value="Książki">Książki</option>
-                <option value="Narzędzia">Narzędzia</option>
-                <option value="Moduły elektroniczne">Moduły elektroniczne</option>
-            </select>
-
-            <label class="privacyPolicy">
-                <input type="checkbox" id="terms" required>
-                Akceptuję <a href="https://mbspshop.wixsite.com/net-pl/suggest-product" class="privacyPolicy">warunki i zasady dodania produktu</a> do MB&SP.com i oświadczam, że propozycje spełniają te standardy
-            </label>
-
-            <div class="button-container">
-                <button type="button" id="addProduct">Dodaj następny</button>
-                <button type="button" id="exportCSV">Wyeksportuj produkty do CSV</button>
+    <!-- RIGHT: PREVIEW -->
+    <div class="preview-card">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">👁</div>
+                <div>
+                    <h2>Podgląd produktu</h2>
+                    <p>Tak zobaczy go kupujący</p>
+                </div>
             </div>
-        </form>
-    <!-- Podgląd produktu -->
-<div class="preview">
-    <h2 id="previewName">Nazwa produktu</h2>
-    <p id="previewDescription">Tutaj pojawi się opis produktu.</p>
-    <p class="price" id="previewPrice"> -- zł</p>
-    <button>Dodaj do koszyka</button>
-    <p>Produkt dodany przez <strong>Społeczność MB&SP.com</strong></p>
-    <button type="button" id="infoMBCommunity">?</button>
-    <!--Tutaj został dodany CSS prosto do Div'a-->
-    <table\ style="width: 50%">
-        <tr>
-            <th >Kategoria</th>
-            <td id="previewCategory">--</td>
-        </tr>
-    </table>
-    <p>Dostawa od <strong>15.00 zł</strong> w Polska</p>
-</div>
+            <div class="card-body">
+                <div class="preview-product" id="previewBox">
+                    <div class="preview-name" id="previewName" style="color:#ccc">Nazwa produktu</div>
+                    <div class="preview-tag" id="previewTag" style="display:none">
+                        <span id="previewTagText">—</span>
+                    </div>
+                    <div class="preview-desc" id="previewDescription" style="color:#bbb">Tutaj pojawi się opis produktu po wpisaniu go w formularzu.</div>
+                    <div class="preview-price" id="previewPrice" style="color:#bbb">— zł</div>
+
+                    <div class="community-badge" id="infoMBCommunity">
+                        <div class="info-icon">i</div>
+                        <span>Produkt dodany przez Społeczność MB&SP.com — kliknij, aby dowiedzieć się więcej</span>
+                    </div>
+                    <div class="delivery-info">
+                        🚚 Dostawa od <strong style="color:var(--text);margin:0 3px">15,00 zł</strong> w Polsce
+                    </div>
+                </div>
+
+                <div style="margin-top:14px; padding:12px; background:var(--gray-bg); border-radius:8px; font-size:12px; color:var(--gray-text); line-height:1.6">
+                    <strong style="color:var(--text)">Jak to działa?</strong><br>
+                    1. Wypełnij formularz i kliknij <em>Dodaj do listy</em>.<br>
+                    2. Powtórz dla kolejnych produktów (maks. 10).<br>
+                    3. Kliknij <em>Eksportuj CSV</em> — otrzymasz dalsze instrukcje.
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-    
-
-    <table id="productTable">
-        <thead>
-            <tr>
-                <th>Nazwa produktu</th>
-                <th>Opis</th>
-                <th>Link</th>
-                <th>Cena (zł)</th>
-                <th>Dodatkowe informacje</th>
-                <th>Kategoria</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Produkty będą tutaj dodawane -->
-        </tbody>
-
-        <!-- Menu linków,-->
-        <div class="links_menu">
-            <p><a href="http://mbsp.com.pl/support/pl">Potrzebujesz pomocy?</a></p>
-        <p><a href="https://mbspshop.wixsite.com/net-pl/opinie">Podziel się opinią</a></p>
-        <p><a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Zasady wystawienia produktu</a></p>
-        <p>Zbyt skomplikowane? <a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Skorzystaj ze starszego formularza</a></p>
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>O nas</h4>
+            <ul>
+                <li><a href="http://mbsp.com.pl/about" target="_blank">O Miły's Buy & Sell Parts</a></li>
+                <li><a href="https://about-mbsp.github.io/credits.html" target="_blank">Kto to stworzył?</a></li>
+            </ul>
         </div>
+        <div class="footer-col">
+            <h4>MB&SP.com</h4>
+            <ul>
+                <li><a href="http://mbsp.com.pl/order" target="_blank">Złóż zamówienie</a></li>
+                <li><a href="http://mbsp.com.pl/goprime" target="_blank">MB Prime</a></li>
+                <li><a href="https://mbspshop.wixsite.com/net-pl/mb-quick" target="_blank">MB Quick</a></li>
+                <li><a href="http://mbsp.com.pl/ads" target="_blank">MB Ads</a></li>
+                <li><a href="https://mbspshop.wixsite.com/net-pl/blog" target="_blank">MB Blog</a></li>
+                <li><a href="http://mbsp.com.pl/ai" target="_blank">Miły AI <span class="beta">Wkrótce</span></a></li>
+                <li><a href="http://mbsp.com.pl/status" target="_blank">Status</a></li>
+                <li><a href="https://mbnsp.github.io/page/advanced_search/searchTable.html" target="_blank">Mily DB <span class="beta">Nowe</span></a></li>
+                <li><a href="https://mbnsp.github.io/page/docs.html" target="_blank">MB&SP.com Docs <span class="beta">Nowe</span></a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Pomoc</h4>
+            <ul>
+                <li><a href="http://mbsp.com.pl/faq" target="_blank">FAQ</a></li>
+                <li><a href="http://mbsp.com.pl/support/pl" target="_blank">Centrum pomocy</a></li>
+                <li><a href="http://mbsp.com.pl/trackorder" target="_blank">Śledzenie zamówienia <span class="beta">Nowe</span></a></li>
+                <li><a href="https://mbnsp.github.io/support/mbsp_account-pl.html" target="_blank">Jak założyć konto?</a></li>
+                <li><a href="https://mbnsp.github.io/support/how_to_order-pl.html" target="_blank">Jak zamawiać?</a></li>
+                <li><a href="https://mbnsp.github.io/support/store-rules-pl.html" target="_blank">Zasady sklepu</a></li>
+                <li><a href="https://mbnsp.github.io/support/refund-pl.html" target="_blank">Zwroty</a></li>
+                <li><a href="https://mbnsp.github.io/support/privacy_policy-pl.html" target="_blank">Polityka prywatności</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Nowy tutaj?</h4>
+            <ul>
+                <li><a href="http://mbsp.com.pl/intro" target="_blank">Co to MB&SP.com?</a></li>
+                <li><a href="https://mbspshop.wixsite.com/net-pl/kalkulatory" target="_blank">Kalkulatory dla elektroników</a></li>
+            </ul>
+        </div>
+        <div class="footer-badge">
+            <img src="https://png.pngtree.com/png-clipart/20220602/original/pngtree-satisfaction-guarantee-badges-png-image_7885136.png" alt="Bezpieczne zakupy">
+            <span>Bezpieczne<br>Zakupy</span>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2017–2025 Miły's Buy & Sell Parts.com, Ind. MB&SP.com — Wszelkie prawa zastrzeżone</p>
+        <p>Produkcja: Miłosz Boguniewicz</p>
+    </div>
+</footer>
 
-    </table>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>O nas</h3>
-                <ul>
-                    <li><a href="http://mbsp.com.pl/about">O Miły's Buy & Sell Parts</a></li>
-                    <li><a href="https://about-mbsp.github.io/credits.html">Kto to stworzył?</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>MB&SP.com</h3>
-                <ul>
-                    <li><a href="http://mbsp.com.pl/order">Złóż zamówienie</a></li>
-                    <li><a href="http://mbsp.com.pl/goprime">MB Prime</a></li>
-                    <li><a href="https://mbspshop.wixsite.com/net-pl/mb-quick">MB Quick</a></li>
-                    <li><a href="http://mbsp.com.pl/ads">MB Ads</a></li>
-                    <li><a href="https://mbspshop.wixsite.com/net-pl/blog">MB Blog</a></li>
-                   <li><a href="http://mbsp.com.pl/ai">Miły AI <span class="beta">Nadchodzi</span></a></li>
-                    <li><a href="http://mbsp.com.pl/status">Status</a></li>
-                    <li><a href="https://mbnsp.github.io/page/advanced_search/searchTable.html">Mily DB <span class="beta">Nowe</span></a></li>
-                  <li><a href="https://mbnsp.github.io/page/docs.html">MB&SP.com Docs <span class="beta">Nowe</span></a></li>
-                  <li><a href="https://mbspshop.wixsite.com/net-pl/suggest-product">Dodaj produkt</a><span class="beta">Nowe</span></li>
-                    <li><a href="https://mbspshop.wixsite.com/net-pl/kalkulatory">Kalkulatory dla elektroników</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Pomoc Techniczna</h3>
-                <ul>
-                    <li><a href="http://mbsp.com.pl/faq">FAQ</a></li>
-                    <li><a href="http://mbsp.com.pl/support/pl">Strona główna pomocy</a></li>
-                    <li><a href="http://mbsp.com.pl/trackorder">Gdzie są moje rzeczy? <span class="beta">Nowe</span></a></li>
-                    <li><a href="https://mbnsp.github.io/support/mbsp_account-pl.html">Jak założyć konto?</a></li>
-                    <li><a href="https://mbnsp.github.io/support/how_to_order-pl.html">Jak zamawiać?</a></li>
-                    <li><a href="https://mbnsp.github.io/support/store-rules-pl.html">Zasady sklepu</a></li>
-                    <li><a href="https://mbnsp.github.io/support/refund-pl.html">Zwroty</a></li>
-                    <li><a href="https://mbnsp.github.io/support/privacy_policy-pl.html">Polityka prywatności</a></li>
-                    <li><a href="https://mbnsp.github.io/support/shipping_pl.html">Informacje o dostawie</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Pierwszy raz na MB&SP.com?</h3>
-                <ul>
-                    <li><a href="http://mbsp.com.pl/intro">Co to MB&SP.com?</a></li>
-                </ul>
-            </div>
-            <div class="footer-badge">
-                <img src="https://png.pngtree.com/png-clipart/20220602/original/pngtree-satisfaction-guarantee-badges-png-image_7885136.png" alt="Bezpieczne zakupy">
-                <p>Bezpieczne Zakupy</p>
-            </div>
+<!-- MODALS -->
+<!-- Export instructions -->
+<div class="modal-overlay" id="modalExport" style="display:none">
+    <div class="modal">
+        <div class="modal-head">
+            <button class="modal-close-btn" data-close="modalExport">✕</button>
+            <h3>Dziękujemy za propozycję! 🎉</h3>
+            <p>Twój plik CSV jest gotowy — teraz wyślij go do nas</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2017-2025 Miły's Buy & Sell Parts.com, Ind. MB&SP.com - Wszelkie prawa zastrzeżone</p>
-            <p>Produkcja: Miłosz Boguniewicz</p>
+        <div class="modal-body">
+            <ol class="modal-steps">
+                <li>
+                    <div class="step-bullet">1</div>
+                    <span>Odwiedź stronę <strong>MB&SP.com</strong> i otwórz czat dostępny na stronie.</span>
+                </li>
+                <li>
+                    <div class="step-bullet">2</div>
+                    <span>Prześlij pobrany plik <strong>produkty.csv</strong> w załączniku czatu.</span>
+                </li>
+                <li>
+                    <div class="step-bullet">3</div>
+                    <span>Ewentualnie wyślij plik mailem — kliknij przycisk poniżej.</span>
+                </li>
+            </ol>
         </div>
-    </footer>
-    <script>
-        // Pobierz wszystkie elementy <a>
-        const links = document.querySelectorAll('a');
-    
-        // Dodaj nasłuchiwacz zdarzeń do każdego linku
-        links.forEach(link => {
-            link.addEventListener('click', function(event) {
-                // Zablokuj domyślne działanie linku
-                event.preventDefault();
-                // Otwórz link w nowej karcie
-                window.open(link.href, '_blank');
-            });
+        <div class="modal-footer">
+            <a href="mailto:handlowy.mb.sp@gmail.com?subject=Dodaj%20produkt%20-%20MB%26SP.com" class="modal-primary">Wyślij email →</a>
+            <a href="#" class="modal-secondary" data-close="modalExport">Zamknij</a>
+        </div>
+    </div>
+</div>
+
+<!-- Community info -->
+<div class="modal-overlay" id="modalCommunity" style="display:none">
+    <div class="modal">
+        <div class="modal-head">
+            <button class="modal-close-btn" data-close="modalCommunity">✕</button>
+            <h3>Produkt dodany przez Społeczność</h3>
+            <p>Transparentność i jakość przede wszystkim</p>
+        </div>
+        <div class="modal-body">
+            <p>W MB&SP.com dbamy o to, aby klienci mieli dostęp do pełnych i rzetelnych informacji o produktach przed zakupem.</p>
+            <p>Produkty przesyłane przez społeczność są specjalnie wyróżniane. Zanim pojawią się w serwisie, każdy przechodzi weryfikację zgodności z naszymi standardami jakości i zasadami.</p>
+            <p>Dzięki temu możemy zagwarantować, że oferowane produkty spełniają najwyższe oczekiwania klientów.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="modal-secondary" data-close="modalCommunity">Rozumiem, zamknij</a>
+        </div>
+    </div>
+</div>
+
+<!-- Max limit -->
+<div class="modal-overlay" id="modalLimit" style="display:none">
+    <div class="modal">
+        <div class="modal-head" style="background:#dc2626">
+            <button class="modal-close-btn" data-close="modalLimit">✕</button>
+            <h3>Limit osiągnięty</h3>
+            <p>Jednorazowo można dodać maks. 10 produktów</p>
+        </div>
+        <div class="modal-body">
+            <p>Wyeksportuj aktualną listę jako CSV i wyślij ją do nas, a następnie wróć, aby dodać kolejne produkty.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="modal-secondary" data-close="modalLimit">Rozumiem</a>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Produkt dodany do listy</div>
+
+<script>
+const products = [];
+
+// Fields
+const nameEl    = document.getElementById('productName');
+const descEl    = document.getElementById('productDescription');
+const linkEl    = document.getElementById('productLink');
+const priceEl   = document.getElementById('productPrice');
+const infoEl    = document.getElementById('additionalInfo');
+const catEl     = document.getElementById('productCategory');
+const termsEl   = document.getElementById('terms');
+
+// Preview
+const pvName    = document.getElementById('previewName');
+const pvDesc    = document.getElementById('previewDescription');
+const pvPrice   = document.getElementById('previewPrice');
+const pvTag     = document.getElementById('previewTag');
+const pvTagText = document.getElementById('previewTagText');
+const pvBox     = document.getElementById('previewBox');
+
+// Progress
+const requiredFields = [nameEl, descEl, priceEl, catEl, termsEl];
+
+function updateProgress() {
+    let filled = 0;
+    if (nameEl.value.trim())   filled++;
+    if (descEl.value.trim())   filled++;
+    if (priceEl.value)         filled++;
+    if (catEl.value)           filled++;
+    if (termsEl.checked)       filled++;
+    const pct = Math.round((filled / 5) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+}
+
+function updatePreview() {
+    const name  = nameEl.value.trim();
+    const desc  = descEl.value.trim();
+    const price = priceEl.value;
+    const cat   = catEl.value;
+    const hasData = name || desc || price || cat;
+
+    pvBox.classList.toggle('has-data', !!hasData);
+    pvName.textContent  = name  || 'Nazwa produktu';
+    pvName.style.color  = name  ? 'var(--text)' : '#ccc';
+    pvDesc.textContent  = desc  || 'Tutaj pojawi się opis produktu po wpisaniu go w formularzu.';
+    pvDesc.style.color  = desc  ? 'var(--gray-text)' : '#bbb';
+    pvPrice.textContent = price ? parseFloat(price).toFixed(2) + ' zł' : '— zł';
+    pvPrice.style.color = price ? 'var(--blue)' : '#bbb';
+    if (cat) { pvTag.style.display = 'inline-flex'; pvTagText.textContent = cat; }
+    else      { pvTag.style.display = 'none'; }
+    updateProgress();
+}
+
+[nameEl, descEl, linkEl, priceEl, infoEl].forEach(el => el.addEventListener('input', updatePreview));
+catEl.addEventListener('change', updatePreview);
+termsEl.addEventListener('change', updateProgress);
+
+// Add product
+document.getElementById('addProduct').addEventListener('click', () => {
+    if (!nameEl.value.trim() || !descEl.value.trim() || !priceEl.value || !catEl.value) {
+        [nameEl, descEl, priceEl, catEl].forEach(el => {
+            if (!el.value.trim()) el.style.borderColor = '#dc2626';
+            else el.style.borderColor = '';
         });
-    </script>
-
-
-    <script>
-     const form = document.getElementById('productForm'), addProductButton = document.getElementById('addProduct'), exportCSVButton = document.getElementById('exportCSV'), productTable = document.getElementById('productTable').querySelector('tbody'), products = []; addProductButton.addEventListener('click', () => { const productName = document.getElementById('productName').value, productDescription = document.getElementById('productDescription').value, productLink = document.getElementById('productLink').value, productPrice = document.getElementById('productPrice').value, additionalInfo = document.getElementById('additionalInfo').value, productCategory = document.getElementById('productCategory').value, terms = document.getElementById('terms').checked; if (!terms) { alert('Musisz zaakceptować warunki i zasady.'); return; } const product = { name: productName, description: productDescription, link: productLink, price: productPrice, additionalInfo: additionalInfo, category: productCategory }; products.push(product); updateTable(); form.reset(); }); exportCSVButton.addEventListener('click', () => { if (products.length === 0) { alert('Brak produktów do eksportu.'); return; } const csvContent = "data:text/csv;charset=utf-8," + ["Nazwa produktu,Opis,Link,Cena (zł),Dodatkowe informacje,Kategoria"].join(",") + "\n" + products.map(p => [p.name, p.description, p.link || "", p.price, p.additionalInfo || "", p.category].join(",")).join("\n"); const encodedUri = encodeURI(csvContent), link = document.createElement("a"); link.setAttribute("href", encodedUri); link.setAttribute("download", "produkty.csv"); document.body.appendChild(link); link.click(); document.body.removeChild(link); }); function updateTable() { productTable.innerHTML = products.map(p => `<tr><td>${p.name}</td><td>${p.description}</td><td>${p.link || "-"}</td><td>${p.price}</td><td>${p.additionalInfo || "-"}</td><td>${p.category}</td></tr>`).join(''); }
-
-    const lightbox = document.getElementById('lightbox'); // Lightbox element
-    const closeLightboxButton = document.getElementById('closeLightbox'); // Przycisk zamknięcia
-
-    const lightbox3 = document.getElementById('lightbox-3');
-    const infoButtonHelp = document.getElementById('infoMBCommunity');
-    const closeLightbox3Button = document.getElementById('closeLightbox-3');
-
-    // Funkcja pokazująca lightbox
-    function showLightbox() {
-        lightbox.style.display = 'flex';
+        return;
     }
-
-    function showLightbox3() {
-        lightbox3.style.display = 'flex';
+    if (!termsEl.checked) {
+        document.querySelector('.checkbox-row').style.borderColor = '#dc2626';
+        return;
     }
+    if (products.length >= 10) { showModal('modalLimit'); return; }
 
-    // Funkcja zamykająca lightbox
-    function closeLightbox() {
-        lightbox.style.display = 'none';
-    }
-
-    function closeLightbox3() {
-        lightbox3.style.display = 'none';
-    }
-
-    // Powiązanie funkcji z przyciskiem eksportu
-    exportCSVButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Opcjonalne: aby zapobiec domyślnemu zachowaniu
-        showLightbox();
+    products.push({
+        name: nameEl.value.trim(),
+        description: descEl.value.trim(),
+        link: linkEl.value.trim(),
+        price: parseFloat(priceEl.value).toFixed(2),
+        additionalInfo: infoEl.value.trim(),
+        category: catEl.value
     });
 
-    infoButtonHelp.addEventListener('click', (event) => {
-        event.preventDefault();
-        showLightbox3();
-    });
+    updateTable();
+    document.getElementById('productForm').reset();
+    updatePreview();
+    updateProgress();
+    showToast();
 
-    // Powiązanie zamykania z przyciskiem "Zamknij"
-    closeLightboxButton.addEventListener('click', closeLightbox);
-    closeLightbox3Button.addEventListener('click', closeLightbox3)
-        
-
-    // Pobierz elementy formularza
-const productNameInput = document.getElementById('productName');
-const productDescriptionInput = document.getElementById('productDescription');
-const productPriceInput = document.getElementById('productPrice');
-const productCategorySelect = document.getElementById('productCategory');
-
-// Pobierz elementy podglądu
-const previewName = document.getElementById('previewName');
-const previewDescription = document.getElementById('previewDescription');
-const previewPrice = document.getElementById('previewPrice');
-const previewCategory = document.getElementById('previewCategory');
-
-// Aktualizuj nazwę produktu w podglądzie
-productNameInput.addEventListener('input', () => {
-    previewName.textContent = productNameInput.value || 'Nazwa produktu';
+    // Advance steps
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step1').classList.add('done');
+    document.getElementById('step2').classList.add('active');
 });
 
-// Aktualizuj opis produktu w podglądzie
-productDescriptionInput.addEventListener('input', () => {
-    previewDescription.textContent = productDescriptionInput.value || 'Tutaj pojawi się opis produktu.';
+// Export
+document.getElementById('exportCSV').addEventListener('click', () => {
+    if (products.length === 0) { alert('Dodaj najpierw co najmniej jeden produkt.'); return; }
+
+    const rows = [['Nazwa produktu','Opis','Link','Cena (zł)','Dodatkowe informacje','Kategoria']];
+    products.forEach(p => rows.push([p.name, p.description, p.link || '', p.price, p.additionalInfo || '', p.category]));
+    const csv = rows.map(r => r.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(',')).join('\n');
+    const blob = new Blob(['\uFEFF' + csv], {type: 'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'produkty_mbsp.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showModal('modalExport');
+    document.getElementById('step2').classList.add('done');
+    document.getElementById('step3').classList.add('active');
 });
 
-// Aktualizuj cenę produktu w podglądzie
-productPriceInput.addEventListener('input', () => {
-    previewPrice.textContent = productPriceInput.value ? ` ${productPriceInput.value} zł` : '-- zł';
+// Table
+function updateTable() {
+    const tbody = document.getElementById('productTableBody');
+    const empty = document.getElementById('emptyState');
+    const table = document.getElementById('productTable');
+    document.getElementById('productCount').textContent = products.length + ' / 10';
+
+    if (products.length === 0) { empty.style.display = 'block'; table.style.display = 'none'; return; }
+    empty.style.display = 'none'; table.style.display = 'table';
+
+    tbody.innerHTML = products.map(p => `
+        <tr>
+            <td title="${p.name}">${p.name}</td>
+            <td>${p.category}</td>
+            <td>${p.price} zł</td>
+            <td title="${p.description}">${p.description}</td>
+            <td>${p.link ? '<a href="'+p.link+'" target="_blank" style="color:var(--blue)">Link</a>' : '—'}</td>
+            <td title="${p.additionalInfo||''}">${p.additionalInfo || '—'}</td>
+        </tr>`).join('');
+}
+
+// Modals
+function showModal(id) { document.getElementById(id).style.display = 'flex'; }
+function hideModal(id) { document.getElementById(id).style.display = 'none'; }
+
+document.querySelectorAll('[data-close]').forEach(btn => {
+    btn.addEventListener('click', e => { e.preventDefault(); hideModal(btn.dataset.close); });
+});
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.style.display = 'none'; });
 });
 
-// Aktualizuj kategorię produktu w podglądzie
-productCategorySelect.addEventListener('change', () => {
-    previewCategory.textContent = productCategorySelect.value || '--';
+document.getElementById('infoMBCommunity').addEventListener('click', () => showModal('modalCommunity'));
+
+// Toast
+function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// Input error clear
+[nameEl, descEl, priceEl, catEl].forEach(el => {
+    el.addEventListener('input', () => { el.style.borderColor = ''; });
 });
-
-    </script>
-
+termsEl.addEventListener('change', () => {
+    document.querySelector('.checkbox-row').style.borderColor = '';
+});
+</script>
 </body>
 </html>
